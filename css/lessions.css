@@ -1,0 +1,7 @@
+@import url(./imports/reset.css);
+@import url(./imports/normalize.css);
+@import url(./colors/Catpuccin_ColorBank.css);
+@import url(./imports/fonts.css);
+@import url(./main.css);
+@import url(./framework/main_framework.css);
+@import url(./framework/variables.css);

@@ -1,0 +1,54 @@
+:root {
+	/*
+	██████╗  █████╗ ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗        ██╗       ███╗   ███╗ █████╗ ██████╗  ██████╗ ██╗███╗   ██╗
+	██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║████╗  ██║██╔════╝        ██║       ████╗ ████║██╔══██╗██╔══██╗██╔════╝ ██║████╗  ██║
+	██████╔╝███████║██║  ██║██║  ██║██║██╔██╗ ██║██║  ███╗    ████████╗    ██╔████╔██║███████║██████╔╝██║  ███╗██║██╔██╗ ██║
+	██╔═══╝ ██╔══██║██║  ██║██║  ██║██║██║╚██╗██║██║   ██║    ██╔═██╔═╝    ██║╚██╔╝██║██╔══██║██╔══██╗██║   ██║██║██║╚██╗██║
+	██║     ██║  ██║██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝    ██████║      ██║ ╚═╝ ██║██║  ██║██║  ██║╚██████╔╝██║██║ ╚████║
+	╚═╝     ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═════╝      ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝
+	*/
+	--PaddingMarginBase01: calc(0.5rem * 1);
+	--PaddingMarginBase02: calc(0.5rem * 2);
+	--PaddingMarginBase03: calc(0.5rem * 3);
+	--PaddingMarginBase04: calc(0.5rem * 4);
+	--PaddingMarginBase05: calc(0.5rem * 5);
+	--PaddingMarginBase06: calc(0.5rem * 6);
+	--PaddingMarginBase07: calc(0.5rem * 7);
+	--PaddingMarginBase08: calc(0.5rem * 8);
+	--PaddingMarginBase09: calc(0.5rem * 9);
+	--PaddingMarginBase10: calc(0.5rem * 10);
+	--PaddingMarginBase11: calc(0.5rem * 11);
+	--PaddingMarginBase12: calc(0.5rem * 12);
+
+	/*
+	███████╗ ██████╗ ███╗   ██╗████████╗    ███████╗██╗███████╗███████╗
+	██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝    ██╔════╝██║╚══███╔╝██╔════╝
+	█████╗  ██║   ██║██╔██╗ ██║   ██║       ███████╗██║  ███╔╝ █████╗
+	██╔══╝  ██║   ██║██║╚██╗██║   ██║       ╚════██║██║ ███╔╝  ██╔══╝
+	██║     ╚██████╔╝██║ ╚████║   ██║       ███████║██║███████╗███████╗
+	╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝╚══════╝╚══════╝
+	*/
+	--FontSubSize:    var(--FontSize02);
+	--FontBaseSize:     var(--FontSize03);
+	--SubHeader02:      var(--FontSize04);
+	--SubHeader01:      var(--FontSize05);
+	--Header05:         var(--FontSize06);
+	--Header04:         var(--FontSize07);
+	--Header03:         var(--FontSize08);
+	--Header02:         var(--FontSize09);
+	--Header01:         var(--FontSize10);
+	--FontSize01:       calc(0.5rem * 1);
+	--FontSize02:       calc(0.5rem * 2);
+	--FontSize03:       calc(0.5rem * 3);
+	--FontSize04:       calc(0.5rem * 4);
+	--FontSize05:       calc(0.5rem * 5);
+	--FontSize06:       calc(0.5rem * 6);
+	--FontSize07:       calc(0.5rem * 7);
+	--FontSize08:       calc(0.5rem * 8);
+	--FontSize09:       calc(0.5rem * 9);
+	--FontSize10:       calc(0.5rem * 10);
+	--FontSize11:       calc(0.5rem * 11);
+	--FontSize12:       calc(0.5rem * 12);
+	--FontSize13:       calc(0.5rem * 13);
+	--FontSize14:       calc(0.5rem * 14);
+}
