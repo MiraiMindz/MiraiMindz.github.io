@@ -110,10 +110,10 @@
 .MarginBottom11 { margin-bottom: var(--PaddingMarginBase11); }
 .MarginBottom12 { margin-bottom: var(--PaddingMarginBase12); }
 
+.PaddingAll01 { padding: var(--PaddingMarginBase01); }
 .PaddingAll02 { padding: var(--PaddingMarginBase02); }
 .PaddingAll03 { padding: var(--PaddingMarginBase03); }
 .PaddingAll04 { padding: var(--PaddingMarginBase04); }
-.PaddingAll01 { padding: var(--PaddingMarginBase01); }
 .PaddingAll05 { padding: var(--PaddingMarginBase05); }
 .PaddingAll06 { padding: var(--PaddingMarginBase06); }
 .PaddingAll07 { padding: var(--PaddingMarginBase07); }

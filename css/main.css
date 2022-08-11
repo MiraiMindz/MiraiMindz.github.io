@@ -62,7 +62,24 @@ a, a:link, a:visited, a:hover {
     transition: all 0.1s ease-in-out;
 }
 
+.headerMenuItemReturn {
+    margin: -2% 3%;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 0.5%;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
 .headerMenuItem:hover {
+    background-color: var(--Mocha_Text-100);
+    color: var(--Mocha_Base-100);
+    transition: all 0.1s ease-in-out;
+}
+
+.headerMenuItemReturn:hover {
     background-color: var(--Mocha_Text-100);
     color: var(--Mocha_Base-100);
     transition: all 0.1s ease-in-out;
@@ -100,6 +117,141 @@ a, a:link, a:visited, a:hover {
     left: 2%;
     letter-spacing: 3px;
     cursor: pointer;
+}
+
+/* ! Fix the ToC */
+/* .TableOfContent {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    float: left;
+    width: 0;
+    overflow: auto;
+    background-color: var(--Mocha_Surface0-100);
+    word-wrap: break-word;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+    opacity: 15%;
+    border-width: 1px;
+    border-color: var(--Mocha_Text-20);
+    border-style: solid;
+    height: 96vh;
+}
+
+.TableOfContent > h1, .TableOfContent > p {
+    visibility: hidden;
+    transition: all 0.01s ease-in-out;
+    overflow: auto;
+}
+
+.TableOfContent:hover {
+    overflow: hidden;
+    width: 16em;
+    transition: all 0.2s ease-in-out;
+    opacity: 100%;
+    max-height: fit-content;
+    overflow: auto;
+}
+
+.TableOfContent > * {
+    max-height: fit-content;
+    float: left;
+    overflow: auto;
+}
+
+.TableOfContent:hover > * {
+    visibility: visible;
+    transition: all 0.2s ease-in-out;
+    overflow: auto;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.TableOfContent > * {
+    visibility: hidden;
+}
+
+.TableOfContent > div {
+    display:inline-flex;
+}
+
+.TableOfContent {
+    float: left;
+    background-color: var(--Mocha_Surface0-100);
+    word-wrap: break-word;
+    border-radius: 1em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5vh;
+    height: 90vh;
+    overflow: auto;
+    width: 0;
+    display:inline-flex;
+    opacity: 25%;
+    border-width: 1px;
+    border-color: var(--Mocha_Text-20);
+    border-style: solid;
+    transition: all 0.1s ease-in-out;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+
+.TableOfContent:hover {
+    width: 16rem;
+    opacity: 100%;
+    transition: all 0.1s ease-in-out;
+}
+
+.TableOfContent:hover > div {
+    flex-direction: column;
+}
+
+.TableOfContent:hover > * {
+    visibility: visible;
+    transition: all 0.1s ease-in-out;
+}
+
+
+.ToCLink {
+    color: var(--Mocha_Text-100);
+    transition: all 0.1s ease-in-out !important;
+    transition-delay: 0 !important;
+}
+
+.ToCLink:hover {
+    color: var(--Mocha_Blue-100);
+    margin-left: 1%;
+    transition: all 0.1s ease-in-out !important;
+    transition-delay: 0 !important;
+}
+
+.TextCenter2 {
+    float: right;
+    text-align: center;
+    transform: translateX(-2.5%);
+}
+
+.MainContent {
+    /* float: left; */
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
 }
 
 .logoBar {
