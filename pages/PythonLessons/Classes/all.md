@@ -1,10 +1,10 @@
-# Python Lessions
+# Python Lessons
 
 Esse arquivo vai conter todas as explicações (meio que um arquivo só com o curso todo) em markdown pois ele é renderizado nos celulares, assim você pode ler em qualquer lugar.
 
 ## Tabela de Conteudos
 
-- [Python Lessions](#python-lessions)
+- [Python Lessons](#python-lessions)
   - [Tabela de Conteudos](#tabela-de-conteudos)
 - [1. Introdução a Programação](#1-introdução-a-programação)
   - [1.1. O que é programação?](#11-o-que-é-programação)

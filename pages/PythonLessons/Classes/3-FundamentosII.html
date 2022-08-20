@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../../../css/PythonLessions/home.css">
-	<link href="../../../sources/icons/PythonLessionsSiteLogo04.png" rel="icon">
+	<link rel="stylesheet" href="../../../css/PythonLessons/home.css">
+	<link href="../../../sources/icons/PythonLessonsSiteLogo04.png" rel="icon">
 	<link rel="stylesheet" href="../../../css/imports/highlightJS/styles/catpuccin.css">
 	<script src="../../../js/libs/highlightJS/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
-	<title>PythonLessions - Fundamentos II</title>
+	<title>PythonLessons - Fundamentos II</title>
 </head>
+
 <body>
 	<main>
 		<div class="header">
@@ -22,7 +24,9 @@
 			</svg>
 			<h1 class="BebasNeue menuFont menuTitle SubHeader02">Fundamentos II</h1>
 			<menu class="headerMenu">
-				<h2 class="Staatliches menuFont headerMenuItemReturn"><a href="../home.html"><</a></h2>
+				<h2 class="Staatliches menuFont headerMenuItemReturn"><a href="../home.html">
+						<< /a>
+				</h2>
 				<h2 class="BebasNeue menuFont headerMenuItem"><a href="../../lessions.html">Aulas</a></h2>
 				<h2 class="BebasNeue menuFont headerMenuItem"><a href="../../blog.html">Blog</a></h2>
 				<h2 class="BebasNeue menuFont headerMenuItem"><a href="../../about.html">Sobre</a></h2>
@@ -34,7 +38,8 @@
 				<div>
 					<h1 class="TextCenter">Tabela de Conteudos</h1>
 					<p class="ToCLink"><a href="#1">1. Tipos de Controle de Flow</a></p>
-					<p class="ToCLink PaddingLeft01"><a href="#11">1.1. Controle de Fluxo (Control Flow) e Escopo</a></p>
+					<p class="ToCLink PaddingLeft01"><a href="#11">1.1. Controle de Fluxo (Control Flow) e Escopo</a>
+					</p>
 					<p class="ToCLink PaddingLeft02"><a href="#111">1.1.1. Sequencial</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#112">1.1.2. Decisivo</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#113">1.1.3. Repetitivo (Recursivo)</a></p>
@@ -55,13 +60,15 @@
 					<p class="ToCLink PaddingLeft01"><a href="#110">1.10. A função zip()</a></p>
 					<p class="ToCLink PaddingLeft01"><a href="#111">1.11. Funções</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#1111">1.11.1. Argumentos e Parametros</a></p>
-					<p class="ToCLink PaddingLeft03"><a href="#11111">1.11.1.1. Parametros Padrões (Valores Padrões)</a></p>
+					<p class="ToCLink PaddingLeft03"><a href="#11111">1.11.1.1. Parametros Padrões (Valores Padrões)</a>
+					</p>
 					<p class="ToCLink PaddingLeft03"><a href="#11112">1.11.1.2. Argumentos Chave (Nomeados)</a></p>
 					<p class="ToCLink PaddingLeft03"><a href="#11113">1.11.1.3. *args e **kwargs</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#1112">1.11.2. DocStrings</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#1113">1.11.3. return</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#1114">1.11.4. Funções lambda</a></p>
-					<p class="ToCLink PaddingLeft02"><a href="#1115">1.11.5. Funções de Primeira Classe e Alta Ordem em Python</a></p>
+					<p class="ToCLink PaddingLeft02"><a href="#1115">1.11.5. Funções de Primeira Classe e Alta Ordem em
+							Python</a></p>
 					<p class="ToCLink PaddingLeft03"><a href="#11151">1.11.5.1. Funções de Primeira Classe</a></p>
 					<p class="ToCLink PaddingLeft03"><a href="#11152">1.11.5.2. Funções de Alta Ordem</a></p>
 					<p class="ToCLink PaddingLeft02"><a href="#1116">1.11.6. global e nonlocal</a></p>
@@ -89,63 +96,66 @@
 			<div class="MainContent MarginLeft01 PaddingAll01">
 				<h1 class="LeagueGothic TextCenter2" id=""></h1>
 				<p class="LeagueGothic Paragraph">
-					<h1 class="LeagueGothic TextCenter2" id="1">Tipos de Controle de Flow</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11">Controle de Fluxo (Control Flow) e Escopo</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111">Sequencial</h1>
-					<h1 class="LeagueGothic TextCenter2" id="112">Decisivo</h1>
-					<h1 class="LeagueGothic TextCenter2" id="113">Repetitivo (Recursivo)</h1>
-					<h1 class="LeagueGothic TextCenter2" id="12">Escopo</h1>
-					<h1 class="LeagueGothic TextCenter2" id="13">Desestruturação (Packing & Unpacking)</h1>
-					<h1 class="LeagueGothic TextCenter2" id="14">Desestruturação em for loops</h1>
-					<h1 class="LeagueGothic TextCenter2" id="15">Iteração em dicionários</h1>
-					<h1 class="LeagueGothic TextCenter2" id="16">break, continue e else em for loops</h1>
-					<h1 class="LeagueGothic TextCenter2" id="17">Numeros Primos e FizzBuzz</h1>
-					<h1 class="LeagueGothic TextCenter2" id="18">Fatiamento de Listas</h1>
-					<h1 class="LeagueGothic TextCenter2" id="181">Ordem Natural</h1>
-					<h1 class="LeagueGothic TextCenter2" id="182">Ordem Reversa</h1>
-					<h1 class="LeagueGothic TextCenter2" id="19">Compreensões (Comprehensions)</h1>
-					<h1 class="LeagueGothic TextCenter2" id="191">Listas</h1>
-					<h1 class="LeagueGothic TextCenter2" id="192">Listas Condicional</h1>
-					<h1 class="LeagueGothic TextCenter2" id="193">Sets</h1>
-					<h1 class="LeagueGothic TextCenter2" id="194">Dicionários</h1>
-					<h1 class="LeagueGothic TextCenter2" id="110">A função zip()</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111">Funções</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1111">Argumentos e Parametros</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11111">Parametros Padrões (Valores Padrões)</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11112">Argumentos Chave (Nomeados)</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11113">*args e **kwargs</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1112">DocStrings</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1113">return</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1114">Funções lambda</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1115">Funções de Primeira Classe e Alta Ordem em Python</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11151">Funções de Primeira Classe</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11152">Funções de Alta Ordem</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1116">global e nonlocal</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1117">global</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1118">nonlocal</h1>
-					<h1 class="LeagueGothic TextCenter2" id="1119">Operadores</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11191">Lógicos</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11192">Comparativos</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11193">Indentidade</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11194">Membro</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11195">Bitwise</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11196">AND</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11197">OR</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11198">XOR</h1>
-					<h1 class="LeagueGothic TextCenter2" id="11199">NOT</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111910">LeftShift</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111911">RightShift</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111912">Bitwise Masking</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111913">Associativos</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111914">Igual</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111915">Mais-Igual</h1>
-					<h1 class="LeagueGothic TextCenter2" id="111916">Walrus Operator</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1">Tipos de Controle de Flow</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11">Controle de Fluxo (Control Flow) e Escopo</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111">Sequencial</h1>
+				<h1 class="LeagueGothic TextCenter2" id="112">Decisivo</h1>
+				<h1 class="LeagueGothic TextCenter2" id="113">Repetitivo (Recursivo)</h1>
+				<h1 class="LeagueGothic TextCenter2" id="12">Escopo</h1>
+				<h1 class="LeagueGothic TextCenter2" id="13">Desestruturação (Packing & Unpacking)</h1>
+				<h1 class="LeagueGothic TextCenter2" id="14">Desestruturação em for loops</h1>
+				<h1 class="LeagueGothic TextCenter2" id="15">Iteração em dicionários</h1>
+				<h1 class="LeagueGothic TextCenter2" id="16">break, continue e else em for loops</h1>
+				<h1 class="LeagueGothic TextCenter2" id="17">Numeros Primos e FizzBuzz</h1>
+				<h1 class="LeagueGothic TextCenter2" id="18">Fatiamento de Listas</h1>
+				<h1 class="LeagueGothic TextCenter2" id="181">Ordem Natural</h1>
+				<h1 class="LeagueGothic TextCenter2" id="182">Ordem Reversa</h1>
+				<h1 class="LeagueGothic TextCenter2" id="19">Compreensões (Comprehensions)</h1>
+				<h1 class="LeagueGothic TextCenter2" id="191">Listas</h1>
+				<h1 class="LeagueGothic TextCenter2" id="192">Listas Condicional</h1>
+				<h1 class="LeagueGothic TextCenter2" id="193">Sets</h1>
+				<h1 class="LeagueGothic TextCenter2" id="194">Dicionários</h1>
+				<h1 class="LeagueGothic TextCenter2" id="110">A função zip()</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111">Funções</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1111">Argumentos e Parametros</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11111">Parametros Padrões (Valores Padrões)</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11112">Argumentos Chave (Nomeados)</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11113">*args e **kwargs</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1112">DocStrings</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1113">return</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1114">Funções lambda</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1115">Funções de Primeira Classe e Alta Ordem em Python</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11151">Funções de Primeira Classe</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11152">Funções de Alta Ordem</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1116">global e nonlocal</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1117">global</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1118">nonlocal</h1>
+				<h1 class="LeagueGothic TextCenter2" id="1119">Operadores</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11191">Lógicos</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11192">Comparativos</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11193">Indentidade</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11194">Membro</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11195">Bitwise</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11196">AND</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11197">OR</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11198">XOR</h1>
+				<h1 class="LeagueGothic TextCenter2" id="11199">NOT</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111910">LeftShift</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111911">RightShift</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111912">Bitwise Masking</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111913">Associativos</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111914">Igual</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111915">Mais-Igual</h1>
+				<h1 class="LeagueGothic TextCenter2" id="111916">Walrus Operator</h1>
 				</p>
 			</div>
 		</div>
 	</main>
 </body>
 <footer class="footer BebasNeue">
-	<p>O tema ultilizado nesse site foi o <a class="textlink" href="https://github.com/catppuccin/catppuccin">Catpuccin</a>, todos os direitos reservados a seus criadores.</p>
+	<p>O tema ultilizado nesse site foi o <a class="textlink"
+			href="https://github.com/catppuccin/catppuccin">Catpuccin</a>, todos os direitos reservados a seus
+		criadores.</p>
 </footer>
+
 </html>
