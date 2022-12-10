@@ -1,8 +1,9 @@
-# Mirai Website
+# MiraiWebsite
 
-esse é o repositório do meu site pessoal.
+## TODOs
 
-# TODOS
-
-- [ ] Create The CSS FrameWork - IN PROGRESS
-- [ ] Create Mobile View
+- [ ] Adicionar mais conteudos ao sobre
+- [ ] Fazer a versão mobile do sobre
+- [ ] Fazer a versão mobile das Aulas
+- [ ] Criar Seção de Projetos
+- [ ] Fazer versão mobile da seção de projetos

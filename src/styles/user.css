@@ -1,0 +1,146 @@
+/* SCROLL BAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #2E3440;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3B4252;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #434C5E;
+}
+
+/* ================= */
+
+::-moz-selection { /* Code for Firefox */
+    color: #2e3440;
+    background: #b48ead;
+}
+
+::selection {
+    color: #2e3440;
+    background: #b48ead;
+}
+
+/* Dividers */
+
+.custom-shape-divider-bottom-1667246904 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1667246904 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+/* .custom-shape-divider-bottom-1667246904 .shape-fill {
+    fill: #FFFFFF;
+} */
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1667246904 svg {
+        width: calc(100% + 1.3px);
+        height: 51px;
+    }
+}
+
+/* ================================ */
+
+.custom-shape-divider-bottom-1667247211 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1667247211 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+/* .custom-shape-divider-bottom-1667247211 .shape-fill {
+    fill: #FFFFFF;
+} */
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1667247211 svg {
+        width: calc(100% + 1.3px);
+        height: 51px;
+    }
+}
+
+/* ================================ */
+
+.custom-shape-divider-bottom-1667492912 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1667492912 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 102px;
+}
+
+/* .custom-shape-divider-bottom-1667492912 .shape-fill {
+    fill: #3B4252;
+} */
+
+/* ================================ */
+
+/* .image_preview {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 1%, transparent 100%);
+    background-image: url('../assets/SobreMim.svg');
+} */
+
+.center-justified {
+    text-align: justify;
+    text-align-last: center;
+}
+
+.center-last {
+    text-align-last: center;
+}
+
+.bg_repeat_x_space {
+    background-repeat: space no-repeat;
+}
+
+
+.flip-text {
+    unicode-bidi: bidi-override;
+    -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+  transform: rotate(180deg);
+  direction: rtl;
+}
