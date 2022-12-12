@@ -30,7 +30,7 @@ function PyLessCard() {
   return (
     <div>
       <BaseCard blocked={false}>
-      <img className='w-20 h-20 float-right ml-4' src="/Python8BitLogo.png" alt="Python8BitLogo" />
+      <img className='w-20 h-20 float-right ml-4' src="Python8BitLogo.png" alt="Python8BitLogo" />
       <h1 className={vars.textSizesLG + 'font-bebasNeue text-center'}>Python Lessons</h1>
       <div className={vars.textSizesBASE + 'w-80 relative h-[9.5rem]'}>
         <p className='center-justified'>
@@ -45,7 +45,7 @@ function PyLessCard() {
       </div>
       </BaseCard>
       <BaseCardMobile blocked={false}>
-        <img className='w-16 h-16 float-right ml-4' src="/Python8BitLogo.png" alt="Python8BitLogo" />
+        <img className='w-16 h-16 float-right ml-4' src="Python8BitLogo.png" alt="Python8BitLogo" />
         <h1 className={vars.textSizes2XL + 'font-bebasNeue text-center'}>Python Lessons</h1>
         <div className={vars.textSizesBASE + ''}>
           <p className='center-justified'>
@@ -191,7 +191,6 @@ function PhoneContent() {
 
 
 function PageContent({state}: any) {
-
   return (
     <div className={(state ? "blur-sm" : "") + " mt-0 md:mt-16 min-h-screen grow"}>
       <MDContent/>
@@ -204,7 +203,7 @@ function PageContent({state}: any) {
 export function Classes(props: GenericStateProps) {
   return (
     <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
-      <Header state={props.state} funcState={props.funcState} title="Aulas" />
+      <Header state={props.state} funcState={props.funcState} title="Aulas" themeFunc={props.themeFunc}/>
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />

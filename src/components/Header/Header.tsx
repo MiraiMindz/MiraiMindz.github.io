@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { MouseEventHandler, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GenericStateProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
@@ -7,7 +7,7 @@ import { TiltDivider1Mobile } from '../Dividers/TiltDividers'
 const tabletPCStyle = 'hidden justify-between p-4 md:flex '
 const mobileStyle = ' md:hidden '
 const navMenuLinkStyle =
-  ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 hover:bg-snowstorm-0 hover:text-polarnight-0 md:my-0 md:pt-1'
+  ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 md:my-0 md:pt-1 text-ctp-text hover:text-ctp-base bg-ctp-base hover:bg-ctp-text'
 
 interface HeaderProps extends GenericStateProps {
   title: string
@@ -16,6 +16,7 @@ interface HeaderProps extends GenericStateProps {
 interface HeaderClassProps extends HeaderProps {
   caps?: any,
   sums?: any,
+  themeFunc?: any,
 }
 
 function PCLogo() {
@@ -34,16 +35,23 @@ function HamburguerMenu(props: GenericStateProps) {
           'tham tham-e-squeeze tham-w-6' + (props.state ? ' tham-active' : '')
         }>
         <div className='tham-box'>
-          <div className='tham-inner bg-snowstorm-0' />
+          <div className='tham-inner bg-ctp-text' />
         </div>
       </div>
     </button>
   )
 }
 
-function PCNavMenu() {
+interface PCNavMenuProps {
+  themeFunc: MouseEventHandler,
+}
+
+function PCNavMenu(props: PCNavMenuProps) {
   return (
     <div className='ml-auto'>
+      <button onClick={props.themeFunc}>
+        Theme
+      </button>
       <NavLink
         to='/'
         className={navMenuLinkStyle}>
@@ -63,12 +71,12 @@ function PCNavMenu() {
   )
 }
 
-function PCHeader() {
+function PCHeader(props: PCNavMenuProps) {
   return (
-    <div className='fixed top-0 w-screen bg-polarnight-0 z-20'>
+    <div className='fixed top-0 w-screen bg-ctp-base z-20'>
       <div className={vars.textSizesLG + tabletPCStyle + 'font-bebasNeue'}>
       <PCLogo />
-      <PCNavMenu />
+      <PCNavMenu themeFunc={props.themeFunc}/>
       </div>
     </div>
   )
@@ -111,7 +119,7 @@ function MobileMenu(props: MobileMenuProps) {
     <div
       className={
         vars.textSizes4XL +
-        'w-screen h-screen flex-col justify-center items-center overflow-auto bg-polarnight-0' +
+        'w-screen h-screen flex-col justify-center items-center overflow-auto bg-ctp-base' +
         (props.state ? ' flex' : ' hidden')
       }>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
@@ -177,7 +185,7 @@ function MobileHeader(props: HeaderProps) {
         <div className={(props.state ? 'hidden ' : 'block ') + 'row-start-1 row-end-1'}>
           <TiltDivider1Mobile/>
         </div>
-        <div className={(props.state ? 'mb-4 bg-transparent ' : 'bg-polarnight-1 ') + 'row-start-2 row-end-2 grid grid-cols-3'}>
+        <div className={(props.state ? 'mb-4 bg-transparent ' : 'bg-ctp-base ') + 'row-start-2 row-end-2 grid grid-cols-3'}>
           <div className={(props.state ? '-mb-1 ' : '') + 'col-start-1 col-end-1 mt-auto mb-auto pl-8'}>
             <HamburguerMenu
               funcState={props.funcState}
@@ -216,8 +224,8 @@ function MobileNavbar(props: HeaderClassProps) {
 
 export function Header(props: HeaderClassProps) {
   return (
-    <div>
-      <PCHeader />
+    <div className='bg-ctp-base text-ctp-text'>
+      <PCHeader themeFunc={props.themeFunc}/>
       <MobileNavbar
         state={props.state}
         funcState={props.funcState}

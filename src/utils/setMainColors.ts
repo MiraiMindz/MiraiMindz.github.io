@@ -1,7 +1,7 @@
 export function setMainColors(bgMainColor: string, fgMainColor: string) {
-  let varA = bgMainColor
-  let varB = fgMainColor
+  const varA = bgMainColor
+  const varB = fgMainColor
   return [varA, varB]
 }
 
-export let mainColors = setMainColors
+export const mainColors = setMainColors

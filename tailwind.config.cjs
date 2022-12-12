@@ -72,5 +72,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwind-hamburgers')],
+  plugins: [
+    require('tailwind-hamburgers'),
+    require('@catppuccin/tailwindcss')({prefix: 'ctp'}),
+  ],
 }

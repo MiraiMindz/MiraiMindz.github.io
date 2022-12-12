@@ -3,13 +3,17 @@ interface WrappersProps {
   state: any;
 }
 
-export function ContentWrapper(props: WrappersProps) {
-  return <div className='min-h-screen'>{props.children}</div>
+interface MainWrapperProps extends WrappersProps {
+  theme?: boolean;
 }
 
-export function MainWrapper(props: WrappersProps) {
+export function ContentWrapper(props: WrappersProps) {
+  return <div className='min-h-screen transition-all'>{props.children}</div>
+}
+
+export function MainWrapper(props: MainWrapperProps) {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className={props.theme ? 'ctp-latte' : 'ctp-mocha' + ' min-h-screen flex flex-col transition-all'}>
       {props.children}
     </div>
   )

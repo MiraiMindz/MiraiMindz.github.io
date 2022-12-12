@@ -29,7 +29,8 @@ export interface CitationBlockProps {
 
 export interface CodeBlockProps {
   children?: any,
-  language?: string
+  language?: string,
+  theme?: { [key: string]: React.CSSProperties },
 }
 
 export function CitationBlock(props: CitationBlockProps) {
@@ -65,19 +66,19 @@ export function ListItem({children}: any) {
 }
 
 export function CodeBlock(props: CodeBlockProps) {
-  let st = {
-    paddingRight: "20px",
+  const st = {
+    paddingRight: "1rem",
     color: "#4c566a"
   }
   return (
   <div className="mb-4">
     <div className={vars.textSizesXS + "border-2 rounded-lg p-1 font-firaCode border-frost-3 overflow-auto hidden md:block"}>
-      <SyntaxHighlighter language={props.language} style={nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
+      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
         {props.children}
       </SyntaxHighlighter>
     </div>
     <div className={vars.textSizesSM + "border-2 rounded-lg p-1 font-firaCode border-frost-3 overflow-auto scroll-smooth block md:hidden"}>
-      <SyntaxHighlighter language={props.language} style={nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
+      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
         {props.children}
       </SyntaxHighlighter>
     </div>

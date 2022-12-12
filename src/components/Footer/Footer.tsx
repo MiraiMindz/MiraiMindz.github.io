@@ -7,7 +7,7 @@ export function Footer(props: GenericStateProps) {
       <div className="bg-transparent">
         <TiltDivider1/>
       </div>
-      <div className={(props.state ? "pb-0 " : "md:pb-0 pb-24 ") + "bg-snowstorm-0 px-8 text-polarnight-0"}>
+      <div className={(props.state ? "pb-0 " : "md:pb-0 pb-24 ") + "bg-ctp-text px-8 text-ctp-base"}>
       <h1 className="font-bebasNeue text-xl text-center">Mirai Website</h1>
       </div>
     </div>
@@ -20,7 +20,7 @@ export function FooterMobile(props: GenericStateProps) {
       <div className="bg-transparent">
         <TiltDivider1/>
       </div>
-      <div className={(props.state ? "pb-0 " : "md:pb-0 pb-24 ") + "bg-snowstorm-0 px-8 text-polarnight-0"}>
+      <div className={(props.state ? "pb-0 " : "md:pb-0 pb-24 ") + "bg-ctp-text px-8 text-ctp-base"}>
       <h1 className="font-bebasNeue text-xl text-center">Mirai Website</h1>
       </div>
     </div>

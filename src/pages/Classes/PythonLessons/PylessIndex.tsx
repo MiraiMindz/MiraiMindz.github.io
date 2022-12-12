@@ -619,7 +619,7 @@ function PageContent({state}: any) {
 export function PylessIndex(props: GenericStateProps) {
   return (
     <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
-      <Header state={props.state} funcState={props.funcState} title="Python" />
+      <Header state={props.state} funcState={props.funcState} title="Python" themeFunc={props.themeFunc} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />

@@ -12,13 +12,13 @@ function refLinks(stateFunc?: any) {
   const [link2, ref2] = genRefs(stateFunc);
   const [link3, ref3] = genRefs(stateFunc);
 
-  let linksList = [link1, link2, link3];
-  let refsList =  [ref1, ref2, ref3];
+  const linksList = [link1, link2, link3];
+  const refsList =  [ref1, ref2, ref3];
   return [linksList, refsList]
 }
 
 function ClassChapter1(props: ClassChapterProps) {
-  let refsLink = props.refLinksList as any;
+  const refsLink = props.refLinksList as any;
   return (
     <div className={vars.textSizesLG}>
       <h1 id="2" ref={refsLink[1]} className={vars.textSizes2XL + 'font-bebasNeue mb-4'}>
@@ -65,7 +65,7 @@ function ClassChapter1(props: ClassChapterProps) {
 }
 
 function ClassChapter2(props: ClassChapterProps) {
-  let refsLink = props.refLinksList as any;
+  const refsLink = props.refLinksList as any;
   return (
     <div className={vars.textSizesLG}>
       <h1 id="3" ref={refsLink[2]} className={vars.textSizes2XL + 'font-bebasNeue mb-4'}>
@@ -229,7 +229,7 @@ function CapSumm(props: CapSummProps) {
 }
 
 function CapsSumPhone(props: CapsSumPhoneProps) {
-  let refsFuncList = props.refsFuncList as any
+  const refsFuncList = props.refsFuncList as any
   return (
     <div className={vars.textSizes3XL + ''}>
       <ToCLink  linkRefFunc={refsFuncList[0]} title="Introdução a Programação" level={0}/>
@@ -279,7 +279,7 @@ function CapsLinkPhone(props: CapSummProps) {
 
 
 function ClassContent(props: ClassContentProps) {
-  let refsLink = props.refLinksList as any;
+  const refsLink = props.refLinksList as any;
   return (
     <div>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes3XL + "font-bebasNeue mt-2 text-center mb-4 hidden md:block"}>{props.chapterTitle}</h1>
@@ -323,7 +323,7 @@ export function PyLess1(props: GenericStateProps) {
   const [ls, rfs] = refLinks(props.funcState)
   return (
     <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
-      <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={1}/>} />
+      <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={1}/>} themeFunc={props.themeFunc} />
       <PageContent state={props.state} refLinksList={ls}/>
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
