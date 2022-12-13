@@ -1,8 +1,7 @@
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { FooterWrapper } from "../../components/Wrappers/FlowWrappers";
-import { PageContentProps } from "../../utils/ComponentElements/ComponentElements";
-import { GenericStateProps } from "../../utils/interfaces";
+import { GenericStateProps, PageContentProps } from "../../utils/interfaces";
 import { CodeBlock } from "../../utils/TextElements/TextElements";
 import * as vars from '../../utils/variables';
 // import { catpuccinMocha } from './catpuccinMocha';
@@ -32,7 +31,7 @@ func main() {
 function Content(props: PageContentProps) {
   return (
     <div>
-      <CodeBlock language="go" darkLightSwitch={props.themeState}>
+      <CodeBlock language="go" darkLightSwitch={props.darkLightSwitch}>
         {goCodeBlock01}
       </CodeBlock>
     </div>

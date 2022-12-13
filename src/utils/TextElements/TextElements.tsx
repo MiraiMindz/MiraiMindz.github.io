@@ -7,7 +7,7 @@ import py from 'react-syntax-highlighter/dist/esm/languages/hljs/python';
 import nasm from 'react-syntax-highlighter/dist/esm/languages/hljs/x86asm';
 import nord from 'react-syntax-highlighter/dist/esm/styles/hljs/nord';
 import catpuccinLatte from '../SyntaxHighlighterColors/catpuccinLatte';
-import catpuccinMocha from '../SyntaxHighlighterColors/catpuccinLatte';
+import catpuccinMocha from '../SyntaxHighlighterColors/catpuccinMocha';
 import * as vars from '../variables';
 import { CitationBlockProps, ParagraphProps, CodeBlockProps } from '../interfaces';
 
