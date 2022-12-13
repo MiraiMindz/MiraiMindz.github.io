@@ -18,7 +18,8 @@
   - [x] Fazer versão mobile \[COMPLETO\]
   - [ ] Adicionar progressividade e status per-user \[INCOMPLETO\]
 - [ ] Funcionalidades Planejadas \[INCOMPLETO\]
-  - [x] Alternador de temas e dark-light \[COMPLETO\]
+  - [ ] Alternador de temas e dark-light \[EM PREGRESSO\]
+    - [ ] Consertar botão no primeiro inicio
   - [ ] Estilizar e diminuir "monotonia" \[INCOMPLETO\]
   - [ ] "Modo Canhoto" \[INCOMPLETO\]
   - [ ] Questão das fontes no Mobile \[INCOMPLETO\]
