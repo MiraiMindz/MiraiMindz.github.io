@@ -1,6 +1,6 @@
-import { MouseEventHandler, useState } from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { GenericStateProps } from '../../utils/interfaces'
+import { GenericStateProps, HeaderClassProps, HeaderProps, MobileMenuProps, PCNavMenuProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
 import { TiltDivider1Mobile } from '../Dividers/TiltDividers'
 
@@ -9,15 +9,6 @@ const mobileStyle = ' md:hidden '
 const navMenuLinkStyle =
   ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 md:my-0 md:pt-1 text-ctp-text hover:text-ctp-base bg-ctp-base hover:bg-ctp-text'
 
-interface HeaderProps extends GenericStateProps {
-  title: string
-}
-
-interface HeaderClassProps extends HeaderProps {
-  caps?: any,
-  sums?: any,
-  themeFunc?: any,
-}
 
 function PCLogo() {
   return (
@@ -40,10 +31,6 @@ function HamburguerMenu(props: GenericStateProps) {
       </div>
     </button>
   )
-}
-
-interface PCNavMenuProps {
-  themeFunc: MouseEventHandler,
 }
 
 function PCNavMenu(props: PCNavMenuProps) {
@@ -82,10 +69,6 @@ function PCHeader(props: PCNavMenuProps) {
   )
 }
 
-interface MobileMenuProps extends GenericStateProps {
-  caps?: any,
-  sums?: any,
-}
 
 function MobileMenu(props: MobileMenuProps) {
   const [capState, setCapState] = useState<boolean>(false);

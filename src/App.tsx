@@ -31,47 +31,48 @@ function App() {
     setTheme(!themeState)
   }
 
+
   return (
     <MainWrapper theme={themeState} state={active}>
       <ContentWrapper state={active}>
         <Routes>
           <Route
             index
-            element={<Home themeFunc={handleTheme} state={active} funcState={handleState} />}
+            element={<Home themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
           />
           <Route
             path='about'
-            element={<About themeFunc={handleTheme} state={active} funcState={handleState} />}
+            element={<About themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
           />
           <Route
             path='classes'
-            element={<Classes themeFunc={handleTheme} state={active} funcState={handleState} />}
+            element={<Classes themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
           />
           <Route
               path='classes/pyless/'
-              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState}/>} />
+              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState}/>} />
           <Route
                   path='classes/pyless/1'
-                  element={<PyLess1 themeFunc={handleTheme} state={active} funcState={handleState} />}
+                  element={<PyLess1 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
                 />
           <Route
               path='classes/pyless/2'
-              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState}/>} />
+              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState}/>} />
           <Route
                   path='classes/pyless/3'
-                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} />}
+                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
                 />
           <Route
                   path='classes/pyless/4'
-                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} />}
+                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
                 />
           <Route
                   path='classes/pyless/5'
-                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} />}
+                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
                 />
           <Route
             path='teste'
-            element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} />}
+            element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
           />
           <Route
             path='*'

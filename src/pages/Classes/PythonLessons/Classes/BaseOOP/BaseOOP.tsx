@@ -1,9 +1,8 @@
 import { Footer } from "../../../../../components/Footer/Footer"
 import { Header } from "../../../../../components/Header/Header"
 import { FooterWrapper } from "../../../../../components/Wrappers/FlowWrappers"
-import { BackNextChapters, CapLink, CapsSumPhoneProps, CapsSumWrapper, CapSummProps, ClassChapterProps, ClassContentProps, genRefs, PageContentProps, ToCLink } from "../../../../../utils/ClassElements/ClassElements"
-import { GenericStateProps } from "../../../../../utils/interfaces"
-import { CitationBlock, CodeBlock, CodeCite, ListItem, Paragraph, UList } from "../../../../../utils/TextElements/TextElements"
+import { CapsSumWrapper, CapLink, BackNextChapters } from "../../../../../utils/ComponentElements/ComponentElements"
+import { CapsSumPhoneProps, CapSummProps, ClassChapterProps, ClassContentProps, GenericStateProps, PageContentProps } from "../../../../../utils/interfaces"
 import * as vars from '../../../../../utils/variables'
 
 

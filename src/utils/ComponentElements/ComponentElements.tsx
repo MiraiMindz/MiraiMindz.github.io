@@ -2,52 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { MutableRefObject, useRef } from "react"
 import * as vars from '../variables';
-
-export interface ArrowHeadProps {
-  direction: string;
-}
-
-export interface BackNextChaptersProps {
-  prevChapLink: string,
-  nextChapLink: string
-}
-
-export interface CapSummProps {
-  currCap: number;
-}
-
-export interface CapLinkProps {
-  title: string,
-  blocked: boolean,
-  link: string,
-  currentCap: boolean,
-}
-
-export interface ToCLinkProps {
-  linkRefFunc?: string | any,
-  linkHashID?: string | any,
-  title: string | any,
-  level?: number | any,
-}
-
-export interface ClassContentProps {
-  chapterTitle?: string,
-  refLinksList?: Array<any>,
-}
-
-export interface ClassChapterProps {
-  refLinksList?: Array<any>,
-}
-
-export interface CapsSumPhoneProps {
-  refsFuncList?: Array<any>,
-}
-
-export interface PageContentProps {
-  state: any,
-  refLinksList?: Array<any>,
-}
-
+import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps } from '../interfaces';
 
 
 export function genRefs(stateFunc: Function): [MutableRefObject<any>, Function] {
@@ -69,12 +24,12 @@ export function CapLink(props: CapLinkProps) {
   return (
     <div>
       <NavLink to={props.link} className="hidden md:block">
-        <h1 className={props.blocked ? "text-polarnight-3 cursor-default" : props.currentCap ? "text-frost-3 pr-2" : "text-snowstorm-0 hover:pr-2 transition-all"}>
+        <h1 className={props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue pr-2" : "text-ctp-text hover:pr-2 transition-all"}>
           {props.title}
         </h1>
       </NavLink>
       <NavLink to={props.link} className="block md:hidden">
-      <h1 className={(props.blocked ? "text-polarnight-3 cursor-default" : props.currentCap ? "text-frost-3" : "text-snowstorm-0 transition-all") + " pl-2"}>
+      <h1 className={(props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue" : "text-ctp-text transition-all") + " pl-2"}>
         {props.title}
       </h1>
     </NavLink>
@@ -121,10 +76,10 @@ export function ToCLink(props: ToCLinkProps) {
   }
   return ( //  <HashLink to={props.linkURL}>{props.title}</HashLink>
     <div>
-      <h1 className="transition-all hover:text-frost-0 block md:hidden text-justify">
+      <h1 className="transition-all hover:text-ctp-blue block md:hidden text-justify">
         <button onClick={props.linkRefFunc}>{props.title}</button>
       </h1>
-      <h1 className={levelIndent + "transition-all hover:text-frost-0 hidden md:block"}>
+      <h1 className={levelIndent + "transition-all hover:text-ctp-blue hidden md:block"}>
         <ScrollLink  to={props.linkHashID} spy={true} smooth={true}>{props.title}</ScrollLink>
       </h1>
     </div>
@@ -156,7 +111,7 @@ export function ArrowHead(props: ArrowHeadProps) {
 
 export function CapsSumWrapper({children}: any) {
   return (
-    <div className={vars.textSizesLG + "w-20 font-bebasNeue border-2 rounded-xl px-2 py-1 fixed top-16 right-8 text-center max-h-[81%] overscroll-contain overflow-auto scroll-smooth bg-polarnight-0 select-none"}>
+    <div className={vars.textSizesLG + "w-20 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-16 right-8 text-center max-h-[81%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none"}>
       {children}
     </div>
   )

@@ -1,35 +1,29 @@
-import { NavLink } from "react-router-dom";
-import { Footer } from "../../../components/Footer/Footer";
-import { Header } from "../../../components/Header/Header";
-import { FooterWrapper } from "../../../components/Wrappers/FlowWrappers";
-import { GenericStateProps } from "../../../utils/interfaces";
+
+import { NavLink } from 'react-router-dom';
+import { Footer } from '../../../components/Footer/Footer';
+import { Header } from '../../../components/Header/Header';
+import { FooterWrapper } from '../../../components/Wrappers/FlowWrappers';
+import { ChapterCardProps, GenericStateProps } from '../../../utils/interfaces';
 import * as vars from '../../../utils/variables';
 
-interface ChapterCardProps {
-  blocked: boolean,
-  state: number,
-  title: string,
-  chapter: number,
-  description: string,
-  link: string,
-}
+
 
 function ChapterCard(props: ChapterCardProps) {
   let status;
   if (props.state == 2) {
-    status = <span className="text-aurora-3 font-bebasNeue">Completo</span>
+    status = <span className="text-ctp-green font-bebasNeue">Completo</span>
   } else if (props.state == 1) {
-    status = <span className="text-aurora-2 font-bebasNeue">Em progresso...</span>
+    status = <span className="text-ctp-yellow font-bebasNeue">Em progresso...</span>
   } else {
-    status = <span className="text-aurora-0 font-bebasNeue">Não iniciado</span>
+    status = <span className="text-ctp-red font-bebasNeue">Não iniciado</span>
   }
   return (
     <NavLink to={props.link}>
-      <div className={'hover:scale-110 transition-all border-2 rounded-xl p-2 bg-polarnight-1 font-leagueGothic flex flex-col justify-between h-32 select-none ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      <div className={'hover:scale-110 transition-all border-2 border-ctp-text rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
           <h1 className={vars.textSizesBASE + "font-bebasNeue"}>{props.title}</h1>
-          <div className="rounded-full bg-snowstorm-0 w-6 h-6 font-bebasNeue">
-            <h1 className="text-polarnight-1 text-center">{props.chapter}</h1>
+          <div className="rounded-full bg-ctp-text w-6 h-6 font-bebasNeue">
+            <h1 className="text-ctp-mantle text-center">{props.chapter}</h1>
           </div>
         </div>
         <div>
@@ -49,19 +43,19 @@ function ChapterCard(props: ChapterCardProps) {
 function ChapterCardMobile(props: ChapterCardProps) {
   let status;
   if (props.state == 2) {
-    status = <span className="text-aurora-3 font-bebasNeue">Completo</span>
+    status = <span className="text-ctp-green font-bebasNeue">Completo</span>
   } else if (props.state == 1) {
-    status = <span className="text-aurora-2 font-bebasNeue">Em progresso...</span>
+    status = <span className="text-ctp-yellow font-bebasNeue">Em progresso...</span>
   } else {
-    status = <span className="text-aurora-0 font-bebasNeue">Não iniciado</span>
+    status = <span className="text-ctp-red font-bebasNeue">Não iniciado</span>
   }
   return (
     <NavLink to={props.link}>
-      <div className={'transition-all border-2 rounded-xl p-2 bg-polarnight-1 font-leagueGothic flex flex-col justify-between h-32 select-none ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      <div className={'transition-all border-2  border-ctp-text rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
           <h1 className={vars.textSizesBASE + "font-bebasNeue w-36"}>{props.title}</h1>
-          <div className="rounded-full bg-snowstorm-0 w-6 h-6 font-bebasNeue">
-            <h1 className="text-polarnight-1 text-center">{props.chapter}</h1>
+          <div className="rounded-full bg-ctp-text w-6 h-6 font-bebasNeue">
+            <h1 className="text-ctp-mantle text-center">{props.chapter}</h1>
           </div>
         </div>
         <div>
@@ -618,7 +612,7 @@ function PageContent({state}: any) {
 
 export function PylessIndex(props: GenericStateProps) {
   return (
-    <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
+    <div className='flex flex-col bg-ctp-base text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Python" themeFunc={props.themeFunc} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>

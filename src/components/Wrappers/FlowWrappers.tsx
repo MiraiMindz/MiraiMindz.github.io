@@ -1,11 +1,5 @@
-interface WrappersProps {
-  children: any;
-  state: any;
-}
+import { WrappersProps, MainWrapperProps } from "../../utils/interfaces"
 
-interface MainWrapperProps extends WrappersProps {
-  theme?: boolean;
-}
 
 export function ContentWrapper(props: WrappersProps) {
   return <div className='min-h-screen transition-all'>{props.children}</div>

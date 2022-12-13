@@ -2,17 +2,13 @@ import { NavLink } from 'react-router-dom'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { FooterWrapper } from '../../components/Wrappers/FlowWrappers'
-import { GenericStateProps } from '../../utils/interfaces'
+import { BaseCardProps, GenericStateProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
 
-interface BaseCardProps {
-  children: any,
-  blocked: boolean
-}
 
 function BaseCard(props: BaseCardProps) {
   return (
-    <div className={'hidden md:block hover:scale-110 transition-all border-2 rounded-xl p-2 bg-polarnight-1 select-none min-h-[12.5rem] ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+    <div className={'hidden md:block hover:scale-110 transition-all border-2 border-ctp-text rounded-xl p-2 bg-ctp-mantle select-none min-h-[12.5rem] ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
       {props.children}
     </div>
   )
@@ -20,7 +16,7 @@ function BaseCard(props: BaseCardProps) {
 
 function BaseCardMobile(props: BaseCardProps) {
   return (
-    <div className={'block md:hidden hover:scale-110 transition-all border-2 rounded-xl p-2 bg-polarnight-1 select-none mb-8 min-h-[11rem] ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+    <div className={'block md:hidden hover:scale-110 transition-all border-2 border-ctp-text rounded-xl p-2 bg-ctp-mantle select-none mb-8 min-h-[11rem] ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
       {props.children}
     </div>
   )
@@ -40,7 +36,7 @@ function PyLessCard() {
         Recomendado para iniciantes em programação, aprenda desde o básico ao avançado construindo 11 projetos do zero.
         </p>
         <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-          Status: <span className='text-aurora-2'>em progresso...</span>
+          Status: <span className='text-ctp-yellow'>em progresso...</span>
         </p>
       </div>
       </BaseCard>
@@ -55,7 +51,7 @@ function PyLessCard() {
           Recomendado para iniciantes em programação, aprenda desde o básico ao avançado construindo 11 projetos do zero.
           </p>
           <p className='font-bebasNeue mt-2'>
-            Status: <span className='text-aurora-2'>em progresso...</span>
+            Status: <span className='text-ctp-yellow'>em progresso...</span>
           </p>
         </div>
       </BaseCardMobile>
@@ -77,7 +73,7 @@ function GoLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-aurora-0'>Não Iniciado.</span>
+            Status: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCard>
@@ -92,7 +88,7 @@ function GoLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-aurora-0'>Não Iniciado.</span>
+            Status: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCardMobile>
@@ -114,7 +110,7 @@ function NASMLessCard() {
             Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-aurora-0'>Não Iniciado.</span>
+            Status: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCard>
@@ -129,7 +125,7 @@ function NASMLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-aurora-0'>Não Iniciado.</span>
+            Status: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCardMobile>
@@ -166,7 +162,7 @@ function MDContent() {
 function PhoneContent() {
   return (
     <div className='block md:hidden'>
-      <div className='block md:hidden font-leagueGothic pt-4 bg-polarnight-0'>
+      <div className='block md:hidden font-leagueGothic pt-4 bg-ctp-base'>
       <p className={vars.textSizes3XL + 'text-center'}>
       Cursos gratuitos sobre programação.
       </p>
@@ -176,7 +172,7 @@ function PhoneContent() {
             Aqui você encontrará todo meu conhecimento em programação na forma de cursos.
             </p>
           </div>
-          <div className='flex flex-col self-center h-full justify-between px-16 mt-8 bg-polarnight-0'>
+          <div className='flex flex-col self-center h-full justify-between px-16 mt-8 bg-ctp-base'>
             <NavLink to='/classes/pyless'>
               <PyLessCard />
             </NavLink>
@@ -202,7 +198,7 @@ function PageContent({state}: any) {
 
 export function Classes(props: GenericStateProps) {
   return (
-    <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
+    <div className='flex flex-col bg-ctp-base text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Aulas" themeFunc={props.themeFunc}/>
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>

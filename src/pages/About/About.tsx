@@ -3,7 +3,6 @@ import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { FooterWrapper } from '../../components/Wrappers/FlowWrappers'
 import { GenericStateProps } from '../../utils/interfaces'
-import { setMainColors } from '../../utils/setMainColors'
 import * as vars from '../../utils/variables'
 
 const age = (new Date().getFullYear()) - 2005

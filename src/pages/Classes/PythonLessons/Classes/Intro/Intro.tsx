@@ -1,8 +1,8 @@
 import { Footer } from "../../../../../components/Footer/Footer"
 import { Header } from "../../../../../components/Header/Header"
 import { FooterWrapper } from "../../../../../components/Wrappers/FlowWrappers"
-import { BackNextChapters, CapLink, CapsSumPhoneProps, CapsSumWrapper, CapSummProps, ClassChapterProps, ClassContentProps, genRefs, PageContentProps, ToCLink } from "../../../../../utils/ClassElements/ClassElements"
-import { GenericStateProps } from "../../../../../utils/interfaces"
+import { genRefs, ToCLink, CapsSumWrapper, CapLink, BackNextChapters } from "../../../../../utils/ComponentElements/ComponentElements"
+import { CapsSumPhoneProps, CapSummProps, ClassChapterProps, ClassContentProps, GenericStateProps, PageContentProps } from "../../../../../utils/interfaces"
 import { CitationBlock, CodeBlock, CodeCite, ListItem, Paragraph, UList } from "../../../../../utils/TextElements/TextElements"
 import * as vars from '../../../../../utils/variables'
 import * as CBlocks from './CodeBlocks'
@@ -113,18 +113,18 @@ function ClassChapter2(props: ClassChapterProps) {
             </Paragraph>
             <UList>
               <ListItem>Imperativa: as etapas são sequenciadas, normalmente de cima abaixo, e os comandos são imperativos, informalmente falando, são ordens que devem ser estritamente seguidas. Linguagens de scripting são os melhores exemplos para se descrever Imperatividade, um exemplo com a linguagem BASH:</ListItem>
-              <CodeBlock language="bash">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="bash">
                 {CBlocks.bashCodeBlock01}
               </CodeBlock>
               <ListItem>Funcional: as etapas são divididas em blocos de código chamados funções e são executados de acordo com a sua chamada, ou seja, se a função X foi declarada na linha 38 de um programa e a função Y foi declarada na linha 85, sua execução independe da sequencia de declaração (é claro que, as funções não devem ser chamadas antes de suas devidas declarações), resultando em nós podendo chamar a função Y na linha 102 e função X na linha 103, um exemplo seria a linguagem de programação Go:</ListItem>
-              <CodeBlock language="">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="go">
                 {CBlocks.goCodeBlock01}
               </CodeBlock>
               <Paragraph>
               Note a ordem de declaração e de chamada, declaramos a <CodeCite text="funcao_print_1"/> primeiro, e depois a <CodeCite text="funcao_print_2"/>, porém chamamos a <CodeCite text="funcao_print_2"/> antes da <CodeCite text="funcao_print_1"/>
               </Paragraph>
               <ListItem>Orientada a Objetos: este paradigma segue a interpretação de que os códigos devem ser divididos em objetos (classes), objetos são pequenos contêineres independentes entre si, a orientação a objetos é um campo de estudo deverás complexo, alguns dos seus conceitos como a Abstração e a Ação nos objetos costumam sempre confundir, você se percebem falando coisas como "o que é um cachorro?", "uma mensagem deveria se auto-mandar, ou ela deveria ser mandada por outra coisa?" e por ai vai. Alguns dos conceitos tratados pela orientação a objeto foram incorporados em outros paradigmas, como as classes. Uma das linguagens orientadas a objetos mais famosas é a Java, aqui um exemplo de código:</ListItem>
-              <CodeBlock language="java">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="java">
                 {CBlocks.javaCodeBlock01}
               </CodeBlock>
             </UList>
@@ -146,7 +146,7 @@ function ClassChapter2(props: ClassChapterProps) {
               <Paragraph>
               Exemplo de Estilo:
               </Paragraph>
-              <CodeBlock language="plaintext">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="plaintext">
                 {CBlocks.plainTextCodeBlock01}
               </CodeBlock>
             </UList>
@@ -158,11 +158,11 @@ function ClassChapter2(props: ClassChapterProps) {
             <ListItem>Nível: o nível de uma linguagem de programação define sua "humanidade" e "completude", basicamente, quanto mais alto o nível, mais perto da linguagem humana o código fonte é, e mais funções e coisas a linguagem faz de forma "automática", elas podem ser dividas em Baixo e Alto nível</ListItem>
             <UList>
               <ListItem>Linguagens de Baixo Nível: As linguagens de baixo nível são extremamente próximas do código de maquina (também conhecido como binário), uma das linguagens de mais baixo nível ainda em uso seria a linguagem Assembly, ela trabalha movendo bits para registradores e locais diretos na memoria, um código executado direto no processador, eis aqui um programa que exibe a mensagem "Olá Mundo":</ListItem>
-              <CodeBlock language="x86asm">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="x86asm">
                 {CBlocks.nasmCodeBlock01}
               </CodeBlock>
               <ListItem>Linguagens de Alto Nível: As linguagens de Alto Nível são bem próximas da linguagem humana, e as linguagens acabam por fazer muitas tarefas simples por nós em segundo plano, coisas como limpar a memória em uso, mover os bits para os registradores, entre outras coisas, Linguagens de Alto Nível são amplamente usadas devido a sua praticidade e facilidade de aprendizado e uso, eis aqui um exemplo de programa em Python que exibe a mensagem "Olá Mundo!":</ListItem>
-              <CodeBlock language="python">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="python">
                 {CBlocks.pythonCodeBlock01}
               </CodeBlock>
             </UList>
@@ -179,7 +179,7 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className="w-[20.25rem] font-bebasNeue border-2 rounded-xl px-2 py-1 mr-2 fixed top-16 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-polarnight-0">
+    <div className="w-[20.25rem] font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-16 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-ctp-base text-ctp-text">
       <h1 className={vars.textSizesLG + "text-center"}>Tabela de Conteudos</h1>
       <div>
         <ToCLink linkHashID="1" title="Introdução a Programação" level={0}/>
@@ -284,8 +284,8 @@ function ClassContent(props: ClassContentProps) {
     <div>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes3XL + "font-bebasNeue mt-2 text-center mb-4 hidden md:block"}>{props.chapterTitle}</h1>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes4XL + 'font-bebasNeue text-center mb-4 mt-2 block md:hidden'}>{props.chapterTitle}</h1>
-      <ClassChapter1 refLinksList={props.refLinksList}/>
-      <ClassChapter2 refLinksList={props.refLinksList}/>
+      <ClassChapter1 refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
+      <ClassChapter2 refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
       <BackNextChapters nextChapLink="/classes/pyless/2" prevChapLink="" />
     </div>
   )
@@ -302,7 +302,7 @@ function PageContent(props: PageContentProps) {
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-2 text-justify">
-          <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} />
+          <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
         </div>
         <div className="w-20">
           <CapSumm currCap={1} />
@@ -322,9 +322,9 @@ function PageContent(props: PageContentProps) {
 export function PyLess1(props: GenericStateProps) {
   const [ls, rfs] = refLinks(props.funcState)
   return (
-    <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
+    <div className='flex flex-col bg-ctp-base text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={1}/>} themeFunc={props.themeFunc} />
-      <PageContent state={props.state} refLinksList={ls}/>
+      <PageContent state={props.state} refLinksList={ls} darkLightSwitch={props.darkLightSwitch}/>
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
       </FooterWrapper>

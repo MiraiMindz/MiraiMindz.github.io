@@ -6,7 +6,10 @@ import ptext from 'react-syntax-highlighter/dist/esm/languages/hljs/plaintext';
 import py from 'react-syntax-highlighter/dist/esm/languages/hljs/python';
 import nasm from 'react-syntax-highlighter/dist/esm/languages/hljs/x86asm';
 import nord from 'react-syntax-highlighter/dist/esm/styles/hljs/nord';
+import catpuccinLatte from '../SyntaxHighlighterColors/catpuccinLatte';
+import catpuccinMocha from '../SyntaxHighlighterColors/catpuccinLatte';
 import * as vars from '../variables';
+import { CitationBlockProps, ParagraphProps, CodeBlockProps } from '../interfaces';
 
 SyntaxHighlighter.registerLanguage('python', py);
 SyntaxHighlighter.registerLanguage('bash', sh);
@@ -16,26 +19,9 @@ SyntaxHighlighter.registerLanguage('java', java);
 SyntaxHighlighter.registerLanguage('plaintext', ptext);
 
 
-
-export interface ParagraphProps {
-  children: any,
-  italic?: boolean,
-  styleClasses?: string,
-}
-
-export interface CitationBlockProps {
-  children: any,
-}
-
-export interface CodeBlockProps {
-  children?: any,
-  language?: string,
-  theme?: { [key: string]: React.CSSProperties },
-}
-
 export function CitationBlock(props: CitationBlockProps) {
   return (
-    <div className='p-2 bg-polarnight-1 rounded-lg italic mb-4'>
+    <div className='p-2 bg-ctp-surface0 rounded-lg italic mb-4'>
       {props.children}
     </div>
   )
@@ -66,19 +52,23 @@ export function ListItem({children}: any) {
 }
 
 export function CodeBlock(props: CodeBlockProps) {
-  const st = {
+  const stLight = {
     paddingRight: "1rem",
-    color: "#4c566a"
+    color: "#9ca0b0"
+  }
+  const stDark = {
+    paddingRight: "1rem",
+    color: "#6c7086",
   }
   return (
   <div className="mb-4">
-    <div className={vars.textSizesXS + "border-2 rounded-lg p-1 font-firaCode border-frost-3 overflow-auto hidden md:block"}>
-      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
+    <div className={vars.textSizesXS + "border-2 rounded-lg p-1 font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
+      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
         {props.children}
       </SyntaxHighlighter>
     </div>
-    <div className={vars.textSizesSM + "border-2 rounded-lg p-1 font-firaCode border-frost-3 overflow-auto scroll-smooth block md:hidden"}>
-      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={st}>
+    <div className={vars.textSizesSM + "border-2 rounded-lg p-1 font-firaCode border-ctp-blue overflow-auto scroll-smooth block md:hidden bg-ctp-mantle"}>
+      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
         {props.children}
       </SyntaxHighlighter>
     </div>
@@ -88,7 +78,7 @@ export function CodeBlock(props: CodeBlockProps) {
 
 export function CodeCite({text}: any) {
   return (
-    <span className={vars.textSizesXS + "bg-polarnight-1 px-1 rounded-md font-firaCode not-italic"}>
+    <span className={vars.textSizesXS + "bg-ctp-surface0 px-1 rounded-md font-firaCode not-italic"}>
       {text}
     </span>
   )
