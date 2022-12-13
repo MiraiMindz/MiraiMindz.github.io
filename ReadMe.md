@@ -19,7 +19,7 @@
   - [ ] Adicionar progressividade e status per-user \[INCOMPLETO\]
 - [ ] Funcionalidades Planejadas \[INCOMPLETO\]
   - [ ] Alternador de temas e dark-light \[EM PREGRESSO\]
-    - [ ] Consertar botão no primeiro inicio
+    - [ ] Consertar botão no primeiro inicio \[EM PREGRESSO\]
   - [ ] Estilizar e diminuir "monotonia" \[INCOMPLETO\]
   - [ ] "Modo Canhoto" \[INCOMPLETO\]
   - [ ] Questão das fontes no Mobile \[INCOMPLETO\]
