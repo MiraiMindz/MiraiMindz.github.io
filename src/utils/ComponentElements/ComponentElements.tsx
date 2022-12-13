@@ -111,7 +111,7 @@ export function ArrowHead(props: ArrowHeadProps) {
 
 export function CapsSumWrapper({children}: any) {
   return (
-    <div className={vars.textSizesLG + "w-20 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-16 right-8 text-center max-h-[81%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none"}>
+    <div className={vars.textSizesLG + "w-20 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-20 right-8 text-center max-h-[81%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none"}>
       {children}
     </div>
   )
@@ -122,8 +122,15 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   let prevChapComponent;
   let pcShown;
   let ncShown;
+  let prevChapText;
+  if (props.prevChapLink == '/classes/pyless') {
+    prevChapText = "Voltar ao Menu"
+  } else {
+    prevChapText = "Capitulo Anterior"
+  }
+
   if (props.prevChapLink != "") {
-    prevChapComponent = <NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pr-6 transition-all fill-frost-3 text-frost-3 hover:text-frost-1 hover:fill-frost-1 flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">Capitulo Anterior</span></h1></NavLink>
+    prevChapComponent = <NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pr-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">{prevChapText}</span></h1></NavLink>
     pcShown = true;
   } else {
     prevChapComponent = null;
@@ -131,7 +138,7 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   }
 
   if (props.nextChapLink != "") {
-    nxChapComponent = <NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pl-6 transition-all fill-frost-3 text-frost-3 hover:text-frost-1 hover:fill-frost-1 flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink>
+    nxChapComponent = <NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pl-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink>
     ncShown = true;
   } else {
     nxChapComponent = null;

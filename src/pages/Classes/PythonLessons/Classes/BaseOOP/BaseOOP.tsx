@@ -24,7 +24,7 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className="w-[20.25rem] font-bebasNeue border-2 rounded-xl px-2 py-1 mr-2 fixed top-16 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-polarnight-0">
+    <div className="w-80 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-20 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-ctp-base text-ctp-text">
       <h1 className={vars.textSizesLG + "text-center"}>Tabela de Conteudos</h1>
       <div>
 
@@ -137,7 +137,7 @@ function PageContent(props: PageContentProps) {
     <div className={(props.state ? "blur-sm" : "pt-0 md:pt-16 min-h-screen grow font-leagueGothic")}>
 
       <div className="px-8 relative hidden md:flex flex-row">
-        <div className="w-[20.25rem]">
+        <div className="w-80">
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-2 text-justify">
@@ -159,8 +159,8 @@ function PageContent(props: PageContentProps) {
 
 export function PyLess4(props: GenericStateProps) {
   return (
-    <div className='flex flex-col bg-polarnight-0 text-snowstorm-0'>
-      <Header state={props.state} funcState={props.funcState} title="Base OOP" sums={<CapsSumPhone />} caps={<CapsLinkPhone currCap={4}/>} />
+    <div className='flex flex-col bg-ctp-base text-ctp-text'>
+      <Header state={props.state} funcState={props.funcState} title="Base OOP" sums={<CapsSumPhone />} caps={<CapsLinkPhone currCap={4}/>} themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />

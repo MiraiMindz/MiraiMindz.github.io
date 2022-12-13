@@ -199,7 +199,7 @@ function PageContent({state}: any) {
 export function Classes(props: GenericStateProps) {
   return (
     <div className='flex flex-col bg-ctp-base text-ctp-text'>
-      <Header state={props.state} funcState={props.funcState} title="Aulas" themeFunc={props.themeFunc}/>
+      <Header state={props.state} funcState={props.funcState} title="Aulas" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />

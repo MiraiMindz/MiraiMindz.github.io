@@ -61,7 +61,7 @@ export function CodeBlock(props: CodeBlockProps) {
     color: "#6c7086",
   }
   return (
-  <div className="mb-4">
+  <div className="mb-4 font-semibold">
     <div className={vars.textSizesXS + "border-2 rounded-lg p-1 font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
       <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
         {props.children}

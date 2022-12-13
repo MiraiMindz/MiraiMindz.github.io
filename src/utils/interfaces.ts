@@ -14,7 +14,7 @@ export interface ArrowHeadProps {
 
 export interface BackNextChaptersProps {
   prevChapLink?: string | any,
-  nextChapLink?: string | any
+  nextChapLink?: string | any,
 }
 
 export interface CapSummProps {
@@ -81,10 +81,12 @@ export interface HeaderClassProps extends HeaderProps {
   caps?: any | any,
   sums?: any | any,
   themeFunc?: Function | any,
+  themeState?: boolean |  any,
 }
 
 export interface PCNavMenuProps {
   themeFunc?: MouseEventHandler | any,
+  themeState?: boolean |  any,
 }
 
 export interface MobileMenuProps extends GenericStateProps {

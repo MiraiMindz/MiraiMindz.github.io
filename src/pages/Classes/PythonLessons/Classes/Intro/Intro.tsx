@@ -179,7 +179,7 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className="w-[20.25rem] font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-16 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-ctp-base text-ctp-text">
+    <div className="w-80 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-20 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-ctp-base text-ctp-text">
       <h1 className={vars.textSizesLG + "text-center"}>Tabela de Conteudos</h1>
       <div>
         <ToCLink linkHashID="1" title="Introdução a Programação" level={0}/>
@@ -282,11 +282,12 @@ function ClassContent(props: ClassContentProps) {
   const refsLink = props.refLinksList as any;
   return (
     <div>
+      <BackNextChapters nextChapLink="/classes/pyless/2" prevChapLink="/classes/pyless" />
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes3XL + "font-bebasNeue mt-2 text-center mb-4 hidden md:block"}>{props.chapterTitle}</h1>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes4XL + 'font-bebasNeue text-center mb-4 mt-2 block md:hidden'}>{props.chapterTitle}</h1>
       <ClassChapter1 refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
       <ClassChapter2 refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
-      <BackNextChapters nextChapLink="/classes/pyless/2" prevChapLink="" />
+      <BackNextChapters nextChapLink="/classes/pyless/2" prevChapLink="/classes/pyless" />
     </div>
   )
 }
@@ -295,13 +296,13 @@ function ClassContent(props: ClassContentProps) {
 
 function PageContent(props: PageContentProps) {
   return (
-    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-16 min-h-screen grow font-leagueGothic")}>
+    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-20 min-h-screen grow font-leagueGothic")}>
 
       <div className="px-8 relative hidden md:flex flex-row">
-        <div className="w-[20.25rem]">
+        <div className="w-80">
           <TableOfContent/>
         </div>
-        <div className="w-0 grow px-2 text-justify">
+        <div className="w-0 grow px-6 text-justify">
           <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>
         </div>
         <div className="w-20">
@@ -323,7 +324,7 @@ export function PyLess1(props: GenericStateProps) {
   const [ls, rfs] = refLinks(props.funcState)
   return (
     <div className='flex flex-col bg-ctp-base text-ctp-text'>
-      <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={1}/>} themeFunc={props.themeFunc} />
+      <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={1}/>} themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} refLinksList={ls} darkLightSwitch={props.darkLightSwitch}/>
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />

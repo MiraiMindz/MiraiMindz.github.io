@@ -3,6 +3,11 @@ import { NavLink } from 'react-router-dom'
 import { GenericStateProps, HeaderClassProps, HeaderProps, MobileMenuProps, PCNavMenuProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
 import { TiltDivider1Mobile } from '../Dividers/TiltDividers'
+import innerCircle from './innerCircle.svg'
+import SunRays from './SunRays.svg'
+
+
+
 
 const tabletPCStyle = 'hidden justify-between p-4 md:flex '
 const mobileStyle = ' md:hidden '
@@ -33,11 +38,31 @@ function HamburguerMenu(props: GenericStateProps) {
   )
 }
 
+// function TogglerIcon() {
+//   return (
+//   )
+// }
+
+function Ticon() {
+  return (
+    <div className='w-8 h-8 rounded-full p-0.5 border-2 fill-ctp-base border-ctp-base bg-ctp-text'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.39 472.39">
+        <g className="toggle-sun">
+          <path d="M403.21,167V69.18H305.38L236.2,0,167,69.18H69.18V167L0,236.2l69.18,69.18v97.83H167l69.18,69.18,69.18-69.18h97.83V305.38l69.18-69.18Zm-167,198.17a129,129,0,1,1,129-129A129,129,0,0,1,236.2,365.19Z" />
+        </g>
+        <g className="toggle-circle">
+          <circle className="cls-1" cx="236.2" cy="236.2" r="103.78" />
+        </g>
+      </svg>
+    </div>
+  )
+}
+
 function PCNavMenu(props: PCNavMenuProps) {
   return (
-    <div className='ml-auto'>
-      <button onClick={props.themeFunc}>
-        Theme
+    <div className='ml-auto flex content-center align-middle items-center justify-center'>
+      <button onClick={props.themeFunc} className={props.themeState ? "light-theme" : "dark-theme"}>
+        <Ticon/>
       </button>
       <NavLink
         to='/'
@@ -63,7 +88,7 @@ function PCHeader(props: PCNavMenuProps) {
     <div className='fixed top-0 w-screen bg-ctp-base z-20'>
       <div className={vars.textSizesLG + tabletPCStyle + 'font-bebasNeue'}>
       <PCLogo />
-      <PCNavMenu themeFunc={props.themeFunc}/>
+      <PCNavMenu themeFunc={props.themeFunc} themeState={props.themeState}/>
       </div>
     </div>
   )
@@ -208,7 +233,7 @@ function MobileNavbar(props: HeaderClassProps) {
 export function Header(props: HeaderClassProps) {
   return (
     <div className='bg-ctp-base text-ctp-text'>
-      <PCHeader themeFunc={props.themeFunc}/>
+      <PCHeader themeFunc={props.themeFunc} themeState={props.themeState}/>
       <MobileNavbar
         state={props.state}
         funcState={props.funcState}

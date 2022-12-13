@@ -116,7 +116,7 @@ function PageContent({state}: any) {
 export function About(props: GenericStateProps) {
   return (
     <div className='flex flex-col bg-ctp-mantle md:bg-ctp-mantle min-h-screen text-ctp-text'>
-      <Header state={props.state} funcState={props.funcState} title="Sobre" themeFunc={props.themeFunc} />
+      <Header state={props.state} funcState={props.funcState} title="Sobre" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
