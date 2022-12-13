@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import {
   ContentWrapper,
@@ -25,12 +25,41 @@ function App() {
     console.info('Hamburguer Button State: ' + active)
   }
 
-  const [themeState, setTheme] = useState<boolean>(false)
-  function handleTheme() {
-    console.log('theme: ' + themeState)
-    setTheme(!themeState)
+
+  const getCurrentTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
+  let themeState: boolean;
+
+  const useThemeDetector = () => {
+    const mqListener = ((e: { matches: boolean | ((prevState: boolean) => boolean) }) => {
+        setIsDarkTheme(e.matches);
+        e.matches ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light')
+    });
+
+    useEffect(() => {
+      const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+      darkThemeMq.addListener(mqListener);
+      return () => darkThemeMq.removeListener(mqListener);
+    }, []);
+    return !isDarkTheme;
   }
 
+  function handleTheme() {
+    setIsDarkTheme(!isDarkTheme)
+    !isDarkTheme ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light')
+  }
+
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    themeState = false
+  } else {
+    themeState = true
+  }
+
+  if (localStorage.theme == null) {
+    useThemeDetector() ? localStorage.setItem('theme', 'light') : localStorage.setItem('theme', 'dark')
+  } else {
+    themeState = localStorage.theme == 'dark' ? false : true
+  }
 
   return (
     <MainWrapper theme={themeState} state={active}>

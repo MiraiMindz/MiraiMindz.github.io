@@ -9,32 +9,32 @@
 /* Track */
 
 ::-webkit-scrollbar-track {
-  background: #2E3440;
+  background: #7f849c;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background: #3B4252;
+  background: #6c6f85;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #434C5E;
+  background: #5c5f77;
 }
 
 /* ================= */
 
 ::-moz-selection {
   /* Code for Firefox */
-  color: #2e3440;
-  background: #b48ead;
+  color: #1e1e2e;
+  background: #89b4fa;
 }
 
 ::selection {
-  color: #2e3440;
-  background: #b48ead;
+  color: #1e1e2e;
+  background: #89b4fa;
 }
 
 /* Dividers */
@@ -1512,6 +1512,10 @@ video {
 
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
