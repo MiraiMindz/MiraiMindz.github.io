@@ -3,13 +3,17 @@ import { NavLink } from 'react-router-dom';
 import { Footer } from '../../../components/Footer/Footer';
 import { Header } from '../../../components/Header/Header';
 import { FooterWrapper } from '../../../components/Wrappers/FlowWrappers';
-import { ChapterCardProps, GenericStateProps } from '../../../utils/interfaces';
+import { ChapterCardProps, ClassesIndexStateProps, ClassMenuProps, GenericStateProps, PageClassMenuProps } from '../../../utils/interfaces';
+import { classProgress } from '../../../utils/types';
 import * as vars from '../../../utils/variables';
 
 
 
 function ChapterCard(props: ChapterCardProps) {
   let status;
+  let border;
+  let capIdxBG;
+
   if (props.state == 2) {
     status = <span className="text-ctp-green font-bebasNeue">Completo</span>
   } else if (props.state == 1) {
@@ -17,12 +21,21 @@ function ChapterCard(props: ChapterCardProps) {
   } else {
     status = <span className="text-ctp-red font-bebasNeue">Não iniciado</span>
   }
+
+  if (props.userCompleted) {
+    border = ' border-ctp-green '
+    capIdxBG = ' bg-ctp-green '
+  } else {
+    border = ' border-ctp-text '
+    capIdxBG = ' bg-ctp-text '
+  }
+
   return (
     <NavLink to={props.link}>
-      <div className={'hover:scale-110 transition-all border-2 border-ctp-text rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      <div className={'hover:scale-110 transition-all border-2 rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
           <h1 className={vars.textSizesBASE + "font-bebasNeue"}>{props.title}</h1>
-          <div className="rounded-full bg-ctp-text w-6 h-6 font-bebasNeue">
+          <div className={capIdxBG + "rounded-full w-6 h-6 font-bebasNeue"}>
             <h1 className="text-ctp-mantle text-center">{props.chapter}</h1>
           </div>
         </div>
@@ -32,7 +45,7 @@ function ChapterCard(props: ChapterCardProps) {
           </p>
         </div>
         <div className={vars.textSizesSM + "font-bebasNeue"}>
-          <p>Status: {status}</p>
+          <p>Desenvolvimento: {status}</p>
         </div>
       </div>
     </NavLink>
@@ -64,14 +77,14 @@ function ChapterCardMobile(props: ChapterCardProps) {
           </p>
         </div>
         <div className={vars.textSizesSM + "font-bebasNeue"}>
-          <p>Status: {status}</p>
+          <p>Desenvolvimento: {status}</p>
         </div>
       </div>
     </NavLink>
   )
 }
 
-function MDContent() {
+function MDContent(props: ClassMenuProps) {
   return (
     <div className="hidden md:block">
       <h1 className={vars.textSizes3XL + 'font-bebasNeue text-center'}>Python Lessons</h1>
@@ -89,6 +102,7 @@ function MDContent() {
               link="/classes/pyless/1"
               state={2}
               blocked={false}
+              userCompleted={props.classesArray?.includes(1)}
             />
             <ChapterCard
               chapter={2}
@@ -97,6 +111,7 @@ function MDContent() {
               link="/classes/pyless/2"
               state={2}
               blocked={false}
+              userCompleted={props.classesArray?.includes(2)}
             />
             <ChapterCard
               chapter={3}
@@ -105,6 +120,7 @@ function MDContent() {
               link="/classes/pyless/3"
               state={2}
               blocked={false}
+              userCompleted={props.classesArray?.includes(3)}
             />
             <ChapterCard
               chapter={4}
@@ -601,20 +617,34 @@ function PhoneContent() {
   )
 }
 
-function PageContent({state}: any) {
+function PageContent(props: PageClassMenuProps) {
   return (
-    <div className={(state ? "blur-sm" : "pt-0 md:pt-16 min-h-screen grow")}>
-      <MDContent />
+    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-16 min-h-screen grow")}>
+      <MDContent classesArray={props.classesArray}/>
       <PhoneContent />
     </div>
   )
 }
 
-export function PylessIndex(props: GenericStateProps) {
+export function PylessIndex(props: ClassesIndexStateProps) {
+  // let arr: Array<number> | any;
+
+  // if (props.classProgressArray != undefined) {
+  //   for (let i = 0 ; i < props.classProgressArray.length; i++) {
+  //     if (props.classProgressArray[i].ClassName == 'pyless') {
+  //       arr = props.classProgressArray[i].CompletedClasses;
+  //       break;
+  //     }
+  //   }
+  // }
+
+
+
+
   return (
     <div className='flex flex-col bg-ctp-base text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Python" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
-      <PageContent state={props.state} />
+      <PageContent state={props.state}/>
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
       </FooterWrapper>

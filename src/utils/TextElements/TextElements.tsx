@@ -5,7 +5,6 @@ import java from 'react-syntax-highlighter/dist/esm/languages/hljs/java';
 import ptext from 'react-syntax-highlighter/dist/esm/languages/hljs/plaintext';
 import py from 'react-syntax-highlighter/dist/esm/languages/hljs/python';
 import nasm from 'react-syntax-highlighter/dist/esm/languages/hljs/x86asm';
-import nord from 'react-syntax-highlighter/dist/esm/styles/hljs/nord';
 import catpuccinLatte from '../SyntaxHighlighterColors/catpuccinLatte';
 import catpuccinMocha from '../SyntaxHighlighterColors/catpuccinMocha';
 import * as vars from '../variables';
@@ -68,7 +67,7 @@ export function CodeBlock(props: CodeBlockProps) {
       </SyntaxHighlighter>
     </div>
     <div className={vars.textSizesSM + "border-2 rounded-lg p-1 font-firaCode border-ctp-blue overflow-auto scroll-smooth block md:hidden bg-ctp-mantle"}>
-      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : nord} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
+      <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
         {props.children}
       </SyntaxHighlighter>
     </div>
@@ -78,7 +77,7 @@ export function CodeBlock(props: CodeBlockProps) {
 
 export function CodeCite({text}: any) {
   return (
-    <span className={vars.textSizesXS + "bg-ctp-surface0 px-1 rounded-md font-firaCode not-italic"}>
+    <span className={vars.textSizesXS2 + "bg-ctp-surface0 px-1 rounded-md font-firaCode not-italic"}>
       {text}
     </span>
   )

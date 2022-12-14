@@ -36,7 +36,7 @@ function PyLessCard() {
         Recomendado para iniciantes em programação, aprenda desde o básico ao avançado construindo 11 projetos do zero.
         </p>
         <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-          Status: <span className='text-ctp-yellow'>em progresso...</span>
+          Desenvolvimento: <span className='text-ctp-yellow'>em progresso...</span>
         </p>
       </div>
       </BaseCard>
@@ -51,7 +51,7 @@ function PyLessCard() {
           Recomendado para iniciantes em programação, aprenda desde o básico ao avançado construindo 11 projetos do zero.
           </p>
           <p className='font-bebasNeue mt-2'>
-            Status: <span className='text-ctp-yellow'>em progresso...</span>
+            Desenvolvimento: <span className='text-ctp-yellow'>em progresso...</span>
           </p>
         </div>
       </BaseCardMobile>
@@ -73,7 +73,7 @@ function GoLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-ctp-red'>Não Iniciado.</span>
+            Desenvolvimento: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCard>
@@ -88,7 +88,7 @@ function GoLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-ctp-red'>Não Iniciado.</span>
+            Desenvolvimento: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCardMobile>
@@ -110,7 +110,7 @@ function NASMLessCard() {
             Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-ctp-red'>Não Iniciado.</span>
+            Desenvolvimento: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCard>
@@ -125,7 +125,7 @@ function NASMLessCard() {
           Descrição.
           </p>
           <p className='font-bebasNeue mt-2 bottom-0 absolute'>
-            Status: <span className='text-ctp-red'>Não Iniciado.</span>
+            Desenvolvimento: <span className='text-ctp-red'>Não Iniciado.</span>
           </p>
         </div>
       </BaseCardMobile>

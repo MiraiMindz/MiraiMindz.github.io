@@ -1,13 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GenericStateProps, HeaderClassProps, HeaderProps, MobileMenuProps, PCNavMenuProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
 import { TiltDivider1Mobile } from '../Dividers/TiltDividers'
 import innerCircle from './innerCircle.svg'
 import SunRays from './SunRays.svg'
-
-
-
 
 const tabletPCStyle = 'hidden justify-between p-4 md:flex '
 const mobileStyle = ' md:hidden '
@@ -38,11 +35,6 @@ function HamburguerMenu(props: GenericStateProps) {
   )
 }
 
-// function TogglerIcon() {
-//   return (
-//   )
-// }
-
 function Ticon() {
   return (
     <div className='w-8 h-8 rounded-full p-0.5 border-2 fill-ctp-base border-ctp-base bg-ctp-text'>
@@ -61,7 +53,7 @@ function Ticon() {
 function PCNavMenu(props: PCNavMenuProps) {
   return (
     <div className='ml-auto flex content-center align-middle items-center justify-center'>
-      <button onClick={props.themeFunc} className={props.themeState ? "light-theme" : "dark-theme"}>
+      <button onClick={props.themeFunc} className={(props.themeState ? "light-theme" : "dark-theme") + ' mr-1.5'}>
         <Ticon/>
       </button>
       <NavLink
@@ -118,11 +110,6 @@ function MobileMenu(props: MobileMenuProps) {
     checkSums = false
   }
 
-  console.log("checkSums: " + checkSums)
-  console.log("checkCaps: " + checkCaps)
-  console.log("capState: " + capState)
-  console.log("sumState: " + sumState)
-
   return (
     <div
       className={
@@ -130,39 +117,44 @@ function MobileMenu(props: MobileMenuProps) {
         'w-screen h-screen flex-col justify-center items-center overflow-auto bg-ctp-base' +
         (props.state ? ' flex' : ' hidden')
       }>
-      <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
-      <NavLink
-        to='/'
-        className={navMenuLinkStyle}
-        onClick={props.funcState}>
-        Início
-      </NavLink>
-      </div>
-      <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
-      <NavLink
-        to='/about'
-        className={navMenuLinkStyle}
-        onClick={props.funcState}>
-        Sobre
-      </NavLink>
+      <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-2 block absolute top-8'}>
+        <button onClick={props.leftFunc}>
+          {'Modo ' + (props.leftState ? 'Destro' : 'Canhoto')}
+        </button>
       </div>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
         <NavLink
-          to='/classes'
+          to='/'
           className={navMenuLinkStyle}
           onClick={props.funcState}>
-          Aulas
+          Início
         </NavLink>
+      </div>
+      <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
+        <NavLink
+          to='/about'
+          className={navMenuLinkStyle}
+          onClick={props.funcState}>
+          Sobre
+        </NavLink>
+      </div>
+      <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
+          <NavLink
+            to='/classes'
+            className={navMenuLinkStyle}
+            onClick={props.funcState}>
+            Aulas
+          </NavLink>
       </div>
 
       <div className={checkCaps ? "block" : "hidden"}>
-      <button onClick={handleCapState} className={sumState ? 'hidden' : capState ? "block" : "my-8 block"}>
+      <button onClick={handleCapState} className={sumState ? 'hidden' : capState ? "block" : "mt-12 mb-4 block"}>
         {capState ? "Voltar" : "Capitulos"}
       </button>
       </div>
 
       <div className={checkSums ? "block" : "hidden"}>
-        <button onClick={handleSumState} className={capState ? 'hidden' : sumState ? "block" : "my-8 block"}>
+        <button onClick={handleSumState} className={capState ? 'hidden' : sumState ? "block" : "my-4 block"}>
           {sumState ? "Voltar" : "Sumário"}
         </button>
       </div>
@@ -182,26 +174,35 @@ function MobileMenu(props: MobileMenuProps) {
   )
 }
 
-function MobileHeader(props: HeaderProps) {
+function MobileHeader(props: HeaderClassProps) {
+  let leftComponent;
+  let rightComponent;
+  if (props.leftState) {
+    leftComponent = <div className='h-8 w-8 flex flex-row justify-center mb-2'><HamburguerMenu funcState={props.funcState} state={props.state}/></div>
+    rightComponent = <button onClick={props.themeFunc} className={props.themeState ? "light-theme" : "dark-theme"}><Ticon/></button>
+  } else {
+    rightComponent = <div className='h-8 w-8 flex flex-row justify-center mb-2'><HamburguerMenu funcState={props.funcState} state={props.state}/></div>
+    leftComponent = <button onClick={props.themeFunc} className={props.themeState ? "light-theme" : "dark-theme"}><Ticon/></button>
+  }
   return (
     <div
       className={
         (props.state ? 'bg-transparent' : '') +
         ' bottom-0 fixed w-full'
       }>
-      <div className='grid grid-rows-2'>
+      <div className={props.state ? 'mb-1.5' : 'grid grid-rows-2'}>
         <div className={(props.state ? 'hidden ' : 'block ') + 'row-start-1 row-end-1'}>
           <TiltDivider1Mobile/>
         </div>
-        <div className={(props.state ? 'mb-4 bg-transparent ' : 'bg-ctp-base ') + 'row-start-2 row-end-2 grid grid-cols-3'}>
-          <div className={(props.state ? '-mb-1 ' : '') + 'col-start-1 col-end-1 mt-auto mb-auto pl-8'}>
-            <HamburguerMenu
-              funcState={props.funcState}
-              state={props.state}
-            />
+        <div className={(props.state ? 'bg-transparent bottom-0 ' : 'bg-ctp-surface0 ') + 'flex flex-row justify-between items-center px-6'}>
+          <div>
+            {leftComponent}
           </div>
-          <div className={(props.state ? '-mb-3 ' : '') + 'col-start-2 col-end-2 mt-auto mb-auto text-center'}>
+          <div className='text-center h-fit'>
             <h1 className='text-4xl'>{props.state ? 'Mirai' : props.title}</h1>
+          </div>
+          <div>
+            {rightComponent}
           </div>
         </div>
       </div>
@@ -210,6 +211,19 @@ function MobileHeader(props: HeaderProps) {
 }
 
 function MobileNavbar(props: HeaderClassProps) {
+  const [leftHanded, setLeftHanded] = useState<boolean>(false);
+
+  function handleLeftHanded() {
+    setLeftHanded(!leftHanded)
+    !leftHanded ? localStorage.setItem('leftHanded', 'on') : localStorage.setItem('leftHanded', 'off')
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('leftHanded') == 'on') {
+      setLeftHanded(true)
+    }
+  }, [])
+
   return (
     <div
       className={
@@ -219,12 +233,17 @@ function MobileNavbar(props: HeaderClassProps) {
         funcState={props.funcState}
         state={props.state}
         title={props.title}
+        themeState={props.themeState}
+        themeFunc={props.themeFunc}
+        leftState={leftHanded}
       />
       <MobileMenu
         state={props.state}
         funcState={props.funcState}
         caps={props.caps}
         sums={props.sums}
+        leftFunc={handleLeftHanded}
+        leftState={leftHanded}
       />
     </div>
   )
@@ -240,6 +259,8 @@ export function Header(props: HeaderClassProps) {
         title={props.title}
         caps={props.caps}
         sums={props.sums}
+        themeFunc={props.themeFunc}
+        themeState={props.themeState}
       />
     </div>
   )

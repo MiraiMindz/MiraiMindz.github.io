@@ -20,8 +20,8 @@ function refLinks(stateFunc?: any) {
 function ClassChapter1(props: ClassChapterProps) {
   const refsLink = props.refLinksList as any;
   return (
-    <div className={vars.textSizesLG}>
-      <h1 id="2" ref={refsLink[1]} className={vars.textSizes2XL + 'font-bebasNeue mb-4'}>
+    <div className={vars.textSizesLG2}>
+      <h1 id="2" ref={refsLink[1]} className={vars.textSizes2XL2 + 'font-bebasNeue mb-4'}>
         O que é programação?
       </h1>
       <div className="text-justify">
@@ -67,8 +67,8 @@ function ClassChapter1(props: ClassChapterProps) {
 function ClassChapter2(props: ClassChapterProps) {
   const refsLink = props.refLinksList as any;
   return (
-    <div className={vars.textSizesLG}>
-      <h1 id="3" ref={refsLink[2]} className={vars.textSizes2XL + 'font-bebasNeue mb-4'}>
+    <div className={vars.textSizesLG2}>
+      <h1 id="3" ref={refsLink[2]} className={vars.textSizes2XL2 + 'font-bebasNeue mb-4'}>
         Linguagens de programação e suas classificações
       </h1>
       <div className="text-justify mb-8">
@@ -180,7 +180,7 @@ function ClassChapter2(props: ClassChapterProps) {
 function TableOfContent() {
   return (
     <div className="w-80 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-20 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[81%] bg-ctp-base text-ctp-text">
-      <h1 className={vars.textSizesLG + "text-center"}>Tabela de Conteudos</h1>
+      <h1 className={vars.textSizesLG2 + "text-center"}>Tabela de Conteudos</h1>
       <div>
         <ToCLink linkHashID="1" title="Introdução a Programação" level={0}/>
         <ToCLink linkHashID="2" title="O que é programação?" level={1}/>
@@ -231,7 +231,7 @@ function CapSumm(props: CapSummProps) {
 function CapsSumPhone(props: CapsSumPhoneProps) {
   const refsFuncList = props.refsFuncList as any
   return (
-    <div className={vars.textSizes3XL + ''}>
+    <div className={vars.textSizes3XL2}>
       <ToCLink  linkRefFunc={refsFuncList[0]} title="Introdução a Programação" level={0}/>
       <ToCLink  linkRefFunc={refsFuncList[1]} title="O que é programação?" level={1}/>
       <ToCLink  linkRefFunc={refsFuncList[2]} title="Linguagens de programação e suas classificações" level={1}/>
@@ -311,7 +311,7 @@ function PageContent(props: PageContentProps) {
       </div>
 
       <div className='block md:hidden min-h-screen px-2'>
-        <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} />
+        <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} />
       </div>
 
     </div>

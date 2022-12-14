@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import { classProgress } from "./types";
 
 export interface GenericStateProps {
   state?: boolean | any;
@@ -7,6 +8,18 @@ export interface GenericStateProps {
   darkLightSwitch?: boolean | any,
 }
 
+export interface ClassesIndexStateProps extends GenericStateProps {
+  classProgressArray?: Array<classProgress> | any;
+  setClassArrs?: any,
+}
+
+export interface ClassMenuProps {
+  classesArray?: Array<number>;
+}
+
+export interface PageClassMenuProps extends ClassMenuProps {
+  state?: boolean;
+}
 
 export interface ArrowHeadProps {
   direction?: string | any;
@@ -74,14 +87,15 @@ export interface CodeBlockProps {
 }
 
 export interface HeaderProps extends GenericStateProps {
-  title: string | any
+  title: string | any,
 }
 
 export interface HeaderClassProps extends HeaderProps {
-  caps?: any | any,
-  sums?: any | any,
+  caps?: any,
+  sums?: any,
   themeFunc?: Function | any,
   themeState?: boolean |  any,
+  leftState?: boolean | any,
 }
 
 export interface PCNavMenuProps {
@@ -92,6 +106,8 @@ export interface PCNavMenuProps {
 export interface MobileMenuProps extends GenericStateProps {
   caps?: any,
   sums?: any,
+  leftFunc?: any,
+  leftState?: boolean,
 }
 
 export interface WrappersProps {
@@ -110,6 +126,7 @@ export interface ChapterCardProps {
   chapter: number | any,
   description: string | any,
   link: string | any,
+  userCompleted?: boolean | any,
 }
 
 export interface BaseCardProps {

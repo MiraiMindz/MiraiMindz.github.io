@@ -17,30 +17,30 @@ import { Home } from './pages/Home/Home'
 import { TestePage } from './pages/Test/Test'
 import './styles/main.css'
 import './styles/user.css'
+import { classProgress } from './utils/types'
 
 function App() {
   const [active, setActive] = useState<boolean>(false)
   function handleState() {
     setActive(!active)
-    console.info('Hamburguer Button State: ' + active)
   }
-
 
   const getCurrentTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
-  let themeState: boolean;
 
   const useThemeDetector = () => {
     const mqListener = ((e: { matches: boolean | ((prevState: boolean) => boolean) }) => {
         setIsDarkTheme(e.matches);
-        e.matches ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light')
+        e.matches ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
     });
-
     useEffect(() => {
       const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
       darkThemeMq.addListener(mqListener);
       return () => darkThemeMq.removeListener(mqListener);
     }, []);
+    if (localStorage.theme == null) {
+      isDarkTheme ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
+    }
     return !isDarkTheme;
   }
 
@@ -50,59 +50,57 @@ function App() {
   }
 
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeState = false
+    useEffect(() => {
+      setIsDarkTheme(true)
+    }, [])
   } else {
-    themeState = true
+    useEffect(() => {
+      setIsDarkTheme(false)
+    }, [])
   }
+  useThemeDetector();
 
-  if (localStorage.theme == null) {
-    useThemeDetector() ? localStorage.setItem('theme', 'light') : localStorage.setItem('theme', 'dark')
-  } else {
-    themeState = localStorage.theme == 'dark' ? false : true
-  }
-
-  
   return (
-    <MainWrapper theme={themeState} state={active}>
+    <MainWrapper theme={!isDarkTheme} state={active}>
       <ContentWrapper state={active}>
         <Routes>
           <Route
             index
-            element={<Home themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+            element={<Home themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
           />
           <Route
             path='about'
-            element={<About themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+            element={<About themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
           />
           <Route
             path='classes'
-            element={<Classes themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+            element={<Classes themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
           />
           <Route
               path='classes/pyless/'
-              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState}/>} />
+              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme}/> } />
           <Route
                   path='classes/pyless/1'
-                  element={<PyLess1 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+                  element={<PyLess1 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
                 />
           <Route
               path='classes/pyless/2'
-              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState}/>} />
+              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme}/>} />
           <Route
                   path='classes/pyless/3'
-                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
                 />
           <Route
                   path='classes/pyless/4'
-                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
                 />
           <Route
                   path='classes/pyless/5'
-                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
                 />
           <Route
             path='teste'
-            element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={themeState} />}
+            element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
           />
           <Route
             path='*'

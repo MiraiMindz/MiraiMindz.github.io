@@ -1,0 +1,5 @@
+
+/media/Arquivos/Programming/Projects/PersonalWebsite/MiraiMindz.github.io/src/App.tsx
+  59:5  error  React Hook "useThemeDetector" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+9:41  error    React Hook "useRef" is called in function "genRefs" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"                                                                                                                                                                         react-hooks/rules-of-hooks
