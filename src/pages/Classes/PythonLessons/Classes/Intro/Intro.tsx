@@ -307,7 +307,7 @@ function PageContent(props: PageContentProps) {
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-6 text-justify">
-          <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction}/>
+          <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
         </div>
         <div className="w-20">
           <CapSumm currCap={1} />
@@ -315,7 +315,7 @@ function PageContent(props: PageContentProps) {
       </div>
 
       <div className='block md:hidden min-h-screen px-2'>
-        <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} />
+        <ClassContent chapterTitle="Introdução a Programação" refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
       </div>
 
     </div>

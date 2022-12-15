@@ -116,7 +116,6 @@ function PhoneContent() {
 
 
 function PageContent({state}: any) {
-
   return (
     <div className={(state ? "blur-sm" : "") + " mt-0 md:mt-20 min-h-screen grow"}>
       <MDContent/>

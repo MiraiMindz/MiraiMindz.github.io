@@ -1498,10 +1498,6 @@ video {
   float: right;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .m-1 {
   margin: 0.25rem;
 }
@@ -1700,6 +1696,14 @@ video {
 
 .h-5 {
   height: 1.25rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .max-h-\[81\%\] {
@@ -1968,7 +1972,11 @@ video {
 }
 
 .bg-BG404 {
-  background-image: url('/404.svg');
+  background-image: url('/Backgrounds/PageNotFound.svg');
+}
+
+.bg-BG404Light {
+  background-image: url('/Backgrounds/PageNotFoundLight.svg');
 }
 
 .bg-\[length\:100px_150px\] {
@@ -2035,6 +2043,10 @@ video {
   padding: 0.25rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -2083,6 +2095,11 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 
 .pb-0 {
@@ -2145,8 +2162,16 @@ video {
   padding-left: 1rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
+.pb-0\.5 {
+  padding-bottom: 0.125rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -2412,12 +2437,12 @@ video {
     margin-bottom: 0px;
   }
 
-  .md\:mt-16 {
-    margin-top: 4rem;
-  }
-
   .md\:mt-20 {
     margin-top: 5rem;
+  }
+
+  .md\:mt-16 {
+    margin-top: 4rem;
   }
 
   .md\:mt-0 {
@@ -2538,12 +2563,12 @@ video {
     padding-left: 0px;
   }
 
-  .md\:pt-0 {
-    padding-top: 0px;
-  }
-
   .md\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 
   .md\:text-sm {

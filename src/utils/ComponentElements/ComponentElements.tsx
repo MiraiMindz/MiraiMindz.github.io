@@ -185,8 +185,8 @@ export function ChapterCard(props: ChapterCardProps) {
       <div className={'md:hover:scale-110 transition-all border-2 rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
           <h1 className={vars.textSizesBASE + "font-bebasNeue"}>{props.title}</h1>
-          <div className={capIdxBG + "rounded-full w-5 h-5 md:w-6 md:h-6 font-bebasNeue"}>
-            <h1 className="text-ctp-mantle text-center">{props.chapter}</h1>
+          <div className={capIdxBG + "rounded-full font-bebasNeue  w-6 h-6"}>
+            <h1 className="text-ctp-mantle text-center px-2">{props.chapter}</h1>
           </div>
         </div>
         <div>

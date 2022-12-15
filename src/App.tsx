@@ -131,7 +131,7 @@ function App() {
           />
           <Route
             path='*'
-            element={<Page404 />}
+            element={<Page404 darkLightSwitch={!isDarkTheme}/>}
           />
         </Routes>
       </ContentWrapper>

@@ -13,7 +13,8 @@ module.exports = {
         'xs': '475px',
       },
       backgroundImage: {
-        BG404: "url('/404.svg')",
+        BG404: "url('/Backgrounds/PageNotFound.svg')",
+        BG404Light: "url('/Backgrounds/PageNotFoundLight.svg')",
         bgAbout: "url('/Backgrounds/SobreMim.svg')",
         bgMirai: "url('/Backgrounds/Mirai.svg')",
         bgAboutLight: "url('/Backgrounds/SobreMimLight.svg')",

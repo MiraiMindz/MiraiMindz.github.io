@@ -7,6 +7,10 @@ export interface GenericStateProps {
   darkLightSwitch?: boolean | any,
 }
 
+export interface PageNotFoundProps {
+  darkLightSwitch?: boolean | any,
+}
+
 export interface ClassesIndexStateProps extends GenericStateProps {
   classProgressArray?: Array<number> | any;
   setClassArrs?: any,
