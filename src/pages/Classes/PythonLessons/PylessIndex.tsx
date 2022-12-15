@@ -1,10 +1,10 @@
 
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Footer } from '../../../components/Footer/Footer';
 import { Header } from '../../../components/Header/Header';
 import { FooterWrapper } from '../../../components/Wrappers/FlowWrappers';
 import { ChapterCardProps, ClassesIndexStateProps, ClassMenuProps, GenericStateProps, PageClassMenuProps } from '../../../utils/interfaces';
-import { classProgress } from '../../../utils/types';
 import * as vars from '../../../utils/variables';
 
 
@@ -638,13 +638,17 @@ export function PylessIndex(props: ClassesIndexStateProps) {
   //   }
   // }
 
-
-
+  let locStg:Array<number> = [];
+  if (localStorage.PylessClasses == null) {
+    localStorage.setItem('PylessClasses', props.classProgressArray.toString())
+  } else {
+    locStg = localStorage.getItem('PylessClasses')?.split(",").map(Number) as unknown as Array<number>;
+  }
 
   return (
     <div className='flex flex-col bg-ctp-base text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Python" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
-      <PageContent state={props.state}/>
+      <PageContent state={props.state} classesArray={locStg}/>
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
       </FooterWrapper>

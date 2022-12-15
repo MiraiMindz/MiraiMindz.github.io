@@ -1,5 +1,4 @@
 import { MouseEventHandler } from "react";
-import { classProgress } from "./types";
 
 export interface GenericStateProps {
   state?: boolean | any;
@@ -9,7 +8,7 @@ export interface GenericStateProps {
 }
 
 export interface ClassesIndexStateProps extends GenericStateProps {
-  classProgressArray?: Array<classProgress> | any;
+  classProgressArray?: Array<number> | any;
   setClassArrs?: any,
 }
 
@@ -28,6 +27,8 @@ export interface ArrowHeadProps {
 export interface BackNextChaptersProps {
   prevChapLink?: string | any,
   nextChapLink?: string | any,
+  markAsCompletedFunction?: any,
+  updateStateFunction?: any,
 }
 
 export interface CapSummProps {
@@ -52,6 +53,8 @@ export interface ClassContentProps {
   chapterTitle?: string | any,
   refLinksList?: Array<any> | any,
   darkLightSwitch?: boolean | any,
+  markAsCompletedFunction?: any,
+  updateStateFunction?: any,
 }
 
 export interface ClassChapterProps {
@@ -67,6 +70,8 @@ export interface PageContentProps {
   state?: boolean | any,
   refLinksList?: Array<any> | any,
   darkLightSwitch?: boolean | any,
+  markAsCompletedFunction?: any,
+  updateStateFunction?: any,
 }
 
 export interface ParagraphProps {

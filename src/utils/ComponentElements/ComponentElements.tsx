@@ -130,7 +130,7 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   }
 
   if (props.prevChapLink != "") {
-    prevChapComponent = <NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pr-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">{prevChapText}</span></h1></NavLink>
+    prevChapComponent = <button onClick={props.updateStateFunction}><NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pr-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">{prevChapText}</span></h1></NavLink></button>
     pcShown = true;
   } else {
     prevChapComponent = null;
@@ -138,7 +138,7 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   }
 
   if (props.nextChapLink != "") {
-    nxChapComponent = <NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pl-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink>
+    nxChapComponent = <button onClick={props.markAsCompletedFunction}><NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pl-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink></button>
     ncShown = true;
   } else {
     nxChapComponent = null;

@@ -13,11 +13,10 @@
   - [ ] Criar \[INCOMPLETO\]
   - [ ] Adicionar conteudo \[INCOMPLETO\]
   - [ ] Fazer versão mobile \[INCOMPLETO\]
-- [ ] Página Aulas \[EM PROGRESSO\]
+- [x] Página Aulas \[COMPLETO\]
   - [x] Adicionar mais seções \[COMPLETO\]
   - [x] Fazer versão mobile \[COMPLETO\]
-  - [ ] Adicionar progressividade e status per-user \[EM PROGRESSO\]
-    - [ ] Listas independentes per-class -> localStorage
+  - [x] Adicionar progressividade e status per-user \[COMPLETO\]
 - [ ] Funcionalidades Planejadas \[INCOMPLETO\]
   - [x] Alternador de temas e dark-light \[COMPLETO\]
     - [x] Consertar botão no primeiro inicio \[COMPLETO\]
