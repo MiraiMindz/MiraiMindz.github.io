@@ -9,7 +9,7 @@ import SunRays from './SunRays.svg'
 const tabletPCStyle = 'hidden justify-between p-4 md:flex '
 const mobileStyle = ' md:hidden '
 const navMenuLinkStyle =
-  ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 md:my-0 md:pt-1 text-ctp-text hover:text-ctp-base bg-ctp-base hover:bg-ctp-text'
+  ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 md:my-0 md:pt-1 text-ctp-text hover:text-ctp-base bg-ctp-crust md:bg-ctp-base hover:bg-ctp-text'
 
 
 function PCLogo() {
@@ -114,7 +114,7 @@ function MobileMenu(props: MobileMenuProps) {
     <div
       className={
         vars.textSizes4XL +
-        'w-screen h-screen flex-col justify-center items-center overflow-auto bg-ctp-base' +
+        'w-screen h-screen flex-col justify-center items-center overflow-auto bg-ctp-crust' +
         (props.state ? ' flex' : ' hidden')
       }>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-2 block absolute top-8'}>
@@ -194,7 +194,7 @@ function MobileHeader(props: HeaderClassProps) {
         <div className={(props.state ? 'hidden ' : 'block ') + 'row-start-1 row-end-1'}>
           <TiltDivider1Mobile/>
         </div>
-        <div className={(props.state ? 'bg-transparent bottom-0 ' : 'bg-ctp-surface0 ') + 'flex flex-row justify-between items-center px-6'}>
+        <div className={(props.state ? 'bg-transparent bottom-0 ' : 'bg-ctp-crust ') + 'flex flex-row justify-between items-center px-6'}>
           <div>
             {leftComponent}
           </div>

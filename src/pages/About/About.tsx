@@ -1,4 +1,4 @@
-import selfie from '/selfie.png'
+import selfie from '/assets/selfie.png'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { FooterWrapper } from '../../components/Wrappers/FlowWrappers'
@@ -11,7 +11,7 @@ const age = (new Date().getFullYear()) - 2005
 
 function Presentation() {
   return (
-    <div className='block'>
+    <div className='block m-1'>
       <div className='flex pt-16 justify-center content-center'>
       <img src={selfie} alt="selfie" className='rounded-full h-32 w-32 border-4 border-ctp-blue mr-8' />
       <h1 className={vars.textSizes2XL + 'font-leagueGothic h-fit mt-6 center-justified'}>
@@ -22,10 +22,14 @@ function Presentation() {
   )
 }
 
-function MDSection1() {
+interface SecProps {
+  lightDark?: boolean
+}
+
+function MDSection1(props: SecProps) {
   return (
     <div className='bg-ctp-base'>
-      <div className='md:bg-25% bg-repeat-x '> {/* bg-bgAbout */}
+      <div className={'md:bg-25% bg-repeat-x ' + (props.lightDark ? 'bg-bgAboutLight' : 'bg-bgAbout')}> {/* bg-bgAbout */}
       <Presentation/>
       <div className={vars.textSizesXL + 'mt-8 font-leagueGothic px-64 center-justified'}>
         <p>Nascido na cidade do Rio de Janeiro, sempre tive o sonho de mudar o mundo e anseio por aprendizado, por conta disso dediquei minha vida a adiquirir conhecimento, enquanto desenvolvia novas habilidades. Com uma vida marcada por desventuras hoje me encontro terminando o ensino-médio.</p>
@@ -35,89 +39,91 @@ function MDSection1() {
   )
 }
 
-function MDSec2Splitter() { // bg-[length:100px_150px]
+function MDSec2Splitter(props: SecProps) { // bg-[length:100px_150px]
   return (
-    <div className='md:bg-32 bg-repeat-x bg-bottom md:pt-32 bg-24 pt-14'>  {/* bg-bgMirai */}
+    <div className={'md:bg-32 bg-repeat-x bg-bottom md:pt-32 bg-24 pt-14 ' + (props.lightDark ? 'bg-bgMiraiLight' : 'bg-bgMirai')}>  {/* bg-bgMirai */}
       <div className="custom-shape-divider-bottom-1667492912">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill fill-ctp-mantle"></path>
+          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill fill-ctp-surface0"></path>
         </svg>
       </div>
     </div>
   )
 }
 
-function MDSection2() {
+function MDSection2(props: SecProps) {
   return (
     <div className={vars.textSizesXL}>
-      <MDSec2Splitter/>
-      <div className='bg-ctp-mantle'>
+      <MDSec2Splitter lightDark={props.lightDark}/>
+      <div className='bg-ctp-surface0'>
         <h1 className='relative -top-16 left-8 w-fit font-bebasNeue'>Porque voce se chama mirai?</h1>
         <div className='center-justified px-64 relative -top-12 font-leagueGothic'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut cumque mollitia esse quia quibusdam, quas suscipit vel ad at? Sequi non molestiae hic corporis dolore autem ab earum asperiores culpa.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas inventore iure saepe earum necessitatibus facere reprehenderit soluta nam in commodi fugiat, quia veniam eveniet, ut optio impedit, odio velit mollitia.</p>
+        <p>Mirai é o alter-ego criado por mim aos 16 anos para retornar com produção musical, inspirado no fato de amigos dizerem que "sou o futuro", foi durante a produção de uma música com temática japonêsa e significa "Futuro".</p>
         </div>
       </div>
     </div>
   )
 }
 
-function PhoneContentSec1() {
+function PhoneContentSec1(props: SecProps) {
   return (
     <div>
       <div className='mx-4'>
       <div className='flex justify-center align-middle content-center items-end py-4'>
-      <img src={selfie} alt="selfie" className='rounded-full h-32 w-32 border-4 border-frost-2' />
+      <img src={selfie} alt="selfie" className='rounded-full h-32 w-32 border-4 border-ctp-blue' />
       </div>
-      <div className='text-justify'>
+      <div className={vars.textSizes2XL + 'text-justify'}>
       <p>Nascido na cidade do Rio de Janeiro, sempre tive o sonho de mudar o mundo e anseio por aprendizado, por conta disso dediquei minha vida a adiquirir conhecimento, enquanto desenvolvia novas habilidades. Com uma vida marcada por desventuras hoje me encontro terminando o ensino-médio.</p>
       </div>
       </div>
       <div>
-      <MDSec2Splitter/>
+      <MDSec2Splitter lightDark={props.lightDark}/>
       </div>
-      <div className={vars.textSizes2XL + 'bg-ctp-mantle px-4'}>
+      <div className={vars.textSizes2XL + 'bg-ctp-surface0 px-4'}>
       <h1 className='relative -top-8 w-fit font-bebasNeue'>Porque voce se chama mirai?</h1>
         <div className='center-justified relative -top-8 font-leagueGothic'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut cumque mollitia esse quia quibusdam, quas suscipit vel ad at? Sequi non molestiae hic corporis dolore autem ab earum asperiores culpa.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas inventore iure saepe earum necessitatibus facere reprehenderit soluta nam in commodi fugiat, quia veniam eveniet, ut optio impedit, odio velit mollitia.</p>
+        <p>Mirai é o alter-ego criado por mim aos 16 anos para retornar com produção musical, inspirado no fato de amigos dizerem que "sou o futuro", foi durante a produção de uma música com temática japonêsa e significa "Futuro".</p>
         </div>
       </div>
     </div>
   )
 }
 
-function MDContent() {
+function MDContent(props: SecProps) {
   return (
     <div className='hidden md:block bg-ctp-base'>
-      <MDSection1/>
-      <MDSection2/>
+      <MDSection1 lightDark={props.lightDark}/>
+      <MDSection2 lightDark={props.lightDark}/>
     </div>
   )
 }
 
-function MobileContent() {
+function MobileContent(props: SecProps) {
   return (
     <div className='bg-ctp-base block md:hidden font-leagueGothic'>
-      <PhoneContentSec1 />
+      <PhoneContentSec1 lightDark={props.lightDark} />
     </div>
   )
 }
 
-function PageContent({state}: any) {
+interface TestProps extends SecProps{
+  state: boolean
+}
+
+function PageContent(props: TestProps) {
   return (
-    <div className={(state ? "blur-sm" : "pt-0 md:pt-16 z-10  min-h-screen grow")}>
-      <MDContent/>
-      <MobileContent/>
+    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-16  min-h-screen grow")}>
+      <MDContent lightDark={props.lightDark}/>
+      <MobileContent lightDark={props.lightDark}/>
     </div>
   )
 }
 
 export function About(props: GenericStateProps) {
   return (
-    <div className='flex flex-col bg-ctp-mantle md:bg-ctp-mantle min-h-screen text-ctp-text'>
+    <div className='flex flex-col bg-ctp-surface0 text-ctp-text'>
       <Header state={props.state} funcState={props.funcState} title="Sobre" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
-      <PageContent state={props.state} />
+      <PageContent state={props.state} lightDark={props.darkLightSwitch} />
       <FooterWrapper state={props.state}>
         <Footer state={props.state} funcState={undefined} />
       </FooterWrapper>

@@ -131,7 +131,7 @@ export interface ChapterCardProps {
   chapter: number | any,
   description: string | any,
   link: string | any,
-  userCompleted?: boolean | any,
+  userCompletedArray?: Array<number> | any,
 }
 
 export interface BaseCardProps {

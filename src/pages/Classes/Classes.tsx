@@ -4,6 +4,7 @@ import { Header } from '../../components/Header/Header'
 import { FooterWrapper } from '../../components/Wrappers/FlowWrappers'
 import { BaseCardProps, GenericStateProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
+import pyLogo from '/assets/ClassesLogos/Python8BitLogo.png';
 
 
 function BaseCard(props: BaseCardProps) {
@@ -26,7 +27,7 @@ function PyLessCard() {
   return (
     <div>
       <BaseCard blocked={false}>
-      <img className='w-20 h-20 float-right ml-4' src="Python8BitLogo.png" alt="Python8BitLogo" />
+      <img className='w-20 h-20 float-right ml-4' src={pyLogo} alt="Python8BitLogo" />
       <h1 className={vars.textSizesLG + 'font-bebasNeue text-center'}>Python Lessons</h1>
       <div className={vars.textSizesBASE + 'w-80 relative h-[9.5rem]'}>
         <p className='center-justified'>
@@ -41,7 +42,7 @@ function PyLessCard() {
       </div>
       </BaseCard>
       <BaseCardMobile blocked={false}>
-        <img className='w-16 h-16 float-right ml-4' src="Python8BitLogo.png" alt="Python8BitLogo" />
+        <img className='w-16 h-16 float-right ml-4' src={pyLogo} alt="Python8BitLogo" />
         <h1 className={vars.textSizes2XL + 'font-bebasNeue text-center'}>Python Lessons</h1>
         <div className={vars.textSizesBASE + ''}>
           <p className='center-justified'>
@@ -188,7 +189,7 @@ function PhoneContent() {
 
 function PageContent({state}: any) {
   return (
-    <div className={(state ? "blur-sm" : "") + " mt-0 md:mt-16 min-h-screen grow"}>
+    <div className={(state ? "blur-sm" : "") + " mt-0 md:mt-20 min-h-screen grow"}>
       <MDContent/>
       <PhoneContent/>
     </div>

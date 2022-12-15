@@ -14,8 +14,10 @@ module.exports = {
       },
       backgroundImage: {
         BG404: "url('/404.svg')",
-        bgAbout: "url('/AboutMeBG.svg')",
-        bgMirai: "url('/MiraiBG.svg')",
+        bgAbout: "url('/Backgrounds/SobreMim.svg')",
+        bgMirai: "url('/Backgrounds/Mirai.svg')",
+        bgAboutLight: "url('/Backgrounds/SobreMimLight.svg')",
+        bgMiraiLight: "url('/Backgrounds/MiraiLight.svg')",
       },
       backgroundSize: {
         'auto': 'auto',

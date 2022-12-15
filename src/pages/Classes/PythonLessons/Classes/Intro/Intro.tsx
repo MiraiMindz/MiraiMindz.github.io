@@ -284,7 +284,9 @@ function ClassContent(props: ClassContentProps) {
   const refsLink = props.refLinksList as any;
   return (
     <div>
+      <div className="mt-4 md:mt-0">
       <BackNextChapters nextChapLink="/classes/pyless/2" prevChapLink="/classes/pyless" markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
+      </div>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes3XL + "font-bebasNeue mt-2 text-center mb-4 hidden md:block"}>{props.chapterTitle}</h1>
       <h1 id="1" ref={refsLink[0]} className={vars.textSizes4XL + 'font-bebasNeue text-center mb-4 mt-2 block md:hidden'}>{props.chapterTitle}</h1>
       <ClassChapter1 refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch}/>

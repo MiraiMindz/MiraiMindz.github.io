@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { MutableRefObject, useRef } from "react"
 import * as vars from '../variables';
-import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps } from '../interfaces';
+import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps, ChapterCardProps } from '../interfaces';
 
 
 export function genRefs(stateFunc: Function): [MutableRefObject<any>, Function] {
@@ -154,5 +154,51 @@ export function BackNextChapters(props: BackNextChaptersProps) {
       {nxChapComponent}
       </div>
     </div>
+  )
+}
+
+export function ChapterCard(props: ChapterCardProps) {
+  let status;
+  let border;
+  let capIdxBG;
+
+  if (props.state == 2) {
+    status = <span className="text-ctp-green font-bebasNeue">Completo</span>
+  } else if (props.state == 1) {
+    status = <span className="text-ctp-yellow font-bebasNeue">Em progresso...</span>
+  } else {
+    status = <span className="text-ctp-red font-bebasNeue">Não iniciado</span>
+  }
+
+  if (props.userCompletedArray != undefined) {
+    if (props.userCompletedArray.includes(props.chapter)) {
+      border = ' border-ctp-green '
+      capIdxBG = ' bg-ctp-green '
+    } else {
+      border = ' border-ctp-text '
+      capIdxBG = ' bg-ctp-text '
+    }
+  }
+
+  return (
+    <NavLink to={props.link}>
+      <div className={'md:hover:scale-110 transition-all border-2 rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
+        <div className="flex flex-row justify-between">
+          <h1 className={vars.textSizesBASE + "font-bebasNeue"}>{props.title}</h1>
+          <div className={capIdxBG + "rounded-full w-5 h-5 md:w-6 md:h-6 font-bebasNeue"}>
+            <h1 className="text-ctp-mantle text-center">{props.chapter}</h1>
+          </div>
+        </div>
+        <div>
+          <p className={vars.textSizesSM}>
+            {props.description}
+          </p>
+        </div>
+        <div className={vars.textSizesSM + "font-bebasNeue"}>
+          <p>Desenvolvimento: {status}</p>
+        </div>
+      </div>
+    </NavLink>
+
   )
 }
