@@ -105,25 +105,25 @@ function App() {
           />
           <Route
               path='classes/pyless/'
-              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} classProgressArray={classesProgress}/> } />
+              element={<PylessIndex themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} classProgressArray={classesProgress} setClassArrs={setClassesProgress}/> } />
           <Route
                   path='classes/pyless/1'
                   element={<PyLess1 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
           <Route
               path='classes/pyless/2'
-              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme}/>} />
+              element={<PyLess2 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>} />
           <Route
                   path='classes/pyless/3'
-                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
+                  element={<PyLess3 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
           <Route
                   path='classes/pyless/4'
-                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
+                  element={<PyLess4 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
           <Route
                   path='classes/pyless/5'
-                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
+                  element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
           <Route
             path='teste'

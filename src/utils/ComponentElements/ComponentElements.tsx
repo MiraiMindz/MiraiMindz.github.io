@@ -21,18 +21,27 @@ export function genRefs(stateFunc: Function): [MutableRefObject<any>, Function] 
 }
 
 export function CapLink(props: CapLinkProps) {
+  function upState() {
+    if (props.markAsCompletedFunction != undefined) {
+      props.markAsCompletedFunction()
+    }
+  }
   return (
     <div>
-      <NavLink to={props.link} className="hidden md:block">
-        <h1 className={props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue pr-2" : "text-ctp-text hover:pr-2 transition-all"}>
-          {props.title}
-        </h1>
-      </NavLink>
-      <NavLink to={props.link} className="block md:hidden">
-      <h1 className={(props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue" : "text-ctp-text transition-all") + " pl-2"}>
-        {props.title}
-      </h1>
-    </NavLink>
+      <button onClick={upState}>
+        <NavLink to={props.link} className="hidden md:block">
+          <h1 className={props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue pr-2" : "text-ctp-text hover:pr-2 transition-all"}>
+            {props.title}
+          </h1>
+        </NavLink>
+      </button>
+      <button onClick={upState}>
+        <NavLink to={props.link} className="block md:hidden">
+          <h1 className={(props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue" : "text-ctp-text transition-all") + " pl-2"}>
+            {props.title}
+          </h1>
+        </NavLink>
+      </button>
     </div>
   )
 }
@@ -80,7 +89,7 @@ export function ToCLink(props: ToCLinkProps) {
         <button onClick={props.linkRefFunc}>{props.title}</button>
       </h1>
       <h1 className={levelIndent + "transition-all hover:text-ctp-blue hidden md:block"}>
-        <ScrollLink  to={props.linkHashID} spy={true} smooth={true}>{props.title}</ScrollLink>
+        <ScrollLink  to={props.linkHashID} spy={true} smooth={true}>{props.ToCID} {props.title}</ScrollLink>
       </h1>
     </div>
   )
@@ -111,7 +120,7 @@ export function ArrowHead(props: ArrowHeadProps) {
 
 export function CapsSumWrapper({children}: any) {
   return (
-    <div className={vars.textSizesLG + "w-20 font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-20 right-8 text-center max-h-[81%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none"}>
+    <div className={vars.textSizesLG + "max-w-[6rem] font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-20 right-8 text-center max-h-[80%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none block"}>
       {children}
     </div>
   )

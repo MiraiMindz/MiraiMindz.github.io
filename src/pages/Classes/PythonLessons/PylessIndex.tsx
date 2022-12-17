@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { Footer } from '../../../components/Footer/Footer';
 import { Header } from '../../../components/Header/Header';
 import { FooterWrapper } from '../../../components/Wrappers/FlowWrappers';
 import { ChapterCard } from '../../../utils/ComponentElements/ComponentElements';
+import { handleClassProg } from '../../../utils/handleClassProgress/handleClassProgress';
 import { ClassesIndexStateProps, ClassMenuProps, PageClassMenuProps } from '../../../utils/interfaces';
 import * as vars from '../../../utils/variables';
 
@@ -13,7 +15,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={1}
         title={"Introdução a Programação"}
-        description="Introdução a conceitos fundamentais de programação"
+        description="Introdução a conceitos fundamentais de programação."
         link="/classes/pyless/1"
         state={2}
         blocked={false}
@@ -22,7 +24,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={2}
         title="Fundamentos do Python - I"
-        description=""
+        description="Introdução aos conceitos fundamentais da linguagem."
         link="/classes/pyless/2"
         state={2}
         blocked={false}
@@ -31,7 +33,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={3}
         title="Fundamentos do Python - II"
-        description=""
+        description="Introdução aos conceitos básicos da linguagem."
         link="/classes/pyless/3"
         state={2}
         blocked={false}
@@ -40,7 +42,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={4}
         title="Programação Orientada a Objetos Básica"
-        description=""
+        description="Introdução ao paradigma de orientação a objetos."
         link="/classes/pyless/4"
         state={2}
         blocked={false}
@@ -49,7 +51,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={5}
         title="Erros"
-        description=""
+        description="Implementação e aplicação de erros e depuração."
         link="/classes/pyless/5"
         state={1}
         blocked={false}
@@ -58,7 +60,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={6}
         title="Arquivos"
-        description=""
+        description="Implementação e aplicação de arquivos e importações."
         link=""
         state={0}
         blocked={true}
@@ -67,7 +69,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={7}
         title="Databases"
-        description=""
+        description="Implementação e aplicação de bancos de dados."
         link=""
         state={0}
         blocked={true}
@@ -76,7 +78,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={8}
         title="Type-Hint"
-        description=""
+        description="Introdução a funcionalidade de tipagem estática da linguagem."
         link=""
         state={0}
         blocked={true}
@@ -85,7 +87,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={9}
         title="Funções nativas avançadas"
-        description=""
+        description="Aplicação de funções nativas a linguagem de específico."
         link=""
         state={0}
         blocked={true}
@@ -94,7 +96,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={10}
         title="Desenvolvimento avançado"
-        description=""
+        description="Aplicação de práticas de desenvolvimento avançadas."
         link=""
         state={0}
         blocked={true}
@@ -103,7 +105,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={11}
         title="Web Scraping"
-        description=""
+        description="Introdução a Web Scraping."
         link=""
         state={0}
         blocked={true}
@@ -112,7 +114,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={12}
         title="Automação de navegador com Selenium"
-        description=""
+        description="Intodução a automação básica na web."
         link=""
         state={0}
         blocked={true}
@@ -121,7 +123,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={13}
         title="Async Dev"
-        description=""
+        description="Aplicação de desenvolvimento assíncrono."
         link=""
         state={0}
         blocked={true}
@@ -130,7 +132,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={14}
         title="Virtualização"
-        description=""
+        description="Aplicação de ambientes virtuais (VENVs)."
         link=""
         state={0}
         blocked={true}
@@ -139,7 +141,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={15}
         title="Webdev Flask"
-        description=""
+        description="Introdução a desenvolvimento web usando Flask e Jango."
         link=""
         state={0}
         blocked={true}
@@ -148,7 +150,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={16}
         title="APIs"
-        description=""
+        description="Aplicação e desenvolvimento de APIs (Interfaces de Programação de Aplicativos)."
         link=""
         state={0}
         blocked={true}
@@ -157,7 +159,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={17}
         title="Decoradores"
-        description=""
+        description="Aprofundamento em decoradores."
         link=""
         state={0}
         blocked={true}
@@ -166,7 +168,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={18}
         title="Programação Orientada a Objetos Avançada"
-        description=""
+        description="Aprofundamento no paradigma de orientação a objetos."
         link=""
         state={0}
         blocked={true}
@@ -175,7 +177,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={19}
         title="Desenvolvimento de GUI com Tkinter"
-        description=""
+        description="Introdução ao desenvolvimento de interfaces gráficas com Tkinter."
         link=""
         state={0}
         blocked={true}
@@ -184,7 +186,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={20}
         title="Desenvolvimento de Interfaces Graficas"
-        description=""
+        description="Aprofundamento no desenvolvimento de GUIs."
         link=""
         state={0}
         blocked={true}
@@ -193,7 +195,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={21}
         title="Desenvolvimento Mobile"
-        description=""
+        description="Introdução ao desenvolvimento mobile usando Kivy."
         link=""
         state={0}
         blocked={true}
@@ -202,7 +204,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={22}
         title="Unit Tests"
-        description=""
+        description="Aplicação de testes de código."
         link=""
         state={0}
         blocked={true}
@@ -210,8 +212,8 @@ function Chapters(props: ClassMenuProps) {
       />
       <ChapterCard
         chapter={23}
-        title="Ciencia de Dados"
-        description=""
+        title="Ciência de Dados"
+        description="Introdução a ciência de dados."
         link=""
         state={0}
         blocked={true}
@@ -219,8 +221,8 @@ function Chapters(props: ClassMenuProps) {
       />
       <ChapterCard
         chapter={24}
-        title="Algoritmos, Estrutura de Dados e Machine Learning"
-        description=""
+        title="Algoritmos, Estrutura de Dados e Machine Learning."
+        description="Aprofundamento em ciência de dados"
         link=""
         state={0}
         blocked={true}
@@ -229,7 +231,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={25}
         title="Bibliotecas"
-        description=""
+        description="Explorando outras bibliotecas do PiP."
         link=""
         state={0}
         blocked={true}
@@ -238,7 +240,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={26}
         title="Documentação e Boas Praticas"
-        description=""
+        description="Aplicação de boas práticas de desenvolvimento."
         link=""
         state={0}
         blocked={true}
@@ -247,7 +249,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={27}
         title="Redes e Soquetes"
-        description=""
+        description="Introdução a Networking."
         link=""
         state={0}
         blocked={true}
@@ -256,7 +258,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={28}
         title="Criptografia"
-        description=""
+        description="Introdução a segurança de dados."
         link=""
         state={0}
         blocked={true}
@@ -265,7 +267,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={29}
         title="Cyber Segurança e Hacking Ético"
-        description=""
+        description="Introdução em segunrança cibernética."
         link=""
         state={0}
         blocked={true}
@@ -274,7 +276,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={30}
         title="Noções Avançadas de Programação"
-        description=""
+        description="Aprofundamento em conceitos avançados."
         link=""
         state={0}
         blocked={true}
@@ -283,7 +285,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={31}
         title="Game Dev"
-        description=""
+        description="Introdução a desenvolvimento de jogos usando PyGame."
         link=""
         state={0}
         blocked={true}
@@ -318,6 +320,10 @@ export function PylessIndex(props: ClassesIndexStateProps) {
   } else {
     locStg = localStorage.getItem('PylessClasses')?.split(",").map(Number) as unknown as Array<number>;
   }
+
+  useEffect(() => {
+    handleClassProg('PylessClasses', null, props.classProgressArray, props.setClassArrs)
+  }, [])
 
   return (
     <div className='flex flex-col bg-ctp-base text-ctp-text'>

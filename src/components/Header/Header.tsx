@@ -9,7 +9,7 @@ import SunRays from './SunRays.svg'
 const tabletPCStyle = 'hidden justify-between p-4 md:flex '
 const mobileStyle = ' md:hidden '
 const navMenuLinkStyle =
-  ' w-fit rounded-lg mx-0.5 pt-1.5 px-1.5 md:my-0 md:pt-1 text-ctp-text hover:text-ctp-base bg-ctp-crust md:bg-ctp-base hover:bg-ctp-text'
+  ' w-fit rounded-lg mx-0.5 px-1.5 md:my-0 text-ctp-text hover:text-ctp-base bg-ctp-crust md:bg-ctp-base hover:bg-ctp-text'
 
 
 function PCLogo() {
@@ -56,21 +56,27 @@ function PCNavMenu(props: PCNavMenuProps) {
       <button onClick={props.themeFunc} className={(props.themeState ? "light-theme" : "dark-theme") + ' mr-1.5'}>
         <Ticon/>
       </button>
-      <NavLink
-        to='/'
-        className={navMenuLinkStyle}>
-        Início
-      </NavLink>
-      <NavLink
-        to='/about'
-        className={navMenuLinkStyle}>
-        Sobre
-      </NavLink>
-      <NavLink
-        to='/classes'
-        className={navMenuLinkStyle}>
-        Aulas
-      </NavLink>
+      <button onClick={props.classCompState} className='pt-1.5 md:pt-1'>
+        <NavLink
+          to='/'
+          className={navMenuLinkStyle}>
+          Início
+        </NavLink>
+      </button>
+      <button onClick={props.classCompState} className='pt-1.5 md:pt-1'>
+        <NavLink
+          to='/about'
+          className={navMenuLinkStyle}>
+          Sobre
+        </NavLink>
+      </button>
+      <button onClick={props.classCompState} className='pt-1.5 md:pt-1'>
+        <NavLink
+          to='/classes'
+          className={navMenuLinkStyle}>
+          Aulas
+        </NavLink>
+      </button>
     </div>
   )
 }
@@ -80,7 +86,7 @@ function PCHeader(props: PCNavMenuProps) {
     <div className='fixed top-0 w-screen bg-ctp-base z-20'>
       <div className={vars.textSizesLG + tabletPCStyle + 'font-bebasNeue'}>
       <PCLogo />
-      <PCNavMenu themeFunc={props.themeFunc} themeState={props.themeState}/>
+      <PCNavMenu themeFunc={props.themeFunc} themeState={props.themeState} classCompState={props.classCompState}/>
       </div>
     </div>
   )
@@ -114,7 +120,7 @@ function MobileMenu(props: MobileMenuProps) {
     <div
       className={
         vars.textSizes4XL +
-        'w-screen h-screen flex-col justify-center items-center overflow-auto bg-ctp-crust' +
+        'w-screen h-screen flex-col justify-center items-center text-left overflow-auto bg-ctp-crust' +
         (props.state ? ' flex' : ' hidden')
       }>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-2 block absolute top-8'}>
@@ -123,28 +129,34 @@ function MobileMenu(props: MobileMenuProps) {
         </button>
       </div>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
-        <NavLink
-          to='/'
-          className={navMenuLinkStyle}
-          onClick={props.funcState}>
-          Início
-        </NavLink>
+        <button onClick={props.classCompState}>
+          <NavLink
+            to='/'
+            className={navMenuLinkStyle}
+            onClick={props.funcState}>
+            Início
+          </NavLink>
+        </button>
       </div>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
-        <NavLink
-          to='/about'
-          className={navMenuLinkStyle}
-          onClick={props.funcState}>
-          Sobre
-        </NavLink>
+        <button onClick={props.classCompState}>
+          <NavLink
+            to='/about'
+            className={navMenuLinkStyle}
+            onClick={props.funcState}>
+            Sobre
+          </NavLink>
+        </button>
       </div>
       <div className={capState ? 'hidden' : sumState ? 'hidden' : 'my-8 block'}>
+        <button onClick={props.classCompState}>
           <NavLink
             to='/classes'
             className={navMenuLinkStyle}
             onClick={props.funcState}>
             Aulas
           </NavLink>
+        </button>
       </div>
 
       <div className={checkCaps ? "block" : "hidden"}>
@@ -160,7 +172,7 @@ function MobileMenu(props: MobileMenuProps) {
       </div>
 
       <div className={sumState ? 'block' : 'hidden'}>
-        <div className='h-[40rem] w-screen overscroll-contain overflow-auto scroll-smooth pt-4 mb-24 flex flex-col justify-between items-center px-2'>
+        <div className='h-[40rem] w-screen overscroll-contain overflow-auto scroll-smooth pt-4 mb-24 block px-2'>
           {props.sums}
         </div>
       </div>
@@ -244,6 +256,7 @@ function MobileNavbar(props: HeaderClassProps) {
         sums={props.sums}
         leftFunc={handleLeftHanded}
         leftState={leftHanded}
+        classCompState={props.classCompState}
       />
     </div>
   )
@@ -252,7 +265,7 @@ function MobileNavbar(props: HeaderClassProps) {
 export function Header(props: HeaderClassProps) {
   return (
     <div className='bg-ctp-base text-ctp-text'>
-      <PCHeader themeFunc={props.themeFunc} themeState={props.themeState}/>
+      <PCHeader themeFunc={props.themeFunc} themeState={props.themeState} classCompState={props.classCompState} />
       <MobileNavbar
         state={props.state}
         funcState={props.funcState}
@@ -261,6 +274,7 @@ export function Header(props: HeaderClassProps) {
         sums={props.sums}
         themeFunc={props.themeFunc}
         themeState={props.themeState}
+        classCompState={props.classCompState}
       />
     </div>
   )

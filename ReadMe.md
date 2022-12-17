@@ -17,10 +17,12 @@
   - [x] Adicionar mais seções \[COMPLETO\]
   - [x] Fazer versão mobile \[COMPLETO\]
   - [x] Adicionar progressividade e status per-user \[COMPLETO\]
+  - [x] Aplicar Fonte Nova \[COMPLETO\]
 - [ ] Funcionalidades Planejadas \[INCOMPLETO\]
   - [x] Alternador de temas e dark-light \[COMPLETO\]
     - [x] Consertar botão no primeiro inicio \[COMPLETO\]
   - [ ] Estilizar e diminuir "monotonia" \[INCOMPLETO\]
   - [x] "Modo Canhoto" \[COMPLETO\]
-  - [ ] Questão das fontes no Mobile \[INCOMPLETO\]
+  - [x] Questão das fontes no Mobile \[COMPLETO\]
   - [ ] Questão dos tamanhos em telas largas (1600x900+) \[INCOMPLETO\]
+    - [x] Caps bugados em display grandes

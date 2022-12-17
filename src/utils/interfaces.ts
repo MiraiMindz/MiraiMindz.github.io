@@ -37,6 +37,8 @@ export interface BackNextChaptersProps {
 
 export interface CapSummProps {
   currCap?: number | any;
+  markAsCompletedFunction?: any,
+  updateStateFunction?: any,
 }
 
 export interface CapLinkProps {
@@ -44,6 +46,8 @@ export interface CapLinkProps {
   blocked?: boolean | any,
   link?: string | any,
   currentCap?: boolean | any,
+  markAsCompletedFunction?: Function,
+  updateStateFunction?: Function,
 }
 
 export interface ToCLinkProps {
@@ -51,6 +55,7 @@ export interface ToCLinkProps {
   linkHashID?: string | any,
   title: string | any,
   level?: number | any,
+  ToCID?: string | any,
 }
 
 export interface ClassContentProps {
@@ -76,10 +81,12 @@ export interface PageContentProps {
   darkLightSwitch?: boolean | any,
   markAsCompletedFunction?: any,
   updateStateFunction?: any,
+  cCap?: number | any,
+  capTitle?: string | any,
 }
 
 export interface ParagraphProps {
-  children: any | any,
+  children?: any | any,
   italic?: boolean | any,
   styleClasses?: string | any,
 }
@@ -93,6 +100,7 @@ export interface CodeBlockProps {
   language?: string | any,
   theme?: { [key: string]: React.CSSProperties } | any,
   darkLightSwitch?: boolean | any,
+  answer?: string | any,
 }
 
 export interface HeaderProps extends GenericStateProps {
@@ -105,11 +113,13 @@ export interface HeaderClassProps extends HeaderProps {
   themeFunc?: Function | any,
   themeState?: boolean |  any,
   leftState?: boolean | any,
+  classCompState?: Function | any,
 }
 
 export interface PCNavMenuProps {
   themeFunc?: MouseEventHandler | any,
   themeState?: boolean |  any,
+  classCompState?: Function | any,
 }
 
 export interface MobileMenuProps extends GenericStateProps {
@@ -117,6 +127,7 @@ export interface MobileMenuProps extends GenericStateProps {
   sums?: any,
   leftFunc?: any,
   leftState?: boolean,
+  classCompState?: Function | any,
 }
 
 export interface WrappersProps {
@@ -141,4 +152,9 @@ export interface ChapterCardProps {
 export interface BaseCardProps {
   children: any,
   blocked: boolean | any
+}
+
+export interface TableProps {
+  children?: any,
+  styleClasses?: string | any,
 }

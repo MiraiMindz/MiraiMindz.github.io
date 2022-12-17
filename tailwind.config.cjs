@@ -6,7 +6,7 @@ module.exports = {
         bebasNeue: ['Bebas Neue', 'cursive'],
         leagueGothic: ['League Gothic', 'sans-serif'],
         firaCode: ['Fira Code', 'monospace'],
-        pressStart: ['\"Press Start 2P\"', 'cursive'],
+        antonio: ['Antonio', 'sans-serif'],
     },
     extend: {
       screens: {
@@ -47,6 +47,10 @@ module.exports = {
       blur: {
         xs: '2px',
       },
+      listStyleType: {
+        square: 'square',
+        roman: 'upper-roman',
+      }
     },
   },
   plugins: [

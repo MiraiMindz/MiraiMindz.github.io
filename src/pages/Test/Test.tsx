@@ -2,7 +2,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { FooterWrapper } from "../../components/Wrappers/FlowWrappers";
 import { GenericStateProps, PageContentProps } from "../../utils/interfaces";
-import { CodeBlock } from "../../utils/TextElements/TextElements";
+import { CodeBlock, ListItem, OList, Table, TableBody, TableHead, TableRow, TdCell, ThCell } from "../../utils/TextElements/TextElements";
 import * as vars from '../../utils/variables';
 // import { catpuccinMocha } from './catpuccinMocha';
 
@@ -26,14 +26,67 @@ func main() {
     funcao_print_1()  // Aqui chamamos a primeira
 }`
 
+const goAnswer = `Função 2
+Função 1 ....................................................................................`
 
 
 function Content(props: PageContentProps) {
   return (
-    <div>
-      <CodeBlock language="go" darkLightSwitch={props.darkLightSwitch}>
-        {goCodeBlock01}
-      </CodeBlock>
+    <div className="flex justify-center items-center pt-16">
+      <div className="border-2 rounded-lg overflow-hidden border-ctp-overlay0">
+        <table>
+          <thead className="bg-ctp-mantle border-b border-ctp-overlay0">
+            <tr>
+              <th className="pt-1 px-4">Song</th>
+              <th className="pt-1 px-4">Artist</th>
+              <th className="pt-1 px-4">Year</th>
+            </tr>
+          </thead>
+          <tbody className="bg-ctp-crust">
+            <tr>
+              <td className="px-4">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+              <td className="px-4">Malcolm Lockyer</td>
+              <td className="px-4">1961</td>
+            </tr>
+            <tr>
+              <td className="px-4">Witchy Woman</td>
+              <td className="px-4">The Eagles</td>
+              <td className="px-4">1972</td>
+            </tr>
+            <tr>
+              <td className="px-4">Shining Star</td>
+              <td className="px-4">Earth, Wind, and Fire</td>
+              <td className="px-4">1975</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <ThCell>a</ThCell>
+            <ThCell>b</ThCell>
+            <ThCell>c</ThCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TdCell>d</TdCell>
+            <TdCell>e</TdCell>
+            <TdCell>f</TdCell>
+          </TableRow>
+          <TableRow>
+            <TdCell>g</TdCell>
+            <TdCell>h</TdCell>
+            <TdCell>i</TdCell>
+          </TableRow>
+          <TableRow>
+            <TdCell>j</TdCell>
+            <TdCell>k</TdCell>
+            <TdCell>l</TdCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </div>
   )
 }
