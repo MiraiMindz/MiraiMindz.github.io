@@ -22,7 +22,12 @@ SyntaxHighlighter.registerLanguage('plaintext', ptext);
 
 export function Table(props: TableProps) {
   return (
-    <div className={"border-2 rounded-lg overflow-hidden border-ctp-overlay0 my-4 w-fit " + props.styleClasses}>
+    <div className={`
+    border-2 rounded-lg overflow-hidden border-ctp-overlay0 w-fit
+    my-4  3xl:my-8 4xl:my-12
+    3xl:ml-auto
+    3xl:mr-auto `
+    + props.styleClasses}>
       <table>
         {props.children}
       </table>
@@ -32,7 +37,9 @@ export function Table(props: TableProps) {
 
 export function TableHead(props: TableProps) {
   return (
-    <thead className={"bg-ctp-mantle border-b border-ctp-overlay0 " + props.styleClasses}>
+    <thead className={`
+    bg-ctp-mantle border-b-2 border-ctp-overlay0
+    ` + props.styleClasses}>
       {props.children}
     </thead>
   )
@@ -57,7 +64,11 @@ export function TableRow(props: TableProps) {
 
 export function ThCell(props: TableProps) {
   return (
-    <th className={"py-0.5 px-4 text-center border-x border-ctp-overlay0 " + props.styleClasses}>
+    <th className={`
+    text-center border-x-1 border-ctp-overlay0
+    px-4      3xl:px-8  4xl:px-16
+    py-0.5    3xl:py-2  4xl:py-6
+    ` + props.styleClasses}>
       {props.children}
     </th>
   )
@@ -65,7 +76,11 @@ export function ThCell(props: TableProps) {
 
 export function TdCell(props: TableProps) {
   return (
-    <td className={"px-4 text-center border border-ctp-overlay0 pb-0.5 " + props.styleClasses}>
+    <td className={`
+    text-center border-1 border-ctp-overlay0
+    pb-0.5 3xl:pb-2 4xl:pb-6
+    px-4   3xl:px-8 4xl:px-16
+    ` + props.styleClasses}>
       {props.children}
     </td>
   )
@@ -73,7 +88,7 @@ export function TdCell(props: TableProps) {
 
 export function CitationBlock(props: CitationBlockProps) {
   return (
-    <div className='p-2 bg-ctp-surface0 rounded-lg italic mb-4'>
+    <div className='bg-ctp-surface0 rounded-lg italic mb-4 p-2 3xl:p-4 3xl:rounded-2xl 3xl:mb-8'>
       {props.children}
     </div>
   )
@@ -81,7 +96,7 @@ export function CitationBlock(props: CitationBlockProps) {
 
 export function Paragraph(props: ParagraphProps) {
   return (
-    <p className={(props.italic ? "italic" : "not-italic") + " pb-4 font-semibold " + props.styleClasses}>
+    <p className={(props.italic ? "italic" : "not-italic") + " pb-4 3xl:pb-8 font-semibold " + props.styleClasses}>
       {props.children}
     </p>
   )
@@ -94,7 +109,7 @@ interface ListProps {
 
 export function UList(props: ListProps) {
   return (
-    <ul className={(props.flat ? 'pl-1 md:pl-2' : 'pl-4 md:pl-8') + " list-disc pb-4"}>
+    <ul className={(props.flat ? 'pl-1 md:pl-2' : 'pl-4 md:pl-8') + " list-disc pb-4 3xl:pb-8"}>
       {props.children}
     </ul>
   )
@@ -102,7 +117,7 @@ export function UList(props: ListProps) {
 
 export function OList(props: ListProps) {
   return (
-    <ul className={(props.flat ? 'pl-1 md:pl-2' : 'pl-4 md:pl-8') + " list-decimal pb-4"}>
+    <ul className={(props.flat ? 'pl-1 md:pl-2' : 'pl-4 md:pl-8') + " list-decimal pb-4 3xl:pb-8"}>
       {props.children}
     </ul>
   )
@@ -110,7 +125,7 @@ export function OList(props: ListProps) {
 
 export function ListItem({children}: any) {
   return (
-    <li className='mb-1 font-semibold'>
+    <li className='mb-1 font-semibold 3xl:mb-4'>
       {children}
     </li>
   )
@@ -126,8 +141,8 @@ export function CodeBlock(props: CodeBlockProps) {
     color: "#6c7086",
   }
   return (
-  <div className="my-4 font-semibold">
-    <div className={vars.textSizesXS3 + "border-2 rounded-lg font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
+  <div className="my-4 font-semibold 3xl:my-8">
+    <div className={vars.textSizesXS3 + "border-2 3xl:border-5 rounded-lg font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
       <div className='p-1'>
         <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
           {props.children}
@@ -163,7 +178,7 @@ export function CodeBlock(props: CodeBlockProps) {
 
 export function CodeCite({text}: any) {
   return (
-    <span className={vars.textSizesXS2 + "bg-ctp-surface0 px-1 rounded-md font-firaCode not-italic font-semibold"}>
+    <span className={vars.textSizesSM2 + "bg-ctp-surface0 px-1 3xl:px-2 rounded-md font-firaCode not-italic font-semibold"}>
       {text}
     </span>
   )
@@ -178,7 +193,11 @@ interface MainTitleProps {
 export function MainTitle(props: MainTitleProps) {
   return (
     <div>
-      <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes3XL2 + "font-bebasNeue text-center mt-2 mb-4 hidden md:block"}>{props.chapterTitle}</h1>
+      <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes3XL2
+        + `font-bebasNeue text-center hidden md:block
+        md:mt-2 3xl:mt-6 4xl:mt-12
+        md:mb-4 3xl:mb-8 4xl:mb-16
+        `}>{props.chapterTitle}</h1>
       <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes4XL + 'font-bebasNeue text-center mb-4 mt-2 block md:hidden'}>{props.chapterTitle}</h1>
     </div>
   )
@@ -186,7 +205,7 @@ export function MainTitle(props: MainTitleProps) {
 
 export function SubTitle(props: MainTitleProps) {
   return (
-    <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes2XL2 + 'font-leagueGothic mb-4 border-b-2 w-fit pb-1 pr-2 border-ctp-text'}>
+    <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes2XL2 + 'font-leagueGothic mb-4 border-b-2 3xl:border-b-5 3xl:mb-8 w-fit 3xl:pb-4 pb-1 3xl:pr-8 pr-2 border-ctp-text'}>
         {props.chapterTitle}
     </h1>
   )

@@ -1,7 +1,7 @@
 import { Footer } from "../../../../../components/Footer/Footer"
 import { Header } from "../../../../../components/Header/Header"
 import { FooterWrapper } from "../../../../../components/Wrappers/FlowWrappers"
-import { CapsSumWrapper, CapLink, BackNextChapters, genRefs, ToCLink } from "../../../../../utils/ComponentElements/ComponentElements"
+import { CapsSumWrapper, CapLink, BackNextChapters, genRefs, ToCLink, ToCWrapper } from "../../../../../utils/ComponentElements/ComponentElements"
 import { handleClassProg } from "../../../../../utils/handleClassProgress/handleClassProgress"
 import { CapsSumPhoneProps, CapSummProps, ClassChapterProps, ClassContentProps, ClassesIndexStateProps, PageContentProps } from "../../../../../utils/interfaces"
 import { CodeBlock, CodeCite, ListItem, MainTitle, OList, Paragraph, SubTitle, Table, TableBody, TableHead, TableRow, TdCell, ThCell, UList } from "../../../../../utils/TextElements/TextElements"
@@ -951,7 +951,7 @@ function ClassChap2Subcap2S5S7(props: ClassChapterProps) {
       <Table>
         <TableHead>
           <TableRow>
-            <ThCell></ThCell>
+            <ThCell>Tipo</ThCell>
             <ThCell>Significado</ThCell>
           </TableRow>
         </TableHead>
@@ -1505,7 +1505,7 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className="w-80 max-w-sm font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-20 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[80%] bg-ctp-base text-ctp-text">
+    <ToCWrapper>
       <h1 className={vars.textSizesLG2 + "text-center"}>Tabela de Conteudos</h1>
       <div>
         <ToCLink ToCID=""         linkHashID="00" title="Fundamentos do Python I" level={0}/>
@@ -1558,7 +1558,7 @@ function TableOfContent() {
         <ToCLink ToCID="2.4.2."   linkHashID="47" title="Coerção" level={2}/>
         <ToCLink ToCID="2.5."     linkHashID="48" title="sum() & len()" level={1}/>
       </div>
-    </div>
+    </ToCWrapper>
   )
 }
 
@@ -1964,13 +1964,13 @@ function PageContent(props: PageContentProps) {
   return (
     <div className={(props.state ? "blur-sm" : '') + vars.pageContentBaseStyle}>
       <div className="px-8 relative hidden md:flex flex-row">
-        <div className="w-80 max-w-sm">
+        <div className={vars.ToCWrapperPad}>
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-6 text-justify">
           <ClassContent chapterTitle={props.capTitle} refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
         </div>
-        <div className="w-20 max-w-[6rem]">
+        <div className={vars.CapsWrapperPad}>
           <CapSumm currCap={props.cCap} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction}/>
         </div>
       </div>

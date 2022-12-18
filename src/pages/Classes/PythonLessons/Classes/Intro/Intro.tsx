@@ -1,7 +1,7 @@
 import { Footer } from "../../../../../components/Footer/Footer"
 import { Header } from "../../../../../components/Header/Header"
 import { FooterWrapper } from "../../../../../components/Wrappers/FlowWrappers"
-import { genRefs, ToCLink, CapsSumWrapper, CapLink, BackNextChapters } from "../../../../../utils/ComponentElements/ComponentElements"
+import { genRefs, ToCLink, CapsSumWrapper, CapLink, BackNextChapters, ToCWrapper } from "../../../../../utils/ComponentElements/ComponentElements"
 import { handleClassProg } from "../../../../../utils/handleClassProgress/handleClassProgress"
 import { CapsSumPhoneProps, CapSummProps, ClassChapterProps, ClassContentProps, ClassesIndexStateProps, PageContentProps } from "../../../../../utils/interfaces"
 import { CitationBlock, CodeBlock, CodeCite, ListItem, MainTitle, Paragraph, SubTitle, UList } from "../../../../../utils/TextElements/TextElements"
@@ -176,23 +176,14 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className={`
-    font-bebasNeue overscroll-contain overflow-auto
-    scroll-smooth max-h-[80%]fixed px-2 py-1 mr-2
-    bg-ctp-base text-ctp-text border-ctp-text
-    
-    left-8                  3xl:left-8        4xl:left-24
-    border-2                3xl:border-4      4xl:border-5
-    rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
-                md:top-16   3xl:top-20        4xl:top-40
-    ` + vars.ToCWrapperSize}>
+    <ToCWrapper>
       <h1 className={vars.textSizesLG2 + "text-center"}>Tabela de Conteudos</h1>
       <div className={vars.textSizesBASE2}>
         <ToCLink ToCID=""   linkHashID="1" title="Introdução a Programação" level={0}/>
         <ToCLink ToCID="1." linkHashID="2" title="O que é programação?" level={1}/>
         <ToCLink ToCID="2." linkHashID="3" title="Linguagens de programação e suas classificações" level={1}/>
       </div>
-    </div>
+    </ToCWrapper>
   )
 }
 

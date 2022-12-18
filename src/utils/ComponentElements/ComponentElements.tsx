@@ -30,7 +30,7 @@ export function CapLink(props: CapLinkProps) {
     <div>
       <button onClick={upState}>
         <NavLink to={props.link} className="hidden md:block">
-          <h1 className={props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue pr-2" : "text-ctp-text hover:pr-2 transition-all"}>
+          <h1 className={props.blocked ? "text-ctp-surface0 cursor-default" : props.currentCap ? "text-ctp-blue md:pr-2 2xl:pr-4 " : "text-ctp-text hover:pr-2 2xl:hover:pr-2 transition-all"}>
             {props.title}
           </h1>
         </NavLink>
@@ -50,37 +50,59 @@ export function ToCLink(props: ToCLinkProps) {
   let levelIndent;
   switch (props.level) {
     case 1:
-      levelIndent = "md:pl-1 md:hover:pl-2 ";
+      levelIndent = ` md:pl-1 md:hover:pl-2
+      3lx:pl-4 3xl:hover:pl-5
+      4xl:pl-4 4xl:hover:pl-8 `;
       break;
     case 2:
-      levelIndent = "md:pl-2 md:hover:pl-3 ";
+      levelIndent = ` md:pl-2 md:hover:pl-3
+      3lx:pl-5 3xl:hover:pl-6
+      4xl:pl-8 4xl:hover:pl-12 `;
       break;
     case 3:
-      levelIndent = "md:pl-3 md:hover:pl-4 ";
+      levelIndent = ` md:pl-3 md:hover:pl-4
+      3lx:pl-6 3xl:hover:pl-7
+      4xl:pl-12 4xl:hover:pl-16 `;
       break;
     case 4:
-      levelIndent = "md:pl-4 md:hover:pl-5 ";
+      levelIndent = ` md:pl-4 md:hover:pl-5
+      3lx:pl-7 3xl:hover:pl-8
+      4xl:pl-16 4xl:hover:pl-20 `;
       break;
     case 5:
-      levelIndent = "md:pl-5 md:hover:pl-6 ";
+      levelIndent = ` md:pl-5 md:hover:pl-6
+      3lx:pl-8 3xl:hover:pl-9
+      4xl:pl-20 4xl:hover:pl-24 `;
       break;
     case 6:
-      levelIndent = "md:pl-6 md:hover:pl-7 ";
+      levelIndent = ` md:pl-6 md:hover:pl-7
+      3lx:pl-9 3xl:hover:pl-10
+      4xl:pl-24 4xl:hover:pl-28 `;
       break;
     case 7:
-      levelIndent = "md:pl-7 md:hover:pl-8 ";
+      levelIndent = ` md:pl-7 md:hover:pl-8
+      3lx:pl-10 3xl:hover:pl-11
+      4xl:pl-28 4xl:hover:pl-32 `;
       break;
     case 8:
-      levelIndent = "md:pl-8 md:hover:pl-9 ";
+      levelIndent = ` md:pl-8 md:hover:pl-9
+      3lx:pl-11 3xl:hover:pl-12
+      4xl:pl-32 4xl:hover:pl-36 `;
       break;
     case 9:
-      levelIndent = "md:pl-9 md:hover:pl-10 ";
+      levelIndent = ` md:pl-9 md:hover:pl-10
+      3lx:pl-12 3xl:hover:pl-13
+      4xl:pl-36 4xl:hover:pl-40 `;
       break;
     case 10:
-      levelIndent = "md:pl-10 md:hover:pl-11 ";
+      levelIndent = ` md:pl-10 md:hover:pl-11
+      3lx:pl-13 3xl:hover:pl-14
+      4xl:pl-40 4xl:hover:pl-44 `;
       break;
     default:
-      levelIndent = "md:pl-0 md:hover:pl-1 ";
+      levelIndent = ` md:pl-0 md:hover:pl-1
+      3lx:pl-0 3xl:hover:pl-4
+      4xl:pl-0 4xl:hover:pl-4 `;
       break;
   }
   return ( //  <HashLink to={props.linkURL}>{props.title}</HashLink>
@@ -88,7 +110,7 @@ export function ToCLink(props: ToCLinkProps) {
       <h1 className="transition-all hover:text-ctp-blue block md:hidden text-justify">
         <button onClick={props.linkRefFunc}>{props.title}</button>
       </h1>
-      <h1 className={levelIndent + "transition-all hover:text-ctp-blue hidden md:block"}>
+      <h1 className={vars.textSizesBASE2 + levelIndent + " transition-all hover:text-ctp-blue hidden md:block"}>
         <ScrollLink  to={props.linkHashID} spy={true} smooth={true}>{props.ToCID} {props.title}</ScrollLink>
       </h1>
     </div>
@@ -108,8 +130,13 @@ export function ArrowHead(props: ArrowHeadProps) {
   } else {
     dirr = ""
   }
+  let size = `
+  md:w-6 md:h-6
+  3xl:w-10 3xl:h-10
+  4xl:w-16 4xl:h-16
+  `
   return (
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" className={dirr + "w-6 h-6"}>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" className={dirr + size}>
       <g>
         <path d="M42.8,944.2c-9.2,19.1-9.5,33.3-2.5,40.9c16.1,17.6,65.7-16.1,96.2-37.3l240.9-167.7c30.5-21.2,84.1-48.8,121.3-49.5c3.7-0.1,7.4,0,11.1,0c37.1,0.9,90.6,28.9,120.8,50.5l232.6,165.6c30.3,21.5,79.6,55.6,96.1,38c7.2-7.6,7.2-22-1.6-41.2L544.7,39.1c-17.6-38.5-46.7-38.8-65.1-0.7L42.8,944.2z"/>
       </g>
@@ -120,15 +147,15 @@ export function ArrowHead(props: ArrowHeadProps) {
 
 export function CapsSumWrapper({children}: any) {
   return (
-    <div className={vars.textSizesLG2 + `font-bebasNeue overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none block border-ctp-text
-    px-2 py-1 fixed
-    text-center max-h-[80%]
+    <div className={vars.CapsSumWrapperStyle}>
+      {children}
+    </div>
+  )
+}
 
-    right-8                 3xl:right-8       4xl:right-24
-    border-2                3xl:border-4      4xl:border-5
-    rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
-                md:top-16   3xl:top-20        4xl:top-40
-    ` + vars.CapsWrapperSize}>
+export function ToCWrapper({children}: any) {
+  return (
+    <div className={vars.TocWrapperStyle}>
       {children}
     </div>
   )
@@ -147,7 +174,7 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   }
 
   if (props.prevChapLink != "") {
-    prevChapComponent = <button onClick={props.updateStateFunction}><NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pr-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">{prevChapText}</span></h1></NavLink></button>
+    prevChapComponent = <button onClick={props.updateStateFunction}><NavLink to={props.prevChapLink}><h1 className={vars.textSizesXL2 + "font-bebasNeue hover:pr-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><ArrowHead direction="left"/><span className="pl-1 pt-0.5">{prevChapText}</span></h1></NavLink></button>
     pcShown = true;
   } else {
     prevChapComponent = null;
@@ -155,7 +182,7 @@ export function BackNextChapters(props: BackNextChaptersProps) {
   }
 
   if (props.nextChapLink != "") {
-    nxChapComponent = <button onClick={props.markAsCompletedFunction}><NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL + "font-bebasNeue hover:pl-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink></button>
+    nxChapComponent = <button onClick={props.markAsCompletedFunction}><NavLink to={props.nextChapLink}><h1 className={vars.textSizesXL2 + "font-bebasNeue hover:pl-6 transition-all fill-ctp-blue text-ctp-blue hover:text-ctp-sky hover:fill-ctp-sky flex items-center"}><span className="pr-1 pt-0.5">Proximo Capitulo</span><ArrowHead direction="right"/></h1></NavLink></button>
     ncShown = true;
   } else {
     nxChapComponent = null;
@@ -164,10 +191,10 @@ export function BackNextChapters(props: BackNextChaptersProps) {
 
   return (
     <div className="flex flex-row md:justify-center">
-      <div className={(pcShown ? (ncShown ? "mr-4" : "") : "hidden") + " flex flex-row justify-end w-64"}>
+      <div className={(pcShown ? (ncShown ? "mr-4" : "") : "hidden") + " flex flex-row justify-end w-64 3xl:w-96 4xl:w-132"}>
       {prevChapComponent}
       </div>
-      <div className={(ncShown ? (pcShown ? "ml-4" : "")  : "hidden") + " flex flex-row justify-start w-64"}>
+      <div className={(ncShown ? (pcShown ? "ml-4" : "")  : "hidden") + " flex flex-row justify-start w-64 3xl:w-96 4xl:w-132"}>
       {nxChapComponent}
       </div>
     </div>
