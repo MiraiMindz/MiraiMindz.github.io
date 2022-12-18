@@ -6,7 +6,7 @@ import { TiltDivider1Mobile } from '../Dividers/TiltDividers'
 import innerCircle from './innerCircle.svg'
 import SunRays from './SunRays.svg'
 
-const tabletPCStyle = 'hidden justify-between p-4 md:flex '
+const tabletPCStyle = 'hidden justify-between p-4 3xl:p-5 4xl:p-12 md:flex '
 const mobileStyle = ' md:hidden '
 const navMenuLinkStyle =
   ' w-fit rounded-lg mx-0.5 px-1.5 md:my-0 text-ctp-text hover:text-ctp-base bg-ctp-crust md:bg-ctp-base hover:bg-ctp-text'
@@ -37,7 +37,7 @@ function HamburguerMenu(props: GenericStateProps) {
 
 function Ticon() {
   return (
-    <div className='w-8 h-8 rounded-full p-0.5 border-2 fill-ctp-base border-ctp-base bg-ctp-text'>
+    <div className='w-8 h-8 md:w-8 md:h-8 3xl:w-10 3xl:h-10 4xl:w-16 4xl:h-16 rounded-full p-0.5 border-1 fill-ctp-base border-ctp-base bg-ctp-text'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.39 472.39">
         <g className="toggle-sun">
           <path d="M403.21,167V69.18H305.38L236.2,0,167,69.18H69.18V167L0,236.2l69.18,69.18v97.83H167l69.18,69.18,69.18-69.18h97.83V305.38l69.18-69.18Zm-167,198.17a129,129,0,1,1,129-129A129,129,0,0,1,236.2,365.19Z" />
@@ -83,8 +83,8 @@ function PCNavMenu(props: PCNavMenuProps) {
 
 function PCHeader(props: PCNavMenuProps) {
   return (
-    <div className='fixed top-0 w-screen bg-ctp-base z-20'>
-      <div className={vars.textSizesLG + tabletPCStyle + 'font-bebasNeue'}>
+    <div className='fixed top-0 w-screen bg-ctp-base z-20 md:h-16 3xl:h-20 4xl:h-40'>
+      <div className={vars.textSizesLG2 + tabletPCStyle + 'font-bebasNeue'}>
       <PCLogo />
       <PCNavMenu themeFunc={props.themeFunc} themeState={props.themeState} classCompState={props.classCompState}/>
       </div>
@@ -119,7 +119,7 @@ function MobileMenu(props: MobileMenuProps) {
   return (
     <div
       className={
-        vars.textSizes4XL +
+        vars.textSizes3XL2 +
         'w-screen h-screen flex-col justify-center items-center text-left overflow-auto bg-ctp-crust' +
         (props.state ? ' flex' : ' hidden')
       }>
@@ -239,7 +239,7 @@ function MobileNavbar(props: HeaderClassProps) {
   return (
     <div
       className={
-        vars.textSizesLG + mobileStyle + 'font-bebasNeue fixed z-10' // h-screen absolute inset-0 |  fixed z-10
+        vars.textSizesLG2 + mobileStyle + 'font-bebasNeue fixed z-10'
       }>
       <MobileHeader
         funcState={props.funcState}

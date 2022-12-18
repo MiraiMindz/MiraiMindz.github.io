@@ -127,7 +127,7 @@ export function CodeBlock(props: CodeBlockProps) {
   }
   return (
   <div className="my-4 font-semibold">
-    <div className={vars.textSizesXS + "border-2 rounded-lg font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
+    <div className={vars.textSizesXS3 + "border-2 rounded-lg font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
       <div className='p-1'>
         <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
           {props.children}
@@ -178,7 +178,7 @@ interface MainTitleProps {
 export function MainTitle(props: MainTitleProps) {
   return (
     <div>
-      <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes3XL + "font-bebasNeue text-center mt-2 mb-4 hidden md:block"}>{props.chapterTitle}</h1>
+      <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes3XL2 + "font-bebasNeue text-center mt-2 mb-4 hidden md:block"}>{props.chapterTitle}</h1>
       <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes4XL + 'font-bebasNeue text-center mb-4 mt-2 block md:hidden'}>{props.chapterTitle}</h1>
     </div>
   )

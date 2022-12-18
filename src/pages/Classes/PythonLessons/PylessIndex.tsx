@@ -168,7 +168,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={18}
         title="Programação Orientada a Objetos Avançada"
-        description="Aprofundamento no paradigma de orientação a objetos."
+        description="Aprofundamento em orientação a objetos."
         link=""
         state={0}
         blocked={true}
@@ -177,7 +177,7 @@ function Chapters(props: ClassMenuProps) {
       <ChapterCard
         chapter={19}
         title="Desenvolvimento de GUI com Tkinter"
-        description="Introdução ao desenvolvimento de interfaces gráficas com Tkinter."
+        description="Desenvolvimento de GUIs com Tkinter."
         link=""
         state={0}
         blocked={true}
@@ -297,11 +297,11 @@ function Chapters(props: ClassMenuProps) {
 
 function PageContent(props: PageClassMenuProps) {
   return (
-    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-20 min-h-screen grow")}>
+    <div className={(props.state ? "blur-sm" : '') + vars.pageContentBaseStyle}>
       <div className='pt-4 md:pt-0'>
-        <h1 className={vars.textSizes3XL + 'font-bebasNeue text-center'}>Python Lessons</h1>
+        <h1 className={vars.textSizes3XL2 + 'font-bebasNeue text-center'}>Python Lessons</h1>
         <div className={'font-leagueGothic flex flex-col justify-between px-2 md:px-16'}>
-          <div className={vars.textSizesLG + 'center-justified'}>
+          <div className={vars.textSizesXL2 + 'center-justified mt-4'}>
             <p>
             Esse curso foi feito para ajudar uns amigos a entrarem nesse mundo de tecnologia e também como uma forma de armazenar meu conhecimento na area.
             </p>

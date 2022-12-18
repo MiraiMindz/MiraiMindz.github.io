@@ -176,9 +176,18 @@ function ClassChapter2(props: ClassChapterProps) {
 
 function TableOfContent() {
   return (
-    <div className="w-80 max-w-sm font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 mr-2 fixed top-20 left-8 overscroll-contain overflow-auto scroll-smooth max-h-[80%] bg-ctp-base text-ctp-text">
+    <div className={`
+    font-bebasNeue overscroll-contain overflow-auto
+    scroll-smooth max-h-[80%]fixed px-2 py-1 mr-2
+    bg-ctp-base text-ctp-text border-ctp-text
+    
+    left-8                  3xl:left-8        4xl:left-24
+    border-2                3xl:border-4      4xl:border-5
+    rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
+                md:top-16   3xl:top-20        4xl:top-40
+    ` + vars.ToCWrapperSize}>
       <h1 className={vars.textSizesLG2 + "text-center"}>Tabela de Conteudos</h1>
-      <div>
+      <div className={vars.textSizesBASE2}>
         <ToCLink ToCID=""   linkHashID="1" title="Introdução a Programação" level={0}/>
         <ToCLink ToCID="1." linkHashID="2" title="O que é programação?" level={1}/>
         <ToCLink ToCID="2." linkHashID="3" title="Linguagens de programação e suas classificações" level={1}/>
@@ -542,15 +551,15 @@ function ClassContent(props: ClassContentProps) {
 
 function PageContent(props: PageContentProps) {
   return (
-    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-20 min-h-screen grow")}>
+    <div className={(props.state ? "blur-sm" : '') + vars.pageContentBaseStyle}>
       <div className="px-8 relative hidden md:flex flex-row">
-        <div className="w-80 max-w-sm">
+        <div className={vars.ToCWrapperPad}>
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-6 text-justify">
           <ClassContent chapterTitle={props.capTitle} refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
         </div>
-        <div className="w-20 max-w-[6rem]">
+        <div className={vars.CapsWrapperPad}>
           <CapSumm currCap={props.cCap} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction}/>
         </div>
       </div>

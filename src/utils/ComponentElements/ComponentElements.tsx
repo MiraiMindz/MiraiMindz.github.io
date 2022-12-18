@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { MutableRefObject, useRef } from "react"
 import * as vars from '../variables';
-import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps, ChapterCardProps } from '../interfaces';
+import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps, ChapterCardProps, BaseCardProps, CourseCardProps } from '../interfaces';
 
 
 export function genRefs(stateFunc: Function): [MutableRefObject<any>, Function] {
@@ -120,7 +120,15 @@ export function ArrowHead(props: ArrowHeadProps) {
 
 export function CapsSumWrapper({children}: any) {
   return (
-    <div className={vars.textSizesLG + "max-w-[6rem] font-bebasNeue border-2 border-ctp-text rounded-xl px-2 py-1 fixed top-20 right-8 text-center max-h-[80%] overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none block"}>
+    <div className={vars.textSizesLG2 + `font-bebasNeue overscroll-contain overflow-auto scroll-smooth bg-ctp-base select-none block border-ctp-text
+    px-2 py-1 fixed
+    text-center max-h-[80%]
+
+    right-8                 3xl:right-8       4xl:right-24
+    border-2                3xl:border-4      4xl:border-5
+    rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
+                md:top-16   3xl:top-20        4xl:top-40
+    ` + vars.CapsWrapperSize}>
       {children}
     </div>
   )
@@ -191,23 +199,120 @@ export function ChapterCard(props: ChapterCardProps) {
 
   return (
     <NavLink to={props.link}>
-      <div className={'md:hover:scale-110 transition-all border-2 rounded-xl p-2 bg-ctp-mantle font-leagueGothic flex flex-col justify-between h-32 select-none ' + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      <div className={`bg-ctp-mantle transition-all
+      font-leagueGothic select-none
+      flex flex-col justify-between
+
+      md:h-32   3xl:h-40 4xl:h-52
+      md:hover:scale-110 3xl:hover:scale-105
+      md:border-2 4xl:border-5
+      md:rounded-xl 4xl:rounded-2xl
+      md:p-2  4xl:p-4`
+      + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
-          <h1 className={vars.textSizesBASE + "font-bebasNeue"}>{props.title}</h1>
-          <div className={capIdxBG + "rounded-full font-bebasNeue  w-6 h-6"}>
-            <h1 className="text-ctp-mantle text-center px-2">{props.chapter}</h1>
+          <h1 className={vars.textSizesBASE2 + "font-bebasNeue"}>{props.title}</h1>
+          <div className={capIdxBG + "rounded-full font-bebasNeue  md:w-6 md:h-6 3xl:w-8 3xl:h-8 4xl:w-12 4xl:h-12"}>
+            <h1 className={vars.textSizesBASE2 + "text-ctp-mantle text-center px-2"}>{props.chapter}</h1>
           </div>
         </div>
         <div>
-          <p className={vars.textSizesSM}>
+          <p className={vars.textSizesBASE2}>
             {props.description}
           </p>
         </div>
-        <div className={vars.textSizesSM + "font-bebasNeue"}>
+        <div className={vars.textSizesSM2 + "font-bebasNeue"}>
           <p>Desenvolvimento: {status}</p>
         </div>
       </div>
     </NavLink>
+  )
+}
 
+export function BaseCard(props: BaseCardProps) {
+  return (
+    <div className={`
+    hidden md:block border-2 border-ctp-text rounded-xl p-2
+    bg-ctp-mantle transition-all
+    font-leagueGothic select-none
+    md:hover:scale-110 3xl:hover:scale-105
+    md:border-2 3xl:border-4 4xl:border-5
+    md:rounded-xl 4xl:rounded-2xl
+    md:p-2  3xl:p-4 4xl:p-6
+    ` + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      {props.children}
+    </div>
+  )
+}
+
+export function BaseCardMobile(props: BaseCardProps) {
+  return (
+    <div className={'block md:hidden hover:scale-110 transition-all border-2 border-ctp-text rounded-xl p-2 bg-ctp-mantle select-none mb-8 h-48 ' + (props.blocked ? 'blur-xs brightness-90' : '')}>
+      {props.children}
+    </div>
+  )
+}
+
+export function CourseCard(props: CourseCardProps) {
+  let stateString: string;
+  let stateColor: string;
+  switch (props.courseState) {
+    case 0:
+      stateColor = 'text-ctp-red'
+      stateString = "Não Iniciado."
+      break;
+    case 1:
+      stateColor = 'text-ctp-yellow'
+      stateString = "Em Progresso..."
+      break;
+    case 2:
+      stateColor = 'text-ctp-green'
+      stateString = "Concluido."
+      break;
+
+    default:
+      stateColor = 'text-ctp-red'
+      stateString = "Não Iniciado."
+      break;
+  }
+  return (
+    <NavLink to={props.link}>
+      <BaseCard blocked={props.blocked}>
+      <img className={`float-right
+      ml-4 3xl:ml-8 4xl:ml-12
+      md:w-20 md:h-20 3xl:w-24 3xl:h-24 4xl:w-32 4xl:h-32
+      `} src={props.imgSrc} alt={props.imgAlt} />
+      <h1 className={vars.textSizesLG2 + 'font-bebasNeue text-center'}>{props.title}</h1>
+      <div className={vars.textSizesBASE2 + ` relative
+      md:w-80 3xl:w-124 4xl:w-164
+      md:h-40 3xl:h-56  4xl:h-64
+      `}>
+        <p className={`center-justified
+        md:mb-2 3xl:mb-4 4xl:mb-8`}>
+          {props.introResume}
+        </p>
+        <p className='text-justify'>
+          {props.resume}
+        </p>
+        <p className='font-bebasNeue mt-2 bottom-0 absolute'>
+          Desenvolvimento: <span className={stateColor}>{stateString}</span>
+        </p>
+      </div>
+      </BaseCard>
+      <BaseCardMobile blocked={props.blocked}>
+        <img className='w-16 h-16 float-right ml-4' src={props.imgSrc} alt={props.imgAlt} />
+        <h1 className={vars.textSizes2XL + 'font-bebasNeue text-center'}>{props.title}</h1>
+        <div className={vars.textSizesBASE + ''}>
+          <p className='center-justified'>
+          {props.introResume}
+          </p>
+          <p className='center-justified'>
+          {props.resume}
+          </p>
+          <p className='font-bebasNeue mt-2'>
+            Desenvolvimento: <span className={stateColor}>{stateString}</span>
+          </p>
+        </div>
+      </BaseCardMobile>
+    </NavLink>
   )
 }

@@ -125,10 +125,10 @@ function App() {
                   path='classes/pyless/5'
                   element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
-          {/* <Route
+          <Route
             path='teste'
             element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
-          /> */}
+          />
           <Route
             path='*'
             element={<Page404 darkLightSwitch={!isDarkTheme}/>}

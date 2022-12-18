@@ -15,7 +15,7 @@ function LangsTypewritter() {
   const asmString = `<span class="text-ctp-blue">mov</span> <span class="text-ctp-mauve">ecx</span>, <span class='text-ctp-green'>"x86 ASM"</span>`;
   const shellString = `<span class="text-ctp-blue">printf</span> <span class='text-ctp-green'>"%s\\n"</span> <span class='text-ctp-green'>"Shell Script"</span>`;
   return (
-    <div className={vars.textSizes3XL + 'font-firaCode font-black hidden md:block text-ctp-text'}>
+    <div className={vars.textSizes3XL2 + 'font-firaCode font-black hidden md:block text-ctp-text'}>
         <Typewritter
         onInit={(typewriter) => {
           typewriter.typeString(goString)
@@ -82,44 +82,46 @@ function RolesTypewritter() {
   )
 }
 
-function MDContent() {
+function TypeWritters() {
   return (
-    <div className='hidden md:block px-8'>
-      <div className='flex justify-center'>
-      <LangsTypewritter/>
+    <div>
+      <div className='justify-center hidden md:flex'>
+        <LangsTypewritter/>
       </div>
-      <div className={vars.textSizes2XL + 'font-leagueGothic text-center mt-32'}>
-        <p>Atualmente sou <span className='text-ctp-teal'>Desenvolvedor Full-Stack</span>, <span className='text-ctp-sky'>Produtor Musical</span> <br/>
-        nas horas vagas <span className='text-ctp-sapphire'>Artista Gráfico</span> e <span className='text-ctp-blue'>Escritor</span>.</p>
-        <p className=' mt-16'>Tenho {age} anos, sou <span className='text-ctp-green'>brasileiro</span> e diria que meus pontos fortes <br/> são a <span className='text-ctp-yellow'>criatividade</span> e a <span className='text-ctp-red'>racionalidade</span>.</p>
-        <p className='mt-16'>Porquê você não aproveita e dá uma olhada nas outras <span  className='text-ctp-mauve'>seções</span>?</p>
-      </div>
-    </div>
-  )
-}
-
-function PhoneContent() {
-  return (
-    <div className='mx-4 mt-4 block md:hidden'>
-      <div className='mt-12'>
+      <div className='block md:hidden mt-12'>
         <RolesTypewritter/>
       </div>
-      <div className={vars.textSizes3XL + 'font-leagueGothic text-center'}>
-        <p className='mt-24'>Tenho {age} anos, sou <span className='text-ctp-green'>brasileiro</span> e diria que meus pontos fortes <br/> são a <span className='text-ctp-yellow'>criatividade</span> e a <span className='text-ctp-red'>racionalidade</span>.</p>
-        <p className='mt-24'>Porquê você não aproveita e dá uma olhada nas outras <span  className='text-ctp-mauve'>seções</span>?</p>
-
-        <p className='mt-24'>Para navegar basta usar o menu no botão ao canto <br/> inferior-esquerdo da tela.</p>
-      </div>
     </div>
   )
 }
 
+function Content() {
+  return (
+    <div className='mx-4 mt-4 md:mx-0 md:mt-0 px-0 md:px-8'>
+      <TypeWritters />
+      <div className={vars.textSizes2XL2 + 'font-leagueGothic text-center mt-0 md:mt-32'}>
+        <h1 className='hidden md:block'>
+        Atualmente sou <span className='text-ctp-teal'>Desenvolvedor Full-Stack</span>, <span className='text-ctp-sky'>Produtor Musical</span> <br/>
+        nas horas vagas <span className='text-ctp-sapphire'>Artista Gráfico</span> e <span className='text-ctp-blue'>Escritor</span>.
+        </h1>
+        <h1 className='mt-24 md:mt-16'>
+        Tenho {age} anos, sou <span className='text-ctp-green'>brasileiro</span> e diria que meus pontos fortes <br/> são a <span className='text-ctp-yellow'>criatividade</span> e a <span className='text-ctp-red'>racionalidade</span>.
+        </h1>
+        <h1 className='mt-24 md:mt-16'>
+        Porquê você não aproveita e dá uma olhada nas outras <span  className='text-ctp-mauve'>seções</span>?
+        </h1>
+        <h1 className='block md:hidden mt-24 md:mt-16'>
+        Para navegar basta usar o menu no botão ao canto <br/> inferior da tela.
+        </h1>
+      </div>
+    </div>
+  )
+}
 
 function PageContent({state}: any) {
   return (
-    <div className={(state ? "blur-sm" : "") + " mt-0 md:mt-20 min-h-screen grow"}>
-      <MDContent/>
-      <PhoneContent/>
+    <div className={(state ? "blur-sm" : "") + vars.pageContentBaseStyle}>
+      <Content />
     </div>
 
   )

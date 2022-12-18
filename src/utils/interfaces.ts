@@ -158,3 +158,15 @@ export interface TableProps {
   children?: any,
   styleClasses?: string | any,
 }
+
+
+export interface CourseCardProps {
+  blocked?: boolean | any,
+  courseState?: number | any,
+  imgSrc?: string | any,
+  imgAlt?: string | any,
+  title?: string | any,
+  introResume?: string | any,
+  resume?: string | any,
+  link?: string | any,
+}

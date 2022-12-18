@@ -8,7 +8,7 @@
 - [ ] Página Sobre \[INCOMPLETO\]
   - [ ] Adicionar mais seções \[EM PROGRESSO\]
   - [ ] Fazer versão mobile \[EM PROGRESSO\]
-  - [x] CONSERTAR BACKGROUND \[COMPLETO\]
+  - [ ] CONSERTAR BACKGROUND \[EM PROGRESSO\]
 - [ ] Página Projetos \[INCOMPLETO\]
   - [ ] Criar \[INCOMPLETO\]
   - [ ] Adicionar conteudo \[INCOMPLETO\]

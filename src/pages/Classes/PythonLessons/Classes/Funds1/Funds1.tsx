@@ -1962,7 +1962,7 @@ function ClassContent(props: ClassContentProps) {
 
 function PageContent(props: PageContentProps) {
   return (
-    <div className={(props.state ? "blur-sm" : "pt-0 md:pt-20 min-h-screen grow")}>
+    <div className={(props.state ? "blur-sm" : '') + vars.pageContentBaseStyle}>
       <div className="px-8 relative hidden md:flex flex-row">
         <div className="w-80 max-w-sm">
           <TableOfContent/>
