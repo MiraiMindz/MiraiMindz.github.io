@@ -133,7 +133,7 @@ export function Home(props: GenericStateProps) {
       <Header state={props.state} funcState={props.funcState} title="Início" themeFunc={props.themeFunc} themeState={props.darkLightSwitch}/>
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
-        <Footer state={props.state} funcState={undefined} />
+        <Footer state={props.state} funcState={undefined} darkLightSwitch={props.darkLightSwitch} />
       </FooterWrapper>
     </div>
   )

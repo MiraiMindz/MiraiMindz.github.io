@@ -2,6 +2,7 @@
 
 ## TODOs
 
+- [ ] Consertar Flow do Footer \[EM PROGRESSO\]
 - [ ] Pagina Inicial \[EM PROGRESSO\]
   - [ ] Adicionar mais seções \[INCOMPLETO\]
   - [x] Fazer versão mobile \[COMPLETO\]

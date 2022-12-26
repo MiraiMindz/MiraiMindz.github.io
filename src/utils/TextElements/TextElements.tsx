@@ -8,9 +8,10 @@ import nasm from 'react-syntax-highlighter/dist/esm/languages/hljs/x86asm';
 import catpuccinLatte from '../SyntaxHighlighterColors/catpuccinLatte';
 import catpuccinMocha from '../SyntaxHighlighterColors/catpuccinMocha';
 import * as vars from '../variables';
-import { CitationBlockProps, ParagraphProps, CodeBlockProps, TableProps } from '../interfaces';
+import { CitationBlockProps, ParagraphProps, CodeBlockProps, TableProps, DetailsProps } from '../interfaces';
 import catpuccinLatteOutput from '../SyntaxHighlighterColors/catpuccinLatteOutput';
 import catpuccinMochaOutput from '../SyntaxHighlighterColors/catpuccinMochaOutput';
+import { CSSProperties } from 'react';
 
 SyntaxHighlighter.registerLanguage('python', py);
 SyntaxHighlighter.registerLanguage('bash', sh);
@@ -65,10 +66,12 @@ export function TableRow(props: TableProps) {
 export function ThCell(props: TableProps) {
   return (
     <th className={`
-    text-center border-x-1 border-ctp-overlay0
+    text-center border-ctp-overlay0
     px-4      3xl:px-8  4xl:px-16
     py-0.5    3xl:py-2  4xl:py-6
-    ` + props.styleClasses}>
+    ` + (props.cSpan ? ' border-x-0 ' : ' border-x-1 ')
+    + (props.rSpan ? ' border-y-0 ' : ' border-y-1 ')
+    + props.styleClasses}>
       {props.children}
     </th>
   )
@@ -80,7 +83,9 @@ export function TdCell(props: TableProps) {
     text-center border-1 border-ctp-overlay0
     pb-0.5 3xl:pb-2 4xl:pb-6
     px-4   3xl:px-8 4xl:px-16
-    ` + props.styleClasses}>
+    ` + (props.cSpan ? ' border-x-0 ' : ' border-x-1 ')
+    + (props.rSpan ? ' border-y-0 ' : ' border-y-1 ')
+    + props.styleClasses}>
       {props.children}
     </td>
   )
@@ -132,45 +137,63 @@ export function ListItem({children}: any) {
 }
 
 export function CodeBlock(props: CodeBlockProps) {
-  const stLight = {
+  const stLight: CSSProperties = {
     paddingRight: "1rem",
-    color: "#9ca0b0"
+    width: "2.5rem",
+    color: "#9ca0b0",
+    textAlign: "right"
   }
-  const stDark = {
+  const stDark: CSSProperties = {
     paddingRight: "1rem",
+    width: "2.5rem",
     color: "#6c7086",
+    textAlign: "right"
   }
   return (
   <div className="my-4 font-semibold 3xl:my-8">
     <div className={vars.textSizesXS3 + "border-2 3xl:border-5 rounded-lg font-firaCode border-ctp-blue overflow-auto hidden md:block bg-ctp-mantle"}>
-      <div className='p-1'>
-        <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
-          {props.children}
-        </SyntaxHighlighter>
-      </div>
-      <div className={props.answer != null ? 'block ' : 'hidden '}>
-        <div className={(props.darkLightSwitch ? 'bg-ctp-surface0' : 'bg-ctp-crust') + ' rounded-lg p-1 hidden md:block'}>
-          <h1 className='text-center'>Saida</h1>
-          <SyntaxHighlighter language='plaintext' style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatteOutput : catpuccinMochaOutput} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
-            {props.answer}
-          </SyntaxHighlighter>
+      <div className='text-ctp-mantle bg-ctp-mantle relative'>
+        <div className={props.CodeBlockID != undefined ? "block" : "hidden" + ' h-6'}>
+          <h1 className='text-center text-ctp-text pt-1'>Código</h1>
+          <h1 className='bg-ctp-blue absolute right-0 top-0 p-1 rounded-bl-lg'>#{props.CodeBlockID}</h1>
+        </div>
+        <div className='rounded-t-lg overflow-hidden bg-ctp-mantle'>
+          <div>
+            <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
+              {props.children}
+            </SyntaxHighlighter>
+          </div>
+          <div className={props.answer != null ? 'block ' : 'hidden '}>
+            <div className={(props.darkLightSwitch ? 'bg-ctp-surface0' : 'bg-ctp-crust') + ' rounded-lg p-1 hidden md:block text-ctp-text'}>
+              <h1 className='text-center text-ctp-text'>Saida</h1>
+              <SyntaxHighlighter language='plaintext' style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatteOutput : catpuccinMochaOutput} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
+                {props.answer}
+              </SyntaxHighlighter>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div className={vars.textSizesSM + "border-2 rounded-lg font-firaCode border-ctp-blue overflow-auto scroll-smooth block md:hidden bg-ctp-mantle"}>
-      <div className='p-1'>
-        <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
-          {props.children}
-        </SyntaxHighlighter>
-      </div>
-      <div className={props.answer != null ? 'block ' : 'hidden '}>
-        <div className={(props.darkLightSwitch ? 'bg-ctp-surface0' : 'bg-ctp-crust') + ' rounded-lg p-1  block md:hidden'}>
-          <h1 className='text-center'>Saida</h1>
-          <SyntaxHighlighter language='plaintext' style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatteOutput : catpuccinMochaOutput} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
-            {props.answer}
+    <div className={vars.textSizesSM + "border-2 rounded-lg font-firaCode border-ctp-blue overflow-auto scroll-smooth block md:hidden bg-ctp-mantle relative"}>
+      <div className='text-ctp-mantle bg-ctp-mantle relative'>
+        <div className={props.CodeBlockID != undefined ? "block" : "hidden" + ' h-6'}>
+          <h1 className='text-center text-ctp-text pt-1'>Código</h1>
+          <h1 className='bg-ctp-blue absolute right-0 top-0 p-1 rounded-bl-lg'>#{props.CodeBlockID}</h1>
+        </div>
+        <div className='p-1'>
+          <SyntaxHighlighter language={props.language} style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatte : catpuccinMocha} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
+            {props.children}
           </SyntaxHighlighter>
         </div>
-      </div>
+        <div className={props.answer != null ? 'block ' : 'hidden '}>
+          <div className={(props.darkLightSwitch ? 'bg-ctp-surface0' : 'bg-ctp-crust') + ' rounded-lg p-1  block md:hidden'}>
+            <h1 className='text-center text-ctp-text'>Saida</h1>
+            <SyntaxHighlighter language='plaintext' style={props.theme ? props.theme : props.darkLightSwitch ? catpuccinLatteOutput : catpuccinMochaOutput} showLineNumbers={true} wrapLongLines={false} lineNumberStyle={props.darkLightSwitch ? stLight : stDark}>
+              {props.answer}
+            </SyntaxHighlighter>
+          </div>
+        </div>
+        </div>
     </div>
   </div>
   )
@@ -208,5 +231,64 @@ export function SubTitle(props: MainTitleProps) {
     <h1 id={props.titleId} ref={props.refLink} className={vars.textSizes2XL2 + 'font-leagueGothic mb-4 border-b-2 3xl:border-b-5 3xl:mb-8 w-fit 3xl:pb-4 pb-1 3xl:pr-8 pr-2 border-ctp-text'}>
         {props.chapterTitle}
     </h1>
+  )
+}
+
+export function Details(props: DetailsProps) {
+  let borderColor;
+  switch (props.typeState) {
+    case 0:
+      borderColor = "border-ctp-blue ";
+      break;
+    case 1:
+      borderColor = "border-ctp-green ";
+      break;
+    case 2:
+      borderColor = "border-ctp-mauve ";
+      break;
+    case 3:
+      borderColor = "border-ctp-yellow ";
+      break;
+    case 4:
+      borderColor = "border-ctp-peach ";
+      break;
+    case 5:
+      borderColor = "border-ctp-red ";
+      break;
+    default:
+      borderColor = 'border-ctp-overlay0 '
+      break;
+  }
+  return (
+    <details className={borderColor + "border-2 rounded-lg p-2 transition-all bg-ctp-mantle w-fit my-4"}>
+      <summary className="transition-all mr-4">{props.summary}</summary>
+      <div className="text-justify mt-4 transition-all">
+      {props.children}
+      </div>
+    </details>
+  )
+}
+
+//
+
+export function NoteParagraph({children}: any) {
+  return (
+    <div className="flex flex-row text-ctp-subtext0 bg-ctp-surface0 rounded-r-lg rounded-l-mb w-fit my-4">
+      <div className='bg-ctp-blue rounded-lg'>&nbsp;</div>
+      <div className="mx-2 fill-ctp-blue flex flex-col justify-center items-center">
+        <div className='h-6 w-6'>
+          <InfoIcon />
+        </div>
+      </div>
+      <p className="italic mb-2 mt-1 mr-3">
+        {children}
+      </p>
+    </div>
+  )
+}
+
+export function InfoIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM296 336h-16V248C280 234.8 269.3 224 256 224H224C210.8 224 200 234.8 200 248S210.8 272 224 272h8v64h-16C202.8 336 192 346.8 192 360S202.8 384 216 384h80c13.25 0 24-10.75 24-24S309.3 336 296 336zM256 192c17.67 0 32-14.33 32-32c0-17.67-14.33-32-32-32S224 142.3 224 160C224 177.7 238.3 192 256 192z"/></svg>
   )
 }

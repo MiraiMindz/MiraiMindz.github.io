@@ -62,31 +62,6 @@ function App() {
 
   const [classesProgress, setClassesProgress] = useState<Array<number>>([])
 
-
-  // function handleClassProg(cursName?: string, addClass?: number) {
-  //   console.clear()
-  //   if (classesProgress != undefined) {
-  //     if (localStorage.pylessClasses != null) {
-  //       let locStg:Array<number> = localStorage.getItem(cursName as unknown as string)?.split(",").map(Number) as unknown as Array<number>;
-  //       console.log('locStg: ', locStg)
-  //       if (addClass == null || "") {
-  //         addClass = 0
-  //       }
-  //       let localArr: Array<number> = locStg.concat([addClass as unknown as number])
-  //       console.log('localArr: ', localArr)
-  //       useEffect(() => {
-  //         setClassesProgress(removeDups(localArr.sort((a, b) => a - b)))
-  //       }, [])
-  //       localStorage.setItem(cursName as unknown as string, classesProgress.toString())
-  //     } else {
-  //       localStorage.setItem(cursName as unknown as string, classesProgress.toString())
-  //     }
-  //   }
-  // }
-
-
-
-
   return (
     <MainWrapper theme={!isDarkTheme} state={active}>
       <ContentWrapper state={active}>
@@ -125,10 +100,10 @@ function App() {
                   path='classes/pyless/5'
                   element={<PyLess5 themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} setClassArrs={setClassesProgress} classProgressArray={classesProgress}/>}
                 />
-          <Route
+          {/* <Route
             path='teste'
             element={<TestePage themeFunc={handleTheme} state={active} funcState={handleState} darkLightSwitch={!isDarkTheme} />}
-          />
+          /> */}
           <Route
             path='*'
             element={<Page404 darkLightSwitch={!isDarkTheme}/>}

@@ -1,10 +1,10 @@
 import { Footer } from "../../../../../components/Footer/Footer"
 import { Header } from "../../../../../components/Header/Header"
 import { FooterWrapper } from "../../../../../components/Wrappers/FlowWrappers"
-import { genRefs, ToCLink, CapsSumWrapper, CapLink, BackNextChapters, ToCWrapper } from "../../../../../utils/ComponentElements/ComponentElements"
+import { genRefs, ToCLink, CapsSumWrapper, CapLink, BackNextChapters, ToCWrapper, YouTubeVideoPlayer } from "../../../../../utils/ComponentElements/ComponentElements"
 import { handleClassProg } from "../../../../../utils/handleClassProgress/handleClassProgress"
 import { CapsSumPhoneProps, CapSummProps, ClassChapterProps, ClassContentProps, ClassesIndexStateProps, PageContentProps } from "../../../../../utils/interfaces"
-import { CitationBlock, CodeBlock, CodeCite, ListItem, MainTitle, Paragraph, SubTitle, UList } from "../../../../../utils/TextElements/TextElements"
+import { CitationBlock, CodeBlock, CodeCite, ListItem, MainTitle, NoteParagraph, Paragraph, SubTitle, UList } from "../../../../../utils/TextElements/TextElements"
 import * as vars from '../../../../../utils/variables'
 import * as CBlocks from './CodeBlocks'
 
@@ -110,18 +110,18 @@ function ClassChapter2(props: ClassChapterProps) {
             </Paragraph>
             <UList>
               <ListItem>Imperativa: as etapas são sequenciadas, normalmente de cima abaixo, e os comandos são imperativos, informalmente falando, são ordens que devem ser estritamente seguidas. Linguagens de scripting são os melhores exemplos para se descrever Imperatividade, um exemplo com a linguagem BASH:</ListItem>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="bash">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="bash" CodeBlockID="00">
                 {CBlocks.bashCodeBlock01}
               </CodeBlock>
               <ListItem>Funcional: as etapas são divididas em blocos de código chamados funções e são executados de acordo com a sua chamada, ou seja, se a função X foi declarada na linha 38 de um programa e a função Y foi declarada na linha 85, sua execução independe da sequencia de declaração (é claro que, as funções não devem ser chamadas antes de suas devidas declarações), resultando em nós podendo chamar a função Y na linha 102 e função X na linha 103, um exemplo seria a linguagem de programação Go:</ListItem>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="go">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="go" CodeBlockID="01">
                 {CBlocks.goCodeBlock01}
               </CodeBlock>
-              <Paragraph>
-              Note a ordem de declaração e de chamada, declaramos a <CodeCite text="funcao_print_1"/> primeiro, e depois a <CodeCite text="funcao_print_2"/>, porém chamamos a <CodeCite text="funcao_print_2"/> antes da <CodeCite text="funcao_print_1"/>
-              </Paragraph>
+              <NoteParagraph>
+                Note a ordem de declaração e de chamada, declaramos a funcao_print_1 primeiro, e depois a funcao_print_2, porém chamamos a funcao_print_2 antes da funcao_print_1
+              </NoteParagraph>
               <ListItem>Orientada a Objetos: este paradigma segue a interpretação de que os códigos devem ser divididos em objetos (classes), objetos são pequenos contêineres independentes entre si, a orientação a objetos é um campo de estudo deverás complexo, alguns dos seus conceitos como a Abstração e a Ação nos objetos costumam sempre confundir, você se percebem falando coisas como "o que é um cachorro?", "uma mensagem deveria se auto-mandar, ou ela deveria ser mandada por outra coisa?" e por ai vai. Alguns dos conceitos tratados pela orientação a objeto foram incorporados em outros paradigmas, como as classes. Uma das linguagens orientadas a objetos mais famosas é a Java, aqui um exemplo de código:</ListItem>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="java">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="java" CodeBlockID="02">
                 {CBlocks.javaCodeBlock01}
               </CodeBlock>
             </UList>
@@ -143,7 +143,7 @@ function ClassChapter2(props: ClassChapterProps) {
               <Paragraph>
               Exemplo de Estilo:
               </Paragraph>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="plaintext">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="plaintext" CodeBlockID="03">
                 {CBlocks.plainTextCodeBlock01}
               </CodeBlock>
             </UList>
@@ -155,11 +155,11 @@ function ClassChapter2(props: ClassChapterProps) {
             <ListItem>Nível: o nível de uma linguagem de programação define sua "humanidade" e "completude", basicamente, quanto mais alto o nível, mais perto da linguagem humana o código fonte é, e mais funções e coisas a linguagem faz de forma "automática", elas podem ser dividas em Baixo e Alto nível</ListItem>
             <UList>
               <ListItem>Linguagens de Baixo Nível: As linguagens de baixo nível são extremamente próximas do código de maquina (também conhecido como binário), uma das linguagens de mais baixo nível ainda em uso seria a linguagem Assembly, ela trabalha movendo bits para registradores e locais diretos na memoria, um código executado direto no processador, eis aqui um programa que exibe a mensagem "Olá Mundo":</ListItem>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="x86asm">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="x86asm" CodeBlockID="04">
                 {CBlocks.nasmCodeBlock01}
               </CodeBlock>
               <ListItem>Linguagens de Alto Nível: As linguagens de Alto Nível são bem próximas da linguagem humana, e as linguagens acabam por fazer muitas tarefas simples por nós em segundo plano, coisas como limpar a memória em uso, mover os bits para os registradores, entre outras coisas, Linguagens de Alto Nível são amplamente usadas devido a sua praticidade e facilidade de aprendizado e uso, eis aqui um exemplo de programa em Python que exibe a mensagem "Olá Mundo!":</ListItem>
-              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="python">
+              <CodeBlock darkLightSwitch={props.darkLightSwitch} language="python" CodeBlockID="05">
                 {CBlocks.pythonCodeBlock01}
               </CodeBlock>
             </UList>
@@ -582,7 +582,7 @@ export function PyLess1(props: ClassesIndexStateProps) {
       <Header state={props.state} funcState={props.funcState} title="Intro" sums={<CapsSumPhone refsFuncList={rfs}/>} caps={<CapsLinkPhone currCap={cCap}/>} themeFunc={props.themeFunc} themeState={props.darkLightSwitch} classCompState={updateState}/>
       <PageContent state={props.state} refLinksList={ls} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={markThisComplete} updateStateFunction={updateState} cCap={cCap} capTitle="Introdução a Programação" />
       <FooterWrapper state={props.state}>
-        <Footer state={props.state} funcState={undefined} />
+        <Footer state={props.state} funcState={undefined} darkLightSwitch={props.darkLightSwitch} />
       </FooterWrapper>
     </div>
   )

@@ -330,7 +330,7 @@ export function PylessIndex(props: ClassesIndexStateProps) {
       <Header state={props.state} funcState={props.funcState} title="Python" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} classesArray={locStg}/>
       <FooterWrapper state={props.state}>
-        <Footer state={props.state} funcState={undefined} />
+        <Footer state={props.state} funcState={undefined} darkLightSwitch={props.darkLightSwitch} />
       </FooterWrapper>
     </div>
   )

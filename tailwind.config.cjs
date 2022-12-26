@@ -7,6 +7,7 @@ module.exports = {
         leagueGothic: ['League Gothic', 'sans-serif'],
         firaCode: ['Fira Code', 'monospace'],
         antonio: ['Antonio', 'sans-serif'],
+        walterTurncoat: ['Walter Turncoat', 'cursive'],
     },
     borderWidth: {
       '0': '0',

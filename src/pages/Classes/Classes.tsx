@@ -4,7 +4,7 @@ import { FooterWrapper } from '../../components/Wrappers/FlowWrappers'
 import { CourseCard } from '../../utils/ComponentElements/ComponentElements'
 import { GenericStateProps } from '../../utils/interfaces'
 import * as vars from '../../utils/variables'
-import pyLogo from '/assets/ClassesLogos/Python8BitLogo.png';
+import pyLogo from '/assets/ClassesAssets/ClassesLogos/Python8BitLogo.png';
 
 
 function CoursesList() {
@@ -79,7 +79,7 @@ export function Classes(props: GenericStateProps) {
       <Header state={props.state} funcState={props.funcState} title="Aulas" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} />
       <FooterWrapper state={props.state}>
-        <Footer state={props.state} funcState={undefined} />
+        <Footer state={props.state} funcState={undefined} darkLightSwitch={props.darkLightSwitch} />
       </FooterWrapper>
     </div>
   )

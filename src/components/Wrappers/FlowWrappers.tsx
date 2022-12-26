@@ -14,5 +14,5 @@ export function MainWrapper(props: MainWrapperProps) {
 }
 
 export function FooterWrapper(props: WrappersProps) {
-  return <div className={(props.state ? 'hidden ' : 'block ')}>{props.children}</div>
+  return <div className={(props.state ? 'hidden ' : 'block z-0 md:z-10')}>{props.children}</div>
 }

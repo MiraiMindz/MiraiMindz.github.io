@@ -101,6 +101,7 @@ export interface CodeBlockProps {
   theme?: { [key: string]: React.CSSProperties } | any,
   darkLightSwitch?: boolean | any,
   answer?: string | any,
+  CodeBlockID?: string | any,
 }
 
 export interface HeaderProps extends GenericStateProps {
@@ -157,6 +158,8 @@ export interface BaseCardProps {
 export interface TableProps {
   children?: any,
   styleClasses?: string | any,
+  rSpan?: boolean | any,
+  cSpan?: boolean | any,
 }
 
 
@@ -169,4 +172,20 @@ export interface CourseCardProps {
   introResume?: string | any,
   resume?: string | any,
   link?: string | any,
+}
+
+
+export interface ToCContentProps {
+  refsLinkList?: Array<any> | any;
+}
+
+export interface DetailsProps {
+  children?: any,
+  summary?: string | any,
+  typeState?: number | any,
+}
+
+export interface YouTubeVideoPlayerProps {
+  url?: string;
+  title?: string;
 }

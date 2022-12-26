@@ -125,7 +125,7 @@ export function About(props: GenericStateProps) {
       <Header state={props.state} funcState={props.funcState} title="Sobre" themeFunc={props.themeFunc} themeState={props.darkLightSwitch} />
       <PageContent state={props.state} lightDark={props.darkLightSwitch} />
       <FooterWrapper state={props.state}>
-        <Footer state={props.state} funcState={undefined} />
+        <Footer state={props.state} funcState={undefined} darkLightSwitch={props.darkLightSwitch} />
       </FooterWrapper>
     </div>
   )

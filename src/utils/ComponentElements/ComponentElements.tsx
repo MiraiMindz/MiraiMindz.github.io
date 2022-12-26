@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { MutableRefObject, useRef } from "react"
 import * as vars from '../variables';
-import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps, ChapterCardProps, BaseCardProps, CourseCardProps } from '../interfaces';
+import { CapLinkProps, ToCLinkProps, ArrowHeadProps, BackNextChaptersProps, ChapterCardProps, BaseCardProps, CourseCardProps, YouTubeVideoPlayerProps } from '../interfaces';
 
 
 export function genRefs(stateFunc: Function): [MutableRefObject<any>, Function] {
@@ -131,9 +131,9 @@ export function ArrowHead(props: ArrowHeadProps) {
     dirr = ""
   }
   let size = `
-  md:w-6 md:h-6
-  3xl:w-10 3xl:h-10
-  4xl:w-16 4xl:h-16
+      w-6       h-6
+  3xl:w-10  3xl:h-10
+  4xl:w-16  4xl:h-16
   `
   return (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" className={dirr + size}>
@@ -230,16 +230,16 @@ export function ChapterCard(props: ChapterCardProps) {
       font-leagueGothic select-none
       flex flex-col justify-between
 
-      md:h-32   3xl:h-40 4xl:h-52
-      md:hover:scale-110 3xl:hover:scale-105
-      md:border-2 4xl:border-5
-      md:rounded-xl 4xl:rounded-2xl
-      md:p-2  4xl:p-4`
+      h-48  md:h-32   3xl:h-40 4xl:h-52
+      hover:scale-110 3xl:hover:scale-105
+      border-2 4xl:border-5
+      rounded-xl 4xl:rounded-2xl
+      p-2  4xl:p-4`
       + border + (props.blocked ? 'blur-xs brightness-90' : '')}>
         <div className="flex flex-row justify-between">
           <h1 className={vars.textSizesBASE2 + "font-bebasNeue"}>{props.title}</h1>
-          <div className={capIdxBG + "rounded-full font-bebasNeue  md:w-6 md:h-6 3xl:w-8 3xl:h-8 4xl:w-12 4xl:h-12"}>
-            <h1 className={vars.textSizesBASE2 + "text-ctp-mantle text-center px-2"}>{props.chapter}</h1>
+          <div className={capIdxBG + "rounded-full font-bebasNeue  w-6 h-6 3xl:w-8 3xl:h-8 4xl:w-12 4xl:h-12"}>
+            <h1 className={vars.textSizesBASE2 + "text-ctp-mantle text-center px-1"}>{props.chapter}</h1>
           </div>
         </div>
         <div>
@@ -341,5 +341,19 @@ export function CourseCard(props: CourseCardProps) {
         </div>
       </BaseCardMobile>
     </NavLink>
+  )
+}
+
+
+export function YouTubeVideoPlayer(props: YouTubeVideoPlayerProps) {
+  return (
+    <div className={`
+    w-[426px] h-[240px]
+    md:w-[640px] md:h-[360px]
+    2xl:w-[960px] 2xl:h-[540px]
+    3xl:w-[1280px] 3xl:h-[720px]
+    rounded-xl border-2 border-ctp-maroon overflow-hidden relative`}>
+      <iframe width="100%" height="100%" src={props.url} title={props.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0"></iframe>
+    </div>
   )
 }
