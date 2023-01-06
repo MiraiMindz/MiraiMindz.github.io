@@ -52,3 +52,11 @@ border-2                3xl:border-4      4xl:border-5
 rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
             md:top-16   3xl:top-20        4xl:top-40
 ` + CapsWrapperSize
+
+
+export const detailsStyles = `
+border-2                3xl:border-4      4xl:border-5
+rounded-xl              3xl:rounded-2xl   4xl:rounded-3xl
+p-2                     3xl:p-4           4xl:p-8
+my-4                    3xl:my-8          4xl:my-12
+`

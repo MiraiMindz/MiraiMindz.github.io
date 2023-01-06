@@ -260,9 +260,9 @@ export function Details(props: DetailsProps) {
       break;
   }
   return (
-    <details className={borderColor + "border-2 rounded-lg p-2 transition-all bg-ctp-mantle w-fit my-4"}>
+    <details className={borderColor + vars.detailsStyles + " transition-all bg-ctp-mantle w-fit"}>
       <summary className="transition-all mr-4">{props.summary}</summary>
-      <div className="text-justify mt-4 transition-all">
+      <div className="text-justify transition-all mt-4 3xl:mt-8 4xl:mt-12">
       {props.children}
       </div>
     </details>

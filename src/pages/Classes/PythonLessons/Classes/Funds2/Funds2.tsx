@@ -2289,7 +2289,7 @@ function ClassChapter3Subcap8(props: ClassChapterProps) {
           </TableRow>
           <TableRow>
             <TdCell>12</TdCell>
-            <TdCell>in, not in, is, is not, &lt;, &le;,&gt;, &ge;, !=, ==</TdCell>
+            <TdCell>in, not in, is, is not, &lt;, &lt;=,&gt;, &gt;=, !=, ==</TdCell> {/*&lt;, &le;,&gt;, &ge; */}
             <TdCell>Comparadores</TdCell>
           </TableRow>
           <TableRow>
@@ -2611,13 +2611,13 @@ function PageContent(props: PageContentProps) {
   return (
     <div className={(props.state ? "blur-sm" : '') + vars.pageContentBaseStyle}>
       <div className="px-8 relative hidden md:flex flex-row">
-        <div className="w-80 max-w-sm">
+        <div className={vars.ToCWrapperPad}>
           <TableOfContent/>
         </div>
         <div className="w-0 grow px-6 text-justify">
           <ClassContent chapterTitle={props.capTitle} refLinksList={props.refLinksList} darkLightSwitch={props.darkLightSwitch} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction} />
         </div>
-        <div className="w-20 max-w-[6rem]">
+        <div className={vars.CapsWrapperPad}>
           <CapSumm currCap={props.cCap} markAsCompletedFunction={props.markAsCompletedFunction} updateStateFunction={props.updateStateFunction}/>
         </div>
       </div>

@@ -3128,6 +3128,10 @@ video {
     margin-top: 1.5rem;
   }
 
+  .\33xl\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .\33xl\:h-16 {
     height: 4rem;
   }
@@ -3490,6 +3494,10 @@ video {
 
   .\34xl\:p-6 {
     padding: 1.5rem;
+  }
+
+  .\34xl\:p-8 {
+    padding: 2rem;
   }
 
   .\34xl\:px-16 {
